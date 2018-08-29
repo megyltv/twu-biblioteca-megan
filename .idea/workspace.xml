@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d170b22-b311-472d-a0f8-d49b4a5183a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,12 +34,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
-          <entry key="java" value="1040" />
+          <entry key="java" value="1127" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1040" />
+          <entry key="JAVA" value="1127" />
           <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
@@ -52,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+            <state relative-caret-position="90">
+              <caret line="6" column="83" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -85,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="195">
+              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
               <folding>
                 <element signature="e#174#175#0" expanded="true" />
                 <element signature="e#231#232#0" expanded="true" />
@@ -167,7 +165,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535575570708" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535575755945" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -182,7 +180,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LibraryTest.createListOfBookTest">
+  <component name="RunManager" selected="JUnit.LibraryTest.showListBooksTest">
     <configuration name="LibraryTest.createListOfBookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -215,6 +213,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LibraryTest.showListBooksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
+      <option name="METHOD_NAME" value="showListBooksTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LibraryTest.welcomeMessagetest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -235,9 +249,11 @@
       <item itemvalue="JUnit.LibraryTest.welcomeMessagetest" />
       <item itemvalue="JUnit.LibraryTest.showListBooks" />
       <item itemvalue="JUnit.LibraryTest.createListOfBookTest" />
+      <item itemvalue="JUnit.LibraryTest.showListBooksTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LibraryTest.showListBooksTest" />
         <item itemvalue="JUnit.LibraryTest.createListOfBookTest" />
         <item itemvalue="JUnit.LibraryTest.showListBooks" />
         <item itemvalue="JUnit.LibraryTest.welcomeMessagetest" />
@@ -258,15 +274,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LibraryTest_welcomeMessagetest - 2018.08.29 at 14h 59m 04s.xml">
-      <configuration name="LibraryTest.welcomeMessagetest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LibraryTest_welcomeMessagetest - 2018.08.29 at 15h 01m 29s.xml">
-      <configuration name="LibraryTest.welcomeMessagetest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LibraryTest_showListBooks - 2018.08.29 at 15h 28m 10s.xml">
-      <configuration name="LibraryTest.showListBooks" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LibraryTest_showListBooks - 2018.08.29 at 15h 29m 02s.xml">
       <configuration name="LibraryTest.showListBooks" configurationId="JUnit" />
     </history-entry>
@@ -287,6 +294,15 @@
     </history-entry>
     <history-entry file="LibraryTest_createListOfBookTest - 2018.08.29 at 15h 41m 26s.xml">
       <configuration name="LibraryTest.createListOfBookTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LibraryTest_createListOfBookTest - 2018.08.29 at 15h 46m 12s.xml">
+      <configuration name="LibraryTest.createListOfBookTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LibraryTest_showListBooksTest - 2018.08.29 at 15h 47m 12s.xml">
+      <configuration name="LibraryTest.showListBooksTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LibraryTest_showListBooksTest - 2018.08.29 at 15h 48m 13s.xml">
+      <configuration name="LibraryTest.showListBooksTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -334,8 +350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        <state relative-caret-position="90">
+          <caret line="6" column="83" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="83" />
         </state>
       </provider>
     </entry>
@@ -354,8 +370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="195">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="e#174#175#0" expanded="true" />
             <element signature="e#231#232#0" expanded="true" />
