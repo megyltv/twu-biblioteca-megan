@@ -28,5 +28,12 @@ public class LibraryTest {
         assertEquals("Test Driven Development: By Example",new Library(listBooks).createListOfBooks().get(0).nameBook);
     }
 
+    @Test
+    public void checkoutTest(){
+        ArrayList<Book> listBooks=new ArrayList<Book>();
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        assertEquals(false,new Library(listBooks).checkoutBook());
+    }
+
 
 }

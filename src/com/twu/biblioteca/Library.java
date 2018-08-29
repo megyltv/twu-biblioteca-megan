@@ -9,27 +9,35 @@ public class Library {
     public String detailsBook;
 
     public Library() {
-        welcomeMessage="Welcome to the Library";
     }
 
     public Library(ArrayList<Book> listBooks) {
-        welcomeMessage="Welcome to the Library";
+
         this.listBooks=listBooks;
     }
 
     public String showWelcomeMessage(){
+        welcomeMessage="Welcome to the Library";
         return welcomeMessage;
     }
 
     public String showListBooks(){
         for(int i=0;i<listBooks.size();i++){
             detailsBook=listBooks.get(i).nameBook+" | "+listBooks.get(i).author+" | "+listBooks.get(i).publicationYear;
-            System.out.println(detailsBook);
+            if(listBooks.get(i).checkout) {
+                System.out.println(detailsBook);
+            }
         }
         return detailsBook;
     }
 
     public ArrayList<Book> createListOfBooks(){
         return listBooks;
+    }
+
+    public Boolean checkoutBook(){
+        listBooks.get(0).checkout=false;
+
+        return listBooks.get(0).checkout;
     }
 }

@@ -13,7 +13,7 @@ public class Book {
         this.nameBook = nameBook;
         this.author = author;
         this.publicationYear = publicationYear;
-        checkout=true;
+        this.checkout=true;
     }
 
 }
