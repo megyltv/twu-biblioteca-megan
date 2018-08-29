@@ -36,6 +36,7 @@ public class Library {
     }
 
     public Boolean checkoutBook(){
+
         listBooks.get(0).checkout=false;
 
         return listBooks.get(0).checkout;

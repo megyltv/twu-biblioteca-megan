@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
+    Book newBook=new Book("Test Driven Development: By Example","Kent Beck",2002);
 
     @Test
     public void showWelcomeMessagetest() {
@@ -17,21 +18,21 @@ public class LibraryTest {
     @Test
     public void showListBooksTest(){
         ArrayList<Book> listBooks=new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        listBooks.add(newBook);
         assertEquals("Test Driven Development: By Example | Kent Beck | 2002",new Library(listBooks).showListBooks());
     }
 
     @Test
     public void createListOfBookTest(){
         ArrayList<Book> listBooks=new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        listBooks.add(newBook);
         assertEquals("Test Driven Development: By Example",new Library(listBooks).createListOfBooks().get(0).nameBook);
     }
 
     @Test
     public void checkoutTest(){
         ArrayList<Book> listBooks=new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        listBooks.add(newBook);
         assertEquals(false,new Library(listBooks).checkoutBook());
     }
 
