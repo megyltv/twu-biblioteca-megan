@@ -23,8 +23,8 @@ public class Library {
 
     public String showListBooks(){
         for(int i=0;i<listBooks.size();i++){
-            detailsBook=listBooks.get(i).nameBook+" | "+listBooks.get(i).author+" | "+listBooks.get(i).publicationYear;
             if(listBooks.get(i).checkout) {
+                detailsBook=listBooks.get(i).nameBook+" | "+listBooks.get(i).author+" | "+listBooks.get(i).publicationYear;
                 System.out.println(detailsBook);
             }
         }
@@ -35,10 +35,19 @@ public class Library {
         return listBooks;
     }
 
-    public Boolean checkoutBook(){
+    public String checkoutBook(String nombre){
+        Boolean status=true;
+        String message="";
+        for(int i=0;i<listBooks.size();i++){
+            if(nombre.equals(listBooks.get(0).nameBook)){
+                listBooks.get(i).checkout=false;
+                status=listBooks.get(i).checkout;
+                message="Thank you! Enjoy the book";
+                System.out.println("Thank you! Enjoy the book");
 
-        listBooks.get(0).checkout=false;
+            }
+        }
 
-        return listBooks.get(0).checkout;
+        return message;
     }
 }

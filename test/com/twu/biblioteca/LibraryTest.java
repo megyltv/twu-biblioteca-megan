@@ -30,11 +30,17 @@ public class LibraryTest {
     }
 
     @Test
-    public void checkoutTest(){
+    public void checkoutSuccessfulTest(){
         ArrayList<Book> listBooks=new ArrayList<Book>();
         listBooks.add(newBook);
-        assertEquals(false,new Library(listBooks).checkoutBook());
+        assertEquals("Thank you! Enjoy the book",new Library(listBooks).checkoutBook("Test Driven Development: By Example"));
     }
 
+    @Test
+    public void checkoutUnsuccessfulTest(){
+        ArrayList<Book> listBooks=new ArrayList<Book>();
+        listBooks.add(newBook);
+        assertEquals("That book is not available",new Library(listBooks).checkoutBook("Test Driven Development"));
+    }
 
 }
