@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Library {
     public String nameLibrary;
-    public ArrayList<Book> listBooks;
+    protected String welcomeMessage;
 
 
     public Library() {
+        welcomeMessage="Welcome to the Library";
     }
 
     public String showWelcomeMessage(){
-        return "Welcome to the Library";
+        return welcomeMessage;
     }
 }
