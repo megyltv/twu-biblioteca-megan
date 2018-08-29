@@ -47,6 +47,9 @@ public class Library {
 
             }
         }
+        if(status=true){
+            message="That book is not available";
+        }
 
         return message;
     }
