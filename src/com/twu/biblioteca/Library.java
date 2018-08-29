@@ -8,6 +8,12 @@ public class Library {
     public ArrayList<Book> listBooks;
     public String detailsBook;
 
+    Boolean status;
+    String message="";
+
+    Boolean statusReturnBook;
+    String messageReturnBook="";
+
     public Library() {
     }
 
@@ -36,10 +42,9 @@ public class Library {
     }
 
     public String checkoutBook(String nombre){
-        Boolean status=true;
-        String message="";
+        status=true;
         for(int i=0;i<listBooks.size();i++){
-            if(nombre.equals(listBooks.get(0).nameBook)){
+            if(nombre.equals(listBooks.get(i).nameBook)){
                 listBooks.get(i).checkout=false;
                 status=listBooks.get(i).checkout;
                 message="Thank you! Enjoy the book";
@@ -47,10 +52,24 @@ public class Library {
 
             }
         }
-        if(status=true){
+        if(status==true){
             message="That book is not available";
         }
 
         return message;
+    }
+
+    public String returnSuccessful(String nombre){
+        statusReturnBook=false;
+
+        for(int i=0;i<listBooks.size();i++){
+            if(nombre.equals(listBooks.get(i).nameBook)){
+                listBooks.get(i).checkout=true;
+                statusReturnBook=listBooks.get(i).checkout;
+                messageReturnBook="Thank you for returning the book";
+            }
+        }
+
+        return messageReturnBook;
     }
 }

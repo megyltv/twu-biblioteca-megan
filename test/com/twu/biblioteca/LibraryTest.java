@@ -43,4 +43,13 @@ public class LibraryTest {
         assertEquals("That book is not available",new Library(listBooks).checkoutBook("Test Driven Development"));
     }
 
+    @Test
+    public void returnSuccessfulTest(){
+        ArrayList<Book> listBooks=new ArrayList<Book>();
+        listBooks.add(newBook);
+        assertEquals("Thank you for returning the book", new Library(listBooks).returnSuccessful("Test Driven Development: By Example"));
+    }
+
+
+
 }
