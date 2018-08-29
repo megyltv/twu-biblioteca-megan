@@ -20,4 +20,9 @@ public class Library {
     public ArrayList<Book> showListBooks(){
         return listBooks;
     }
+
+    public ArrayList<Book> createListOfBooks(Book newBook){
+        listBooks.add(newBook);
+        return listBooks;
+    }
 }
