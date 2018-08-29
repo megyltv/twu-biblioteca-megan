@@ -11,4 +11,9 @@ public class LibraryTest {
         assertEquals("Welcome to the Library", new Library().showWelcomeMessage());
     }
 
+    @Test
+    public void showListBooks(){
+        assertEquals("Test Driven Development: By Example",new Library().showListBooks().get(0).nameBook);
+    }
+
 }
