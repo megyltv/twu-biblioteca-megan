@@ -23,7 +23,8 @@ public class Library {
 
     public String showListBooks(){
         for(int i=0;i<listBooks.size();i++){
-            detailsBook=listBooks.get(i).nameBook;
+            detailsBook=listBooks.get(i).nameBook+" | "+listBooks.get(i).author+" | "+listBooks.get(i).publicationYear;
+            System.out.println(detailsBook);
         }
         return detailsBook;
     }
