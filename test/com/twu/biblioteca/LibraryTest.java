@@ -47,9 +47,14 @@ public class LibraryTest {
     public void returnSuccessfulTest(){
         ArrayList<Book> listBooks=new ArrayList<Book>();
         listBooks.add(newBook);
-        assertEquals("Thank you for returning the book", new Library(listBooks).returnSuccessful("Test Driven Development: By Example"));
+        assertEquals("Thank you for returning the book", new Library(listBooks).returnBook("Test Driven Development: By Example"));
     }
 
-
+    @Test
+    public void returnUnsuccessfulTest(){
+        ArrayList<Book> listBooks=new ArrayList<Book>();
+        listBooks.add(newBook);
+        assertEquals("That is not a valid book to return",new Library(listBooks).returnBook("Test Driven Development"));
+    }
 
 }

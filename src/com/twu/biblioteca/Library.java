@@ -59,7 +59,7 @@ public class Library {
         return message;
     }
 
-    public String returnSuccessful(String nombre){
+    public String returnBook(String nombre){
         statusReturnBook=false;
 
         for(int i=0;i<listBooks.size();i++){
@@ -68,6 +68,10 @@ public class Library {
                 statusReturnBook=listBooks.get(i).checkout;
                 messageReturnBook="Thank you for returning the book";
             }
+        }
+
+        if(statusReturnBook==false) {
+            messageReturnBook = "That is not a valid book to return";
         }
 
         return messageReturnBook;
