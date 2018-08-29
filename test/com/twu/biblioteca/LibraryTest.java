@@ -2,6 +2,9 @@ package com.twu.biblioteca;
 
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
@@ -13,16 +16,16 @@ public class LibraryTest {
 
     @Test
     public void showListBooksTest(){
-        Book newBook = new Book("Test Driven Development: By Example","Kent Beck",2002);
-        Library library = new Library();
-        library.createListOfBooks(newBook);
-        assertEquals("Test Driven Development: By Example",library.showListBooks());
+        ArrayList<Book> listBooks=new ArrayList<Book>();
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        assertEquals("Test Driven Development: By Example",new Library(listBooks).showListBooks());
     }
 
     @Test
     public void createListOfBookTest(){
-        Book newBook = new Book("Test Driven Development: By Example","Kent Beck",2002);
-        assertEquals("Test Driven Development: By Example",new Library().createListOfBooks(newBook).get(0).nameBook);
+        ArrayList<Book> listBooks=new ArrayList<Book>();
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        assertEquals("Test Driven Development: By Example",new Library(listBooks).createListOfBooks().get(0).nameBook);
     }
 
 

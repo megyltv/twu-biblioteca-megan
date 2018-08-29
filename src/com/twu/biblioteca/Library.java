@@ -8,10 +8,13 @@ public class Library {
     public ArrayList<Book> listBooks;
     public String detailsBook;
 
-
     public Library() {
         welcomeMessage="Welcome to the Library";
-        listBooks=new ArrayList<Book>();
+    }
+
+    public Library(ArrayList<Book> listBooks) {
+        welcomeMessage="Welcome to the Library";
+        this.listBooks=listBooks;
     }
 
     public String showWelcomeMessage(){
@@ -25,8 +28,7 @@ public class Library {
         return detailsBook;
     }
 
-    public ArrayList<Book> createListOfBooks(Book newBook){
-        listBooks.add(newBook);
+    public ArrayList<Book> createListOfBooks(){
         return listBooks;
     }
 }
