@@ -6,6 +6,7 @@ public class Library {
     public String nameLibrary;
     protected String welcomeMessage;
     public ArrayList<Book> listBooks;
+    public String detailsBook;
 
 
     public Library() {
@@ -17,8 +18,11 @@ public class Library {
         return welcomeMessage;
     }
 
-    public ArrayList<Book> showListBooks(){
-        return listBooks;
+    public String showListBooks(){
+        for(int i=0;i<listBooks.size();i++){
+            detailsBook=listBooks.get(i).nameBook;
+        }
+        return detailsBook;
     }
 
     public ArrayList<Book> createListOfBooks(Book newBook){
