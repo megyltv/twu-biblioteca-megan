@@ -14,12 +14,8 @@ public class Library {
     Boolean statusReturnBook;
     String messageReturnBook="";
 
+
     public Library() {
-    }
-
-    public Library(ArrayList<Book> listBooks) {
-
-        this.listBooks=listBooks;
     }
 
     public String showWelcomeMessage(){
@@ -38,6 +34,11 @@ public class Library {
     }
 
     public ArrayList<Book> createListOfBooks(){
+        listBooks=new ArrayList<Book>();
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        listBooks.add(new Book("Clean Code","Robert Cecil Martin",2008));
+        listBooks.add(new Book("Code Complete","Steve McConnell",1993));
+        listBooks.add(new Book("The C Programming Language","Dennis Ritchie",1978));
         return listBooks;
     }
 
