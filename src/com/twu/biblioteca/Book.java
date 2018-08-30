@@ -16,4 +16,9 @@ public class Book {
         this.checkout=true;
     }
 
+    public Boolean changeCheckout(Boolean checkoutSend){
+        return checkoutSend;
+    }
+
+
 }

@@ -45,11 +45,9 @@ public class Library {
         status=true;
         for(int i=0;i<listBooks.size();i++){
             if(nombre.equals(listBooks.get(i).nameBook)){
-                listBooks.get(i).checkout=false;
+                listBooks.get(i).checkout=false; //Change to method
                 status=listBooks.get(i).checkout;
                 message="Thank you! Enjoy the book";
-                System.out.println("Thank you! Enjoy the book");
-
             }
         }
         if(status==true){
