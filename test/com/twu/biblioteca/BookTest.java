@@ -13,4 +13,9 @@ public class BookTest {
         assertEquals(true,newBook.changeCheckout(newBook).checkout);
     }
 
+    @Test
+    public void informationOfBookTest(){
+        assertEquals("Test Driven Development: By Example \t| Kent Beck \t| 2002", newBook.informationOfBook(newBook));
+    }
+
 }

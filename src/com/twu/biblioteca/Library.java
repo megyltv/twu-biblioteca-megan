@@ -19,11 +19,12 @@ public class Library {
     }
 
     public String showWelcomeMessage(){
-        welcomeMessage="Welcome to the Library";
+        welcomeMessage="WELCOME TO THE LIBRARY";
         return welcomeMessage;
     }
 
     public String showListBooks(){
+        System.out.println("List of Books\n\nName of Book \t| Author \t| Year of Publication\n");
         for(int i=0;i<listBooks.size();i++){
             if(listBooks.get(i).checkout) {
                 detailsBook=listBooks.get(i).nameBook+" \t| "+listBooks.get(i).author+" \t| "+listBooks.get(i).publicationYear;

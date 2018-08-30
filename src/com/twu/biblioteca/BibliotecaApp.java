@@ -7,6 +7,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library=new Library();
         MenuBiblioteca menu= new MenuBiblioteca();
+        String messageMenu="";
         int optionMenu;
 
         System.out.println(library.showWelcomeMessage()+"\n");
@@ -16,9 +17,6 @@ public class BibliotecaApp {
         optionMenu=Integer.parseInt(inValueN.nextLine());
 
         menu.generateMenu(optionMenu);
-        library.createListOfBooks();
-
-
 
     }
 }

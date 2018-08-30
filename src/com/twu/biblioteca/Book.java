@@ -26,5 +26,9 @@ public class Book {
         return bookCheckoutChange;
     }
 
+    public String informationOfBook(Book newBook){
+        return newBook.nameBook+" \t| "+newBook.author+" \t| "+newBook.publicationYear;
+    }
+
 
 }
