@@ -16,6 +16,7 @@ public class Library {
 
 
     public Library() {
+        createListOfBooks();
     }
 
     public String showWelcomeMessage(){
@@ -24,7 +25,7 @@ public class Library {
     }
 
     public String showListBooks(){
-        System.out.println("List of Books\n\nName of Book \t| Author \t| Year of Publication\n");
+        System.out.println("\nLIST OF BOOKS\n\nName of Book \t| Author \t| Year of Publication\n");
         for(int i=0;i<listBooks.size();i++){
             if(listBooks.get(i).checkout) {
                 detailsBook=listBooks.get(i).informationOfBook(listBooks.get(i));

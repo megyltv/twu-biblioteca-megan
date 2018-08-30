@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.auxiliary.MenuBiblioteca;
+
 import java.util.Scanner;
 
 public class BibliotecaApp {
