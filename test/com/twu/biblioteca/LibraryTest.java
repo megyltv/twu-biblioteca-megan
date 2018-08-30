@@ -11,7 +11,7 @@ public class LibraryTest {
     Library library= new Library();
 
     @Test
-    public void showWelcomeMessagetest() {
+    public void showWelcomeMessageTest() {
         assertEquals("WELCOME TO THE LIBRARY", new Library().showWelcomeMessage());
     }
 

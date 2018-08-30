@@ -70,7 +70,6 @@ public class Library {
                 messageReturnBook="Thank you for returning the book";
             }
         }
-
         if(statusReturnBook==false) {
             messageReturnBook = "That is not a valid book to return";
         }
