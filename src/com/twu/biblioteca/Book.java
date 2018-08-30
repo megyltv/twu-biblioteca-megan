@@ -17,7 +17,12 @@ public class Book {
     }
 
     public Book changeCheckout(Book bookCheckoutChange){
-        bookCheckoutChange.checkout=!checkout;
+        if(checkout==false){
+            bookCheckoutChange.checkout=true;
+        }else{
+            bookCheckoutChange.checkout=false;
+        }
+
         return bookCheckoutChange;
     }
 

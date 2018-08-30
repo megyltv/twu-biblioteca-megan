@@ -41,10 +41,10 @@ public class Library {
         return listBooks;
     }
 
-    public String checkoutBook(String nombre){
+    public String checkoutBook(String nameBookCheckout){
         status=true;
         for(int i=0;i<listBooks.size();i++){
-            if(nombre.equals(listBooks.get(i).nameBook)){
+            if(nameBookCheckout.equals(listBooks.get(i).nameBook)){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 status=listBooks.get(i).checkout;
                 message="Thank you! Enjoy the book";
@@ -57,12 +57,12 @@ public class Library {
         return message;
     }
 
-    public String returnBook(String nombre){
+    public String returnBook(String nameBookCheckout){
         statusReturnBook=false;
 
         for(int i=0;i<listBooks.size();i++){
-            if(nombre.equals(listBooks.get(i).nameBook)){
-                listBooks.get(i).checkout=true;
+            if(nameBookCheckout.equals(listBooks.get(i).nameBook)){
+                listBooks.get(i).changeCheckout(listBooks.get(i));
                 statusReturnBook=listBooks.get(i).checkout;
                 messageReturnBook="Thank you for returning the book";
             }
