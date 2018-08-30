@@ -16,8 +16,9 @@ public class Book {
         this.checkout=true;
     }
 
-    public Boolean changeCheckout(Boolean checkoutSend){
-        return checkoutSend;
+    public Book changeCheckout(Book bookCheckoutChange){
+        bookCheckoutChange.checkout=!checkout;
+        return bookCheckoutChange;
     }
 
 

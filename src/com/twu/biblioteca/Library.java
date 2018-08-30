@@ -45,7 +45,7 @@ public class Library {
         status=true;
         for(int i=0;i<listBooks.size();i++){
             if(nombre.equals(listBooks.get(i).nameBook)){
-                listBooks.get(i).checkout=false; //Change to method
+                listBooks.get(i).changeCheckout(listBooks.get(i));
                 status=listBooks.get(i).checkout;
                 message="Thank you! Enjoy the book";
             }
