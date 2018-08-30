@@ -19,7 +19,7 @@ public class LibraryTest {
     public void showListBooksTest(){
         library=new Library();
         library.createListOfBooks();
-        assertEquals("The C Programming Language | Dennis Ritchie | 1978",library.showListBooks());
+        assertEquals("The C Programming Language \t| Dennis Ritchie \t| 1978",library.showListBooks());
     }
 
     @Test

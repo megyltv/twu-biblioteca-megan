@@ -11,8 +11,6 @@ public class BookTest {
     public void changeCheckoutTest(){
         assertEquals(false,newBook.changeCheckout(newBook).checkout);
         assertEquals(true,newBook.changeCheckout(newBook).checkout);
-
-
     }
 
 }

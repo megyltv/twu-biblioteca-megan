@@ -26,7 +26,7 @@ public class Library {
     public String showListBooks(){
         for(int i=0;i<listBooks.size();i++){
             if(listBooks.get(i).checkout) {
-                detailsBook=listBooks.get(i).nameBook+" | "+listBooks.get(i).author+" | "+listBooks.get(i).publicationYear;
+                detailsBook=listBooks.get(i).nameBook+" \t| "+listBooks.get(i).author+" \t| "+listBooks.get(i).publicationYear;
                 System.out.println(detailsBook);
             }
         }
