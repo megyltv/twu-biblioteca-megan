@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d170b22-b311-472d-a0f8-d49b4a5183a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MenuBiblioteca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuBibliotecaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BookTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/MenuBiblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MenuBiblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuBibliotecaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuBibliotecaTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,12 +37,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
-          <entry key="java" value="3775" />
+          <entry key="java" value="3996" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3775" />
+          <entry key="JAVA" value="3996" />
           <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
@@ -105,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/MenuBiblioteca.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="134">
+              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -199,7 +195,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535642512788" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535643145383" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -336,18 +332,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LibraryTest_checkoutUnsuccessfulTest - 2018.08.30 at 10h 02m 47s.xml">
-      <configuration name="LibraryTest.checkoutUnsuccessfulTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LibraryTest_returnSuccessfulTest - 2018.08.30 at 10h 03m 01s.xml">
-      <configuration name="LibraryTest.returnSuccessfulTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LibraryTest_returnSuccessfulTest - 2018.08.30 at 10h 03m 55s.xml">
-      <configuration name="LibraryTest.returnSuccessfulTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LibraryTest_returnUnsuccessfulTest - 2018.08.30 at 10h 04m 14s.xml">
-      <configuration name="LibraryTest.returnUnsuccessfulTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LibraryTest_showListBooksTest - 2018.08.30 at 10h 04m 57s.xml">
       <configuration name="LibraryTest.showListBooksTest" configurationId="JUnit" />
     </history-entry>
@@ -364,6 +348,18 @@
       <configuration name="MenuBibliotecaTest.correctOptionMenuTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MenuBibliotecaTest_correctOptionMenuTest - 2018.08.30 at 10h 19m 12s.xml">
+      <configuration name="MenuBibliotecaTest.correctOptionMenuTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MenuBibliotecaTest_correctOptionMenuTest - 2018.08.30 at 10h 21m 54s.xml">
+      <configuration name="MenuBibliotecaTest.correctOptionMenuTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MenuBibliotecaTest_correctOptionMenuTest - 2018.08.30 at 10h 23m 24s.xml">
+      <configuration name="MenuBibliotecaTest.correctOptionMenuTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MenuBibliotecaTest_correctOptionMenuTest - 2018.08.30 at 10h 24m 39s.xml">
+      <configuration name="MenuBibliotecaTest.correctOptionMenuTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MenuBibliotecaTest_correctOptionMenuTest - 2018.08.30 at 10h 25m 04s.xml">
       <configuration name="MenuBibliotecaTest.correctOptionMenuTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -443,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/MenuBiblioteca.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="134">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
         </state>
       </provider>
     </entry>
