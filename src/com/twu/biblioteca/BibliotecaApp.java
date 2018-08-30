@@ -14,10 +14,12 @@ public class BibliotecaApp {
 
         do {
             System.out.println("\n"+library.showWelcomeMessage()+"\n");
+
             menu.printMenuOptions();
             Scanner inValueN = new Scanner(System.in);
             optionMenu = Integer.parseInt(inValueN.nextLine());
             message=menu.generateMenu(optionMenu);
+
         }while(message!="Quit");
 
     }

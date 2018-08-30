@@ -15,28 +15,24 @@ public class MenuBiblioteca {
     }
 
     public String generateMenu(int optionValue){
-            switch (optionValue) {
-                case 1:
-                    do {
-                        library.showListBooks();
-                        printSubMenuOptions();
-                        generateSubMenu(Integer.parseInt(new Scanner(System.in).nextLine()));
-                    }while(message!="Quit");
-                    message = "Correct option";
-                    break;
-                case 2:
-                    message="Quit";
-                    break;
-                default:
-                    message = "Select a valid option";
-                    System.out.println(message);
-                    break;
-            }
+        if(optionValue==1){
+            do {
+                library.showListBooks();
+                printSubMenuOptions();
+                generateSubMenu(Integer.parseInt(new Scanner(System.in).nextLine()));
+            }while(message!="Quit");
+            message="Correct option";
+        }else if(optionValue==2){
+            message="Quit";
+        }else{
+            message="Select a valid option";
+            System.out.println(message);
+        }
         return message;
     }
 
     public void printMenuOptions(){
-        System.out.println("Select number:");
+        System.out.println("\nSelect number:");
         System.out.println("1. List Books");
         System.out.println("2. Quit");
         System.out.print("Option: ");
@@ -79,8 +75,4 @@ public class MenuBiblioteca {
         System.out.println(message+"\n\n---------------------\n");
 
     }
-
-
-
-
 }
