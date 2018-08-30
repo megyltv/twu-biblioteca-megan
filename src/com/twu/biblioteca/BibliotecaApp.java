@@ -7,16 +7,16 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library=new Library();
         MenuBiblioteca menu= new MenuBiblioteca();
-        String messageMenu="";
         int optionMenu;
+        String message="";
 
-        System.out.println(library.showWelcomeMessage()+"\n");
-        menu.printMenuOptions();
-
-        Scanner inValueN = new Scanner(System.in);
-        optionMenu=Integer.parseInt(inValueN.nextLine());
-
-        menu.generateMenu(optionMenu);
+        do {
+            System.out.println("\n"+library.showWelcomeMessage()+"\n");
+            menu.printMenuOptions();
+            Scanner inValueN = new Scanner(System.in);
+            optionMenu = Integer.parseInt(inValueN.nextLine());
+            message=menu.generateMenu(optionMenu);
+        }while(message!="Quit");
 
     }
 }
