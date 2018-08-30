@@ -15,12 +15,12 @@ public class MenuBiblioteca {
             switch (optionValue) {
                 case 1:
                     library.createListOfBooks();
-                    library.showListBooks();
+
                     do {
+                        library.showListBooks();
                         printSubMenuOptions();
                         generateSubMenu(Integer.parseInt(new Scanner(System.in).nextLine()));
                     }while(message!="Quit");
-
                     message = "Correct option";
                     break;
                 case 2:
@@ -41,21 +41,17 @@ public class MenuBiblioteca {
         System.out.print("Option: ");
     }
 
-    public void printSubMenuOptions(){
-        System.out.println("\nWhat do you want to do today?\n");
-        System.out.println("1. Checkout Book");
-        System.out.println("2. Return Book");
-        System.out.println("3. Back");
-        System.out.print("Option: ");
-    }
-
     public String generateSubMenu(int optionValue){
             switch (optionValue) {
                 case 1:
-                    message = "1";
+                    System.out.print("Name of Book: ");
+                    library.checkoutBook(new Scanner(System.in).nextLine());
+                    message = "Correct option";
                     break;
                 case 2:
-                    message = "2";
+                    System.out.print("Name of Book: ");
+                    library.returnBook(new Scanner(System.in).nextLine());
+                    message = "Correct option";
                     break;
                 case 3:
                     message = "Quit";
@@ -66,6 +62,14 @@ public class MenuBiblioteca {
                     break;
             }
         return message;
+    }
+
+    public void printSubMenuOptions(){
+        System.out.println("\nWhat do you want to do today?\n");
+        System.out.println("1. Checkout Book");
+        System.out.println("2. Return Book");
+        System.out.println("3. Back");
+        System.out.print("Option: ");
     }
 
 

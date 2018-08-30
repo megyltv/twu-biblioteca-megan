@@ -16,4 +16,14 @@ public class MenuBibliotecaTest {
         assertEquals("Select a valid option", new MenuBiblioteca().generateMenu(2));
     }
 
+    @Test
+    public void correctOptionSubmenuTest(){
+        assertEquals("Correct option", new MenuBiblioteca().generateSubMenu(1));
+    }
+
+    @Test
+    public void incorrectOptionSubmenuTest(){
+        assertEquals("Select a valid option", new MenuBiblioteca().generateSubMenu(4));
+    }
+
 }
