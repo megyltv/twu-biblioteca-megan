@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class Library {
-    public String nameLibrary;
     protected String welcomeMessage;
     public ArrayList<Book> listBooks;
     public String detailsBook;
@@ -25,11 +24,12 @@ public class Library {
     }
 
     public String showListBooks(){
-        System.out.println("\nLIST OF BOOKS\n\nName of Book \t| Author \t| Year of Publication\n");
+
+        System.out.println("\nLIST OF BOOKS\n");
+        System.out.printf("%-40s |%-30s |%-20s\n", "NAME OF BOOK", "AUTHOR", "YEAR OF PUBLICATION");
         for(int i=0;i<listBooks.size();i++){
             if(listBooks.get(i).checkout) {
                 detailsBook=listBooks.get(i).informationOfBook(listBooks.get(i));
-                System.out.println(detailsBook);
             }
         }
         return detailsBook;

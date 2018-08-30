@@ -8,7 +8,6 @@ public class MenuBiblioteca {
     public String message="";
     public String messageReceived="";
     public Library library;
-    public int firstTime=0;
 
     public MenuBiblioteca() {
         library=new Library();

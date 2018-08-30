@@ -6,9 +6,6 @@ public class Book {
     public int publicationYear;
     public boolean checkout;
 
-    public Book() {
-    }
-
     public Book(String nameBook, String author, int publicationYear) {
         this.nameBook = nameBook;
         this.author = author;
@@ -27,7 +24,12 @@ public class Book {
     }
 
     public String informationOfBook(Book newBook){
+        printInformationOfBook(newBook);
         return newBook.nameBook+" \t| "+newBook.author+" \t| "+newBook.publicationYear;
+    }
+
+    public void printInformationOfBook(Book newBook){
+        System.out.printf("%-40s |%-30s |%-20s\n", newBook.nameBook, newBook.author, newBook.publicationYear);
     }
 
 
