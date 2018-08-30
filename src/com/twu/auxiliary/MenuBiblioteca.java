@@ -19,7 +19,7 @@ public class MenuBiblioteca {
             do {
                 library.showListBooks();
                 printSubMenuOptions();
-                generateSubMenu(Integer.parseInt(new Scanner(System.in).nextLine()));
+                generateSubMenu(Integer.parseInt(receivedOptionMenu()));
             }while(message!="Quit");
             message="Correct option";
         }else if(optionValue==2){
@@ -42,13 +42,13 @@ public class MenuBiblioteca {
             switch (optionValue) {
                 case 1:
                     System.out.print("Name of Book: ");
-                    messageReceived=library.checkoutBook(new Scanner(System.in).nextLine());
+                    messageReceived=library.checkoutBook(receivedOptionMenu());
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
                 case 2:
                     System.out.print("Name of Book: ");
-                    messageReceived=library.returnBook(new Scanner(System.in).nextLine());
+                    messageReceived=library.returnBook(receivedOptionMenu());
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
@@ -72,7 +72,11 @@ public class MenuBiblioteca {
     }
 
     public void printMessageReceived(String message){
-        System.out.println(message+"\n\n---------------------\n");
+        System.out.println("\n------------------------\n"+message+"\n------------------------\n");
 
+    }
+
+    public String receivedOptionMenu(){
+        return new Scanner(System.in).nextLine();
     }
 }
