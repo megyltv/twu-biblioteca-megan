@@ -14,18 +14,22 @@ public class MenuBiblioteca {
     }
 
     public String generateMenu(int optionValue){
-        if(optionValue==1){
-            do {
-                library.showListBooks();
-                printSubMenuOptions();
-                generateSubMenu(Integer.parseInt(receivedOptionMenu()));
-            }while(message!="Quit");
-            message="Correct option";
-        }else if(optionValue==2){
-            message="Quit";
-        }else{
-            message="Select a valid option";
-            System.out.println(message);
+        try {
+            if (optionValue == 1) {
+                do {
+                    library.showListBooks();
+                    printSubMenuOptions();
+                    generateSubMenu(Integer.parseInt(receivedOptionMenu()));
+                } while (message != "Quit");
+                message = "Correct option";
+            } else if (optionValue == 2) {
+                message = "Quit";
+            } else {
+                message = "Select a valid option";
+                System.out.println(message);
+            }
+        }catch (NumberFormatException ex){
+            System.out.println("\nSelect a valid option. Only numbers!");
         }
         return message;
     }
