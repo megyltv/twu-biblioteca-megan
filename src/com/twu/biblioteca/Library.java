@@ -27,7 +27,7 @@ public class Library {
         System.out.println("List of Books\n\nName of Book \t| Author \t| Year of Publication\n");
         for(int i=0;i<listBooks.size();i++){
             if(listBooks.get(i).checkout) {
-                detailsBook=listBooks.get(i).nameBook+" \t| "+listBooks.get(i).author+" \t| "+listBooks.get(i).publicationYear;
+                detailsBook=listBooks.get(i).informationOfBook(listBooks.get(i));
                 System.out.println(detailsBook);
             }
         }

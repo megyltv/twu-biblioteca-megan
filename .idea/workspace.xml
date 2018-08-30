@@ -205,7 +205,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535648497510" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535648575961" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -230,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BookTest.informationOfBookTest">
+  <component name="RunManager" selected="JUnit.LibraryTest.showListBooksTest">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -276,7 +276,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibraryTest.returnUnsuccessfulTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryTest.showListBooksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -286,7 +286,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.LibraryTest" />
-      <option name="METHOD_NAME" value="returnUnsuccessfulTest" />
+      <option name="METHOD_NAME" value="showListBooksTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -309,19 +309,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.LibraryTest.returnUnsuccessfulTest" />
       <item itemvalue="JUnit.BookTest.changeCheckoutTest" />
       <item itemvalue="Application.BibliotecaApp" />
       <item itemvalue="JUnit.LibraryTest.showWelcomeMessagetest" />
       <item itemvalue="JUnit.BookTest.informationOfBookTest" />
+      <item itemvalue="JUnit.LibraryTest.showListBooksTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LibraryTest.showListBooksTest" />
         <item itemvalue="JUnit.BookTest.informationOfBookTest" />
         <item itemvalue="Application.BibliotecaApp" />
         <item itemvalue="JUnit.LibraryTest.showWelcomeMessagetest" />
         <item itemvalue="JUnit.BookTest.changeCheckoutTest" />
-        <item itemvalue="JUnit.LibraryTest.returnUnsuccessfulTest" />
       </list>
     </recent_temporary>
   </component>
