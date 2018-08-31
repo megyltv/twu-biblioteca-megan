@@ -9,7 +9,7 @@ public class Library {
     protected Book findBook;
     protected String message="";
 
-    private Boolean status;
+    private Boolean status, statusReturnedBook;
 
     public Library() {
         createListOfBooks();
@@ -55,20 +55,20 @@ public class Library {
         if(status){
             message="That book is not available";
         }
-
         return message;
     }
 
     public String returnBook(Book newBook,ArrayList<Book>listBooks){
-        status=false;
+        statusReturnedBook=false;
         for(int i=0;i<listBooks.size();i++){
-            if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&!newBook.checkout){
+            if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&
+                    !newBook.checkout){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
-                status=listBooks.get(i).checkout;
+                statusReturnedBook=listBooks.get(i).checkout;
                 message="Thank you for returning the book";
             }
         }
-        if(!status) {
+        if(!statusReturnedBook) {
             message = "That is not a valid book to return";
         }
 
