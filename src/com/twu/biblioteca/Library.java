@@ -37,7 +37,7 @@ public class Library {
 
     public ArrayList<Book> createListOfBooks(){
         listBooks=new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
         listBooks.add(new Book("Clean Code","Robert Cecil Martin",2008));
         listBooks.add(new Book("Code Complete","Steve McConnell",1993));
@@ -45,10 +45,10 @@ public class Library {
         return listBooks;
     }
 
-    public String checkoutBook(String nameBookCheckout){
+    public String checkoutBook(String nameBookCheckout, int yearBook){
         status=true;
         for(int i=0;i<listBooks.size();i++){
-            if(nameBookCheckout.equals(listBooks.get(i).nameBook)){
+            if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 status=listBooks.get(i).checkout;
                 message="Thank you! Enjoy the book";
@@ -62,11 +62,12 @@ public class Library {
         return message;
     }
 
-    public String returnBook(String nameBookCheckout){
+    public String returnBook(String nameBookCheckout, int yearBook){
         statusReturnBook=false;
 
         for(int i=0;i<listBooks.size();i++){
-            if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).checkout==false){
+            if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
+                //listBooks.get(i).checkout=false;
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 statusReturnBook=listBooks.get(i).checkout;
                 messageReturnBook="Thank you for returning the book";

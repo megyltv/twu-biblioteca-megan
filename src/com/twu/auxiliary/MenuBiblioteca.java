@@ -8,6 +8,8 @@ public class MenuBiblioteca {
     public String message="";
     public String messageReceived="";
     public Library library;
+    protected String nameBook;
+    protected int yearBook;
 
     public MenuBiblioteca() {
         library=new Library();
@@ -44,14 +46,18 @@ public class MenuBiblioteca {
     public String generateSubMenu(int optionValue){
             switch (optionValue) {
                 case 1:
-                    System.out.print("Name of Book: ");
-                    messageReceived=library.checkoutBook(receivedOptionMenu());
+                    receivedParametersForMethod();
+                    messageReceived=library.checkoutBook(nameBook,yearBook);
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
                 case 2:
                     System.out.print("Name of Book: ");
-                    messageReceived=library.returnBook(receivedOptionMenu());
+                    nameBook=receivedOptionMenu();
+                    System.out.print("Year of the book: ");
+                    yearBook=Integer.parseInt(receivedOptionMenu());
+                    //receivedParametersForMethod();
+                    messageReceived=library.returnBook(nameBook,yearBook);
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
@@ -80,6 +86,14 @@ public class MenuBiblioteca {
     }
 
     public String receivedOptionMenu(){
-        return new Scanner(System.in).nextLine();
+        String scan=new Scanner(System.in).nextLine();
+        return scan;
+    }
+
+    public void receivedParametersForMethod(){
+        System.out.print("Name of Book: ");
+        nameBook=new Scanner(System.in).nextLine();
+        System.out.print("Year of the book: ");
+        yearBook=Integer.parseInt(new Scanner(System.in).nextLine());
     }
 }
