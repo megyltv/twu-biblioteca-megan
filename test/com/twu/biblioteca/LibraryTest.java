@@ -37,31 +37,32 @@ public class LibraryTest {
 
     @Test
     public void checkoutSuccessfulTest(){
-        assertEquals("Thank you! Enjoy the book",library.checkoutBook("Test Driven Development: By Example", 2002));
+        assertEquals("Thank you! Enjoy the book",library.checkoutBook("Test Driven Development: By Example", 2003,listBooks));
     }
 
     @Test
     public void checkoutUnsuccessfulTest(){
-        assertEquals("That book is not available",library.checkoutBook("Test Driven Development",2002));
+        assertEquals("That book is not available",library.checkoutBook("Test Driven Development",2003,listBooks));
     }
 
     @Test
     public void returnSuccessfulTest(){
-        library.listBooks.get(0).checkout=false;
-        assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
+        listBooks.get(0).checkout=false;
+        System.out.println(listBooks.get(0).nameBook+" "+listBooks.get(0).publicationYear+" "+listBooks.get(0).checkout);
+        assertEquals("Thank you for returning the book",library.returnBook((listBooks.get(0)),listBooks));
 
     }
 
     @Test
     public void returnUnsuccessfulTest(){
-        library.listBooks.get(0).checkout=false;
-        assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
+        listBooks.get(0).checkout=false;
+        assertEquals("That is not a valid book to return",library.returnBook((library.listBooks.get(0)),listBooks));
     }
 
     @Test
     public void searchBookinLibraryTest(){
-        assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).nameBook);
-        assertEquals("Hello Book", library.searchBookinLibrary("Hello Book",2013).nameBook);
+        assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002,listBooks).nameBook);
+        assertEquals("Hello Book", library.searchBookinLibrary("Hello Book",2013,listBooks).nameBook);
     }
 
 }

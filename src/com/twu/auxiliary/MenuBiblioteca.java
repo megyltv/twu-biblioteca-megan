@@ -48,14 +48,14 @@ public class MenuBiblioteca {
             switch (optionValue) {
                 case 1:
                     receivedParametersForBook();
-                    messageReceived=library.checkoutBook(nameBook,yearBook);
+                    messageReceived=library.checkoutBook(nameBook,yearBook,library.listBooks);
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
                 case 2:
                     receivedParametersForBook();
-                    receivedBook=library.searchBookinLibrary(nameBook,yearBook);
-                    messageReceived=library.returnBook(receivedBook);
+                    receivedBook=library.searchBookinLibrary(nameBook,yearBook,library.listBooks);
+                    messageReceived=library.returnBook(receivedBook,library.listBooks);
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
