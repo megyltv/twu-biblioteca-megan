@@ -6,13 +6,13 @@ import com.twu.biblioteca.Library;
 import java.util.Scanner;
 
 public class MenuBiblioteca {
-    public String message="";
-    public String messageReceived="";
-    public Library library;
-    protected String nameBook;
-    protected int yearBook;
+    protected String message="";
+    protected Library library;
+    protected String messageReceived="";
+    protected Book receivedBook;
 
-    public Book receivedBook;
+    private String nameBook;
+    private int yearBook;
 
     public MenuBiblioteca() {
         library=new Library();
@@ -21,11 +21,9 @@ public class MenuBiblioteca {
     public String generateMenu(int optionValue){
         try {
             if (optionValue == 1) {
-                do {
-                    library.showListBooks();
-                    printSubMenuOptions();
-                    generateSubMenu(Integer.parseInt(receivedOptionMenu()));
-                } while (message != "Quit");
+                library.showListBooks();
+                printSubMenuOptions();
+                generateSubMenu(Integer.parseInt(receivedOptionMenu()));
                 message = "Correct option";
             } else if (optionValue == 2) {
                 message = "Quit";

@@ -13,8 +13,8 @@ public class MenuBibliotecaTest {
     }
 
     @Test
-    public void incorrectOptionSubMenuTest(){
+    public void optionSubMenuTest(){
         assertEquals("Select a valid option", new MenuBiblioteca().generateSubMenu(4));
+        assertEquals("Quit", new MenuBiblioteca().generateSubMenu(3));
     }
-
 }

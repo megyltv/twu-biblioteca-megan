@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,7 +9,16 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    Library library= new Library();
+    Library library;
+    public ArrayList<Book> listBooks;
+
+    @Before
+    public void readDataBefore(){
+        library= new Library();
+        listBooks=new ArrayList<Book>();
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
+        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+    }
 
     @Test
     public void showWelcomeMessageTest() {
@@ -16,49 +26,40 @@ public class LibraryTest {
     }
 
     @Test
+    public void createListOfBookTest(){
+        assertEquals("Test Driven Development: By Example",listBooks.get(0).nameBook);
+    }
+
+    @Test
     public void showListBooksTest(){
-        library.createListOfBooks();
         assertEquals("The C Programming Language \t| Dennis Ritchie \t| 1978",library.showListBooks());
     }
 
     @Test
-    public void createListOfBookTest(){
-        library.createListOfBooks();
-        assertEquals("Test Driven Development: By Example",library.createListOfBooks().get(0).nameBook);
-    }
-
-    @Test
     public void checkoutSuccessfulTest(){
-        library.createListOfBooks();
         assertEquals("Thank you! Enjoy the book",library.checkoutBook("Test Driven Development: By Example", 2002));
     }
 
     @Test
     public void checkoutUnsuccessfulTest(){
-        library.createListOfBooks();
         assertEquals("That book is not available",library.checkoutBook("Test Driven Development",2002));
     }
 
     @Test
     public void returnSuccessfulTest(){
-        library.createListOfBooks();
         library.listBooks.get(0).checkout=false;
-        //assertEquals("Thank you for returning the book", library.returnBook("Test Driven Development: By Example",2002));
         assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
 
     }
 
     @Test
     public void returnUnsuccessfulTest(){
-        library.createListOfBooks();
         library.listBooks.get(0).checkout=false;
-        //assertEquals("That is not a valid book to return",library.returnBook("Test Driven Development",2002));
         assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
     }
 
     @Test
     public void searchBookinLibraryTest(){
-        library.createListOfBooks();
         assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).nameBook);
     }
 

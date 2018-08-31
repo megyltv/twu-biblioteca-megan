@@ -3,21 +3,20 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class Library {
-    protected String welcomeMessage;
     public ArrayList<Book> listBooks;
-    public String detailsBook;
-    public Book findBook;
+    protected String welcomeMessage;
+    protected String detailsBook;
+    protected Book findBook;
+    protected Boolean statusReturnBook;
+    protected String messageReturnBook="";
 
-    Boolean status;
-    String message="", messageFind="";
-
-    Boolean statusReturnBook;
-    String messageReturnBook="";
-
+    private Boolean status;
+    protected String message="";
 
     public Library() {
         createListOfBooks();
     }
+
 
     public String showWelcomeMessage(){
         welcomeMessage="WELCOME TO THE LIBRARY";
@@ -25,7 +24,6 @@ public class Library {
     }
 
     public String showListBooks(){
-
         System.out.println("\nLIST OF BOOKS\n");
         System.out.printf("%-40s |%-30s |%-20s\n", "NAME OF BOOK", "AUTHOR", "YEAR OF PUBLICATION");
         for(int i=0;i<listBooks.size();i++){
@@ -66,7 +64,7 @@ public class Library {
     public String returnBook(Book newBook){
         statusReturnBook=false;
         for(int i=0;i<listBooks.size();i++){
-            if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&newBook.checkout==false){
+            if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&!newBook.checkout){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 statusReturnBook=listBooks.get(i).checkout;
                 messageReturnBook="Thank you for returning the book";
@@ -80,10 +78,13 @@ public class Library {
     }
 
     public Book searchBookinLibrary(String nameBook, int yearBook){
-        findBook=new Book();
-        for(int i=0;i<listBooks.size();i++){
-            if(nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
-                findBook=listBooks.get(i);
+        findBook = new Book();
+        for (int i = 0; i < listBooks.size(); i++) {
+            if (nameBook.equals(listBooks.get(i).nameBook) && listBooks.get(i).publicationYear == yearBook) {
+                findBook = listBooks.get(i);
+            }else{
+                findBook.nameBook=nameBook;
+                findBook.publicationYear=yearBook;
             }
         }
         return findBook;
