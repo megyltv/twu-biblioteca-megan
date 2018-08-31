@@ -1,5 +1,6 @@
 package com.twu.auxiliary;
 
+import com.twu.biblioteca.Book;
 import com.twu.biblioteca.Library;
 
 import java.util.Scanner;
@@ -10,6 +11,8 @@ public class MenuBiblioteca {
     public Library library;
     protected String nameBook;
     protected int yearBook;
+
+    public Book receivedBook;
 
     public MenuBiblioteca() {
         library=new Library();
@@ -52,12 +55,9 @@ public class MenuBiblioteca {
                     message = "Correct option";
                     break;
                 case 2:
-                    System.out.print("Name of Book: ");
-                    nameBook=receivedOptionMenu();
-                    System.out.print("Year of the book: ");
-                    yearBook=Integer.parseInt(receivedOptionMenu());
-                    //receivedParametersForMethod();
-                    messageReceived=library.returnBook(nameBook,yearBook);
+                    receivedParametersForMethod();
+                    receivedBook=library.searchBookinLibrary(nameBook,yearBook);
+                    messageReceived=library.returnBook(receivedBook);
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;

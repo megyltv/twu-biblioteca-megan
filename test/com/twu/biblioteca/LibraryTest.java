@@ -43,7 +43,8 @@ public class LibraryTest {
     public void returnSuccessfulTest(){
         library.createListOfBooks();
         library.listBooks.get(0).checkout=false;
-        assertEquals("Thank you for returning the book", library.returnBook("Test Driven Development: By Example",2002));
+        //assertEquals("Thank you for returning the book", library.returnBook("Test Driven Development: By Example",2002));
+        assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
 
     }
 
@@ -51,7 +52,14 @@ public class LibraryTest {
     public void returnUnsuccessfulTest(){
         library.createListOfBooks();
         library.listBooks.get(0).checkout=false;
-        assertEquals("That is not a valid book to return",library.returnBook("Test Driven Development",2002));
+        //assertEquals("That is not a valid book to return",library.returnBook("Test Driven Development",2002));
+        assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
+    }
+
+    @Test
+    public void searchBookinLibraryTest(){
+        library.createListOfBooks();
+        assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).nameBook);
     }
 
 }

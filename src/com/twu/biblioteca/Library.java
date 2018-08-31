@@ -6,9 +6,10 @@ public class Library {
     protected String welcomeMessage;
     public ArrayList<Book> listBooks;
     public String detailsBook;
+    public Book findBook;
 
     Boolean status;
-    String message="";
+    String message="", messageFind="";
 
     Boolean statusReturnBook;
     String messageReturnBook="";
@@ -62,12 +63,10 @@ public class Library {
         return message;
     }
 
-    public String returnBook(String nameBookCheckout, int yearBook){
+    public String returnBook(Book newBook){
         statusReturnBook=false;
-
         for(int i=0;i<listBooks.size();i++){
-            if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
-                //listBooks.get(i).checkout=false;
+            if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&newBook.checkout==false){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 statusReturnBook=listBooks.get(i).checkout;
                 messageReturnBook="Thank you for returning the book";
@@ -78,5 +77,15 @@ public class Library {
         }
 
         return messageReturnBook;
+    }
+
+    public Book searchBookinLibrary(String nameBook, int yearBook){
+        findBook=new Book();
+        for(int i=0;i<listBooks.size();i++){
+            if(nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
+                findBook=listBooks.get(i);
+            }
+        }
+        return findBook;
     }
 }
