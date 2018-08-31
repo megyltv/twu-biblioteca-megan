@@ -78,7 +78,7 @@ public class MenuBiblioteca {
         System.out.print("Select number: ");
     }
 
-    public void printMessageReceived(String message){
+    private void printMessageReceived(String message){
         System.out.println("\n---------------------------\n"+
                 message+"\n---------------------------\n");
 
@@ -88,7 +88,7 @@ public class MenuBiblioteca {
         return new Scanner(System.in).nextLine();
     }
 
-    public void receivedParametersForBook(){
+    private void receivedParametersForBook(){
         System.out.print("Name of Book: ");
         nameBook=new Scanner(System.in).nextLine();
         System.out.print("Year of the book: ");
