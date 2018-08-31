@@ -7,11 +7,9 @@ public class Library {
     protected String welcomeMessage;
     protected String detailsBook;
     protected Book findBook;
-    protected Boolean statusReturnBook;
-    protected String messageReturnBook="";
+    protected String message="";
 
     private Boolean status;
-    protected String message="";
 
     public Library() {
         createListOfBooks();
@@ -19,7 +17,7 @@ public class Library {
 
 
     public String showWelcomeMessage(){
-        welcomeMessage="WELCOME TO THE LIBRARY";
+        welcomeMessage="WELCOME TO THE LIBRARY :)";
         return welcomeMessage;
     }
 
@@ -54,7 +52,7 @@ public class Library {
                 break;
             }
         }
-        if(status==true){
+        if(status){
             message="That book is not available";
         }
 
@@ -62,19 +60,19 @@ public class Library {
     }
 
     public String returnBook(Book newBook){
-        statusReturnBook=false;
+        status=false;
         for(int i=0;i<listBooks.size();i++){
             if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&!newBook.checkout){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
-                statusReturnBook=listBooks.get(i).checkout;
-                messageReturnBook="Thank you for returning the book";
+                status=listBooks.get(i).checkout;
+                message="Thank you for returning the book";
             }
         }
-        if(statusReturnBook==false) {
-            messageReturnBook = "That is not a valid book to return";
+        if(!status) {
+            message = "That is not a valid book to return";
         }
 
-        return messageReturnBook;
+        return message;
     }
 
     public Book searchBookinLibrary(String nameBook, int yearBook){
@@ -83,8 +81,7 @@ public class Library {
             if (nameBook.equals(listBooks.get(i).nameBook) && listBooks.get(i).publicationYear == yearBook) {
                 findBook = listBooks.get(i);
             }else{
-                findBook.nameBook=nameBook;
-                findBook.publicationYear=yearBook;
+                findBook = new Book(nameBook, yearBook);
             }
         }
         return findBook;

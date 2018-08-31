@@ -1,6 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.auxiliary;
 
-import com.twu.auxiliary.MenuBiblioteca;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,8 +7,9 @@ import static org.junit.Assert.*;
 public class MenuBibliotecaTest {
 
     @Test
-    public void incorrectOptionMenu(){
+    public void optionMenuTest(){
         assertEquals("Select a valid option", new MenuBiblioteca().generateMenu(3));
+        assertEquals("Quit", new MenuBiblioteca().generateMenu(2));
     }
 
     @Test
@@ -17,4 +17,5 @@ public class MenuBibliotecaTest {
         assertEquals("Select a valid option", new MenuBiblioteca().generateSubMenu(4));
         assertEquals("Quit", new MenuBiblioteca().generateSubMenu(3));
     }
+
 }

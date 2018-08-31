@@ -6,10 +6,10 @@ import com.twu.biblioteca.Library;
 import java.util.Scanner;
 
 public class MenuBiblioteca {
-    protected String message="";
     protected Library library;
-    protected String messageReceived="";
     protected Book receivedBook;
+    protected String message="";
+    protected String messageReceived="";
 
     private String nameBook;
     private int yearBook;
@@ -23,16 +23,16 @@ public class MenuBiblioteca {
             if (optionValue == 1) {
                 library.showListBooks();
                 printSubMenuOptions();
-                generateSubMenu(Integer.parseInt(receivedOptionMenu()));
+                generateSubMenu(Integer.parseInt(receivedOptionSubMenu()));
                 message = "Correct option";
             } else if (optionValue == 2) {
                 message = "Quit";
             } else {
-                message = "Select a valid option";
-                System.out.println(message);
+                message="Select a valid option";
+                printMessageReceived(message);
             }
         }catch (NumberFormatException ex){
-            System.out.println("\nSelect a valid option. Only numbers!");
+            System.out.println("\nSelect a valid option. Only numbers, please!");
         }
         return message;
     }
@@ -47,13 +47,13 @@ public class MenuBiblioteca {
     public String generateSubMenu(int optionValue){
             switch (optionValue) {
                 case 1:
-                    receivedParametersForMethod();
+                    receivedParametersForBook();
                     messageReceived=library.checkoutBook(nameBook,yearBook);
                     printMessageReceived(messageReceived);
                     message = "Correct option";
                     break;
                 case 2:
-                    receivedParametersForMethod();
+                    receivedParametersForBook();
                     receivedBook=library.searchBookinLibrary(nameBook,yearBook);
                     messageReceived=library.returnBook(receivedBook);
                     printMessageReceived(messageReceived);
@@ -63,8 +63,8 @@ public class MenuBiblioteca {
                     message = "Quit";
                     break;
                 default:
-                    message = "Select a valid option";
-                    System.out.println(message);
+                    message="Select a valid option";
+                    printMessageReceived(message);
                     break;
             }
         return message;
@@ -79,16 +79,16 @@ public class MenuBiblioteca {
     }
 
     public void printMessageReceived(String message){
-        System.out.println("\n------------------------\n"+message+"\n------------------------\n");
+        System.out.println("\n---------------------------\n"+
+                message+"\n---------------------------\n");
 
     }
 
-    public String receivedOptionMenu(){
-        String scan=new Scanner(System.in).nextLine();
-        return scan;
+    public String receivedOptionSubMenu(){
+        return new Scanner(System.in).nextLine();
     }
 
-    public void receivedParametersForMethod(){
+    public void receivedParametersForBook(){
         System.out.print("Name of Book: ");
         nameBook=new Scanner(System.in).nextLine();
         System.out.print("Year of the book: ");

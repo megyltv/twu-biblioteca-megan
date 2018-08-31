@@ -15,6 +15,10 @@ public class Book {
         this.checkout=true;
     }
 
+    public Book(String nameBookReceived, int yearBookReceived){
+        this.nameBook=nameBookReceived;
+        this.publicationYear=yearBookReceived;
+    }
 
 
     public Book changeCheckout(Book bookCheckoutChange){

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    Library library;
+    public Library library;
     public ArrayList<Book> listBooks;
 
     @Before
-    public void readDataBefore(){
+    public void initializeDataBefore(){
         library= new Library();
         listBooks=new ArrayList<Book>();
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
@@ -22,7 +22,7 @@ public class LibraryTest {
 
     @Test
     public void showWelcomeMessageTest() {
-        assertEquals("WELCOME TO THE LIBRARY", new Library().showWelcomeMessage());
+        assertEquals("WELCOME TO THE LIBRARY :)", new Library().showWelcomeMessage());
     }
 
     @Test
@@ -61,6 +61,7 @@ public class LibraryTest {
     @Test
     public void searchBookinLibraryTest(){
         assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).nameBook);
+        assertEquals("Hello Book", library.searchBookinLibrary("Hello Book",2013).nameBook);
     }
 
 }
