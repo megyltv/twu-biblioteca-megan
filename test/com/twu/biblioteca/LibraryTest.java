@@ -17,7 +17,7 @@ public class LibraryTest {
         library= new Library();
         listBooks=new ArrayList<Book>();
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
-        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
+        listBooks.add(new Book("The C Programming Language","Dennis Ritchie",1978));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class LibraryTest {
 
     @Test
     public void showListBooksTest(){
-        assertEquals("The C Programming Language \t| Dennis Ritchie \t| 1978",library.showListBooks());
+        assertEquals("The C Programming Language \t| Dennis Ritchie \t| 1978",library.showListBooks(listBooks));
     }
 
     @Test

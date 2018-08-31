@@ -21,7 +21,7 @@ public class MenuBiblioteca {
     public String generateMenu(int optionValue){
         try {
             if (optionValue == 1) {
-                library.showListBooks();
+                library.showListBooks(library.listBooks);
                 printSubMenuOptions();
                 generateSubMenu(Integer.parseInt(receivedOptionSubMenu()));
                 message = "Correct option";

@@ -22,7 +22,7 @@ public class Book {
 
 
     public Book changeCheckout(Book bookCheckoutChange){
-        if(checkout==false){
+        if(!checkout){
             bookCheckoutChange.checkout=true;
         }else{
             bookCheckoutChange.checkout=false;
