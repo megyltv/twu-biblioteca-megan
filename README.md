@@ -1,14 +1,25 @@
-Instructions to push your code to code.google.com
-=================================================
-1. Sign into GitHub and create a new repository
-        Repository name: twu-biblioteca-yourname
-        Privacy level: Public
-        Don't check "Initialize this repository with a README"
-        Add .gitignore: None
-        Add a license: Apache License 2.0
+# Biblioteca
 
-2. Run 'git init' in the folder that was extracted from the downloaded .zip file, in order to
+Biblioteca is a new system which implements a Library Management System for  the Bangalore Public Library.
+
+## Tools used
+
+* Java 8
+* JUnit 4
+* IDE: IntelliJ
+
+## Instructions to download code
+
+1. Download git and install it.
+2. Open a terminal and proceed to clone project
+```
+git clone "WEB URL OF REPOSITORY"
+```
+3. If you download: Run 'git init' in the folder that was extracted from the downloaded .zip file, in order to
  initialize local repository.
+```
+git init
+```
 
 3. Make a local commit.
     $ git add -A
@@ -21,8 +32,8 @@ Instructions to push your code to code.google.com
     $ git remote add origin https://github.com/<YOUR-GITHUB-USERNAME>/twu-biblioteca-<YOURNAME>
     $ git push origin master
 
-Instructions to open your code in Intellij
-==========================================
+## Instructions to open your code in Intellij
+
 1. Go to File -> Open (or Open Project)
 2. Select the directory containing the code
 DONE !
