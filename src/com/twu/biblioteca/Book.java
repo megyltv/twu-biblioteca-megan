@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
 public class Book {
-    protected String nameBook;
-    protected String author;
-    protected int publicationYear;
-    protected boolean isAvailable;
+    private String nameBook;
+    private String author;
+    private int publicationYear;
+    private boolean isAvailable;
 
     public Book(){}
 
@@ -40,5 +40,19 @@ public class Book {
         System.out.printf("%-40s |%-30s |%-20s\n", newBook.nameBook, newBook.author, newBook.publicationYear);
     }
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
 
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public String getNameBook() {
+        return nameBook;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
 }

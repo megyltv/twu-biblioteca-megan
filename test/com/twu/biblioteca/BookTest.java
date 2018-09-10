@@ -15,8 +15,8 @@ public class BookTest {
 
     @Test
     public void shouldReturnStatusChangedWhenItIsCheckout(){
-        assertEquals(false,newBook.changeCheckout(newBook).isAvailable);
-        assertEquals(true,newBook.changeCheckout(newBook).isAvailable);
+        assertEquals(false,newBook.changeCheckout(newBook).isAvailable());
+        assertEquals(true,newBook.changeCheckout(newBook).isAvailable());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class BookTest {
 
     @Test
     public void shouldCreateNewBookWhenNewParamentesAreReceivedForSearching(){
-        assertEquals("Hello Book", new Book("Hello Book",2013).nameBook);
+        assertEquals("Hello Book", new Book("Hello Book",2013).getNameBook());
     }
 
 }

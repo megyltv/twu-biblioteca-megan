@@ -5,12 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     public Library library;
-    public ArrayList<Book> listBooks;
+    public List<Book> listBooks;
 
     @Before
     public void setUp(){
@@ -27,7 +28,7 @@ public class LibraryTest {
 
     @Test
     public void createListOfBookTest(){
-        assertEquals("Test Driven Development: By Example",listBooks.get(0).nameBook);
+        assertEquals("Test Driven Development: By Example",listBooks.get(0).getNameBook());
     }
 
     @Test
@@ -47,21 +48,21 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenTheBookIsReturned(){
-        library.listBooks.get(0).isAvailable =false;
+        library.listBooks.get(0).setAvailable(false);
         assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
 
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenErrorInReturn(){
-        listBooks.get(0).isAvailable =true;
+        listBooks.get(0).setAvailable(true);
         assertEquals("That is not a valid book to return",library.returnBook((library.listBooks.get(0))));
     }
 
     @Test
     public void shouldReturnNameOfBookWhenItIsSearch(){
-        assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).nameBook);
-        assertEquals("Hello Book", library.searchBookinLibrary("Hello Book",2013).nameBook);
+        assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).getNameBook());
+        assertEquals("Hello Book", library.searchBookinLibrary("Hello Book",2013).getNameBook());
     }
 
 }

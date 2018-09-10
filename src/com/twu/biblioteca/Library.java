@@ -1,13 +1,11 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Library {
-    public ArrayList<Book> listBooks;
-    protected String welcomeMessage;
-    protected String detailsBook;
-    protected Book findBook;
-    protected String message="";
+    public List<Book> listBooks;
+    private Book findBook;
 
     private Boolean status, statusReturnedBook;
 
@@ -17,22 +15,24 @@ public class Library {
 
 
     public String showWelcomeMessage(){
+        String welcomeMessage;
         welcomeMessage="WELCOME TO THE LIBRARY :)";
         return welcomeMessage;
     }
 
     public String showListBooks(){
+        String detailsBook="";
         System.out.println("\nLIST OF BOOKS\n");
         System.out.printf("%-40s |%-30s |%-20s\n", "NAME OF BOOK", "AUTHOR", "YEAR OF PUBLICATION");
         for(int i=0;i<listBooks.size();i++){
-            if(listBooks.get(i).isAvailable) {
+            if(listBooks.get(i).isAvailable()) {
                 detailsBook=listBooks.get(i).informationOfBook(listBooks.get(i));
             }
         }
         return detailsBook;
     }
 
-    public ArrayList<Book> createListOfBooks(){
+    public List<Book> createListOfBooks(){
         listBooks=new ArrayList<Book>();
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
@@ -43,11 +43,12 @@ public class Library {
     }
 
     public String checkoutBook(String nameBookCheckout, int yearBook){
+        String message="";
         status=true;
         for(int i=0;i<listBooks.size();i++){
-            if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
+            if(nameBookCheckout.equals(listBooks.get(i).getNameBook())&&listBooks.get(i).getPublicationYear()==yearBook){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
-                status=listBooks.get(i).isAvailable;
+                status=listBooks.get(i).isAvailable();
                 message="Thank you! Enjoy the book";
                 break;
             }
@@ -59,12 +60,13 @@ public class Library {
     }
 
     public String returnBook(Book newBook){
+        String message="";
         statusReturnedBook=false;
         for(int i=0;i<listBooks.size();i++){
-            if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&
-                    !newBook.isAvailable){
+            if(newBook.getNameBook().equals(listBooks.get(i).getNameBook()) && listBooks.get(i).getPublicationYear()==newBook.getPublicationYear() &&
+                    !newBook.isAvailable()){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
-                statusReturnedBook=listBooks.get(i).isAvailable;
+                statusReturnedBook=listBooks.get(i).isAvailable();
                 message="Thank you for returning the book";
             }
         }
@@ -78,7 +80,7 @@ public class Library {
     public Book searchBookinLibrary(String nameBook, int yearBook){
         findBook = new Book();
         for (int i = 0; i < listBooks.size(); i++) {
-            if (nameBook.equals(listBooks.get(i).nameBook) && listBooks.get(i).publicationYear == yearBook) {
+            if (nameBook.equals(listBooks.get(i).getNameBook()) && listBooks.get(i).getPublicationYear() == yearBook) {
                 findBook = listBooks.get(i);
             }else{
                 findBook = new Book(nameBook, yearBook);
@@ -87,7 +89,7 @@ public class Library {
         return findBook;
     }
 
-    public ArrayList<Book> getListBooks() {
+    public List<Book> getListBooks() {
         return listBooks;
     }
 
