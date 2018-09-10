@@ -1,6 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.main;
 
 import com.twu.auxiliary.MenuBiblioteca;
+import com.twu.biblioteca.Library;
 
 import java.util.Scanner;
 
