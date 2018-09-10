@@ -14,8 +14,8 @@ public class MenuBiblioteca {
     private String nameBook;
     private int yearBook;
 
-    public MenuBiblioteca() {
-        library=new Library();
+    public MenuBiblioteca(Library library) {
+        this.library=library;
     }
 
     public String generateMenu(int optionValue){

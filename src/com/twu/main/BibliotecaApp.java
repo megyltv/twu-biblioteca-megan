@@ -9,7 +9,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library=new Library();
-        MenuBiblioteca menu= new MenuBiblioteca();
+        MenuBiblioteca menu= new MenuBiblioteca(library);
         int optionMenu;
         String message="";
 
