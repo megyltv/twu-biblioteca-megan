@@ -14,18 +14,18 @@ public class BookTest {
     }
 
     @Test
-    public void changeCheckoutTest(){
+    public void shouldReturnStatusChangedWhenItIsCheckout(){
         assertEquals(false,newBook.changeCheckout(newBook).isAvailable);
         assertEquals(true,newBook.changeCheckout(newBook).isAvailable);
     }
 
     @Test
-    public void informationOfBookTest(){
+    public void shouldReturnInformationOfBookWhenItIsAsked(){
         assertEquals("Test Driven Development: By Example \t| Kent Beck \t| 2002", newBook.informationOfBook(newBook));
     }
 
     @Test
-    public void createBookSearchingTest(){
+    public void shouldCreateNewBookWhenNewParamentesAreReceivedForSearching(){
         assertEquals("Hello Book", new Book("Hello Book",2013).nameBook);
     }
 

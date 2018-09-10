@@ -22,13 +22,13 @@ public class MenuBibliotecaTest {
     }
 
     @Test
-    public void optionMenuTest(){
+    public void shouldReturnMessageWhenSendingOptionToMenu(){
         assertEquals("Select a valid option", new MenuBiblioteca(library).generateMenu(3));
         assertEquals("Quit", new MenuBiblioteca(library).generateMenu(2));
     }
 
     @Test
-    public void optionSubMenuTest(){
+    public void shouldReturnMessageWhenSendingOptionToSubMenu(){
         assertEquals("Select a valid option", new MenuBiblioteca(library).generateSubMenu(4));
         assertEquals("Quit", new MenuBiblioteca(library).generateSubMenu(3));
     }

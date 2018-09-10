@@ -24,7 +24,7 @@ public class MenuBiblioteca {
         String message="";
         try {
             if (optionValue == 1) {
-                library.showListBooks(library.listBooks);
+                library.showListBooks();
                 printSubMenuOptions();
                 generateSubMenu(Integer.parseInt(receivedOptionSubMenu()));
                 message=messageCorrect;
@@ -53,14 +53,14 @@ public class MenuBiblioteca {
             switch (optionValue) {
                 case 1:
                     receivedParametersForBook();
-                    messageReceived=library.checkoutBook(nameBook,yearBook,library.listBooks);
+                    messageReceived=library.checkoutBook(nameBook,yearBook);
                     printMessageReceived(messageReceived);
                     message = messageCorrect;
                     break;
                 case 2:
                     receivedParametersForBook();
-                    receivedBook=library.searchBookinLibrary(nameBook,yearBook,library.listBooks);
-                    messageReceived=library.returnBook(receivedBook,library.listBooks);
+                    receivedBook=library.searchBookinLibrary(nameBook,yearBook);
+                    messageReceived=library.returnBook(receivedBook);
                     printMessageReceived(messageReceived);
                     message = messageCorrect;
                     break;

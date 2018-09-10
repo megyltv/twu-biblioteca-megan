@@ -21,7 +21,7 @@ public class Library {
         return welcomeMessage;
     }
 
-    public String showListBooks(ArrayList<Book>listBooks){
+    public String showListBooks(){
         System.out.println("\nLIST OF BOOKS\n");
         System.out.printf("%-40s |%-30s |%-20s\n", "NAME OF BOOK", "AUTHOR", "YEAR OF PUBLICATION");
         for(int i=0;i<listBooks.size();i++){
@@ -42,7 +42,7 @@ public class Library {
         return listBooks;
     }
 
-    public String checkoutBook(String nameBookCheckout, int yearBook, ArrayList<Book>listBooks){
+    public String checkoutBook(String nameBookCheckout, int yearBook){
         status=true;
         for(int i=0;i<listBooks.size();i++){
             if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
@@ -58,7 +58,7 @@ public class Library {
         return message;
     }
 
-    public String returnBook(Book newBook,ArrayList<Book>listBooks){
+    public String returnBook(Book newBook){
         statusReturnedBook=false;
         for(int i=0;i<listBooks.size();i++){
             if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&
@@ -75,7 +75,7 @@ public class Library {
         return message;
     }
 
-    public Book searchBookinLibrary(String nameBook, int yearBook, ArrayList<Book>listBooks){
+    public Book searchBookinLibrary(String nameBook, int yearBook){
         findBook = new Book();
         for (int i = 0; i < listBooks.size(); i++) {
             if (nameBook.equals(listBooks.get(i).nameBook) && listBooks.get(i).publicationYear == yearBook) {
@@ -86,4 +86,9 @@ public class Library {
         }
         return findBook;
     }
+
+    public ArrayList<Book> getListBooks() {
+        return listBooks;
+    }
+
 }
