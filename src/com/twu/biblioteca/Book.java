@@ -4,7 +4,7 @@ public class Book {
     protected String nameBook;
     protected String author;
     protected int publicationYear;
-    protected boolean checkout;
+    protected boolean isAvailable;
 
     public Book(){}
 
@@ -12,7 +12,7 @@ public class Book {
         this.nameBook = nameBook;
         this.author = author;
         this.publicationYear = publicationYear;
-        this.checkout=true;
+        this.isAvailable =true;
     }
 
     public Book(String nameBookReceived, int yearBookReceived){
@@ -22,10 +22,10 @@ public class Book {
 
 
     public Book changeCheckout(Book bookCheckoutChange){
-        if(!checkout){
-            bookCheckoutChange.checkout=true;
+        if(!isAvailable){
+            bookCheckoutChange.isAvailable =true;
         }else{
-            bookCheckoutChange.checkout=false;
+            bookCheckoutChange.isAvailable =false;
         }
 
         return bookCheckoutChange;

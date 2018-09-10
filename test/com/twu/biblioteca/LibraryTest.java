@@ -47,15 +47,15 @@ public class LibraryTest {
 
     @Test
     public void returnSuccessfulTest(){
-        listBooks.get(0).checkout=false;
-        System.out.println(listBooks.get(0).nameBook+" "+listBooks.get(0).publicationYear+" "+listBooks.get(0).checkout);
+        listBooks.get(0).isAvailable =false;
+        System.out.println(listBooks.get(0).nameBook+" "+listBooks.get(0).publicationYear+" "+listBooks.get(0).isAvailable);
         assertEquals("Thank you for returning the book",library.returnBook((listBooks.get(0)),listBooks));
 
     }
 
     @Test
     public void returnUnsuccessfulTest(){
-        listBooks.get(0).checkout=false;
+        listBooks.get(0).isAvailable =false;
         assertEquals("That is not a valid book to return",library.returnBook((library.listBooks.get(0)),listBooks));
     }
 

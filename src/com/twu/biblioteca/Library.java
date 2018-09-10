@@ -25,7 +25,7 @@ public class Library {
         System.out.println("\nLIST OF BOOKS\n");
         System.out.printf("%-40s |%-30s |%-20s\n", "NAME OF BOOK", "AUTHOR", "YEAR OF PUBLICATION");
         for(int i=0;i<listBooks.size();i++){
-            if(listBooks.get(i).checkout) {
+            if(listBooks.get(i).isAvailable) {
                 detailsBook=listBooks.get(i).informationOfBook(listBooks.get(i));
             }
         }
@@ -47,7 +47,7 @@ public class Library {
         for(int i=0;i<listBooks.size();i++){
             if(nameBookCheckout.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==yearBook){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
-                status=listBooks.get(i).checkout;
+                status=listBooks.get(i).isAvailable;
                 message="Thank you! Enjoy the book";
                 break;
             }
@@ -62,9 +62,9 @@ public class Library {
         statusReturnedBook=false;
         for(int i=0;i<listBooks.size();i++){
             if(newBook.nameBook.equals(listBooks.get(i).nameBook)&&listBooks.get(i).publicationYear==newBook.publicationYear&&
-                    !newBook.checkout){
+                    !newBook.isAvailable){
                 listBooks.get(i).changeCheckout(listBooks.get(i));
-                statusReturnedBook=listBooks.get(i).checkout;
+                statusReturnedBook=listBooks.get(i).isAvailable;
                 message="Thank you for returning the book";
             }
         }

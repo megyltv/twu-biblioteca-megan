@@ -15,8 +15,8 @@ public class BookTest {
 
     @Test
     public void changeCheckoutTest(){
-        assertEquals(false,newBook.changeCheckout(newBook).checkout);
-        assertEquals(true,newBook.changeCheckout(newBook).checkout);
+        assertEquals(false,newBook.changeCheckout(newBook).isAvailable);
+        assertEquals(true,newBook.changeCheckout(newBook).isAvailable);
     }
 
     @Test
