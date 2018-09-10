@@ -4,9 +4,9 @@ Biblioteca is a new system which implements a Library Management System for  the
 
 ## Table of contents
 
-- [Tools Used](#tools)
-- [Instructions to download code](#instructions)
-- [Instructions to open your code in Intellij](#instructionsOpen)
+- [Tools Used](#tools-used)
+- [Instructions to download code](#instructions-to-download-code)
+- [Instructions to open your code in Intellij](#instructions-to-open-your-code)
 
 ## Tools used
 
