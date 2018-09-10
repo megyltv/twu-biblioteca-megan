@@ -2,6 +2,12 @@
 
 Biblioteca is a new system which implements a Library Management System for  the Bangalore Public Library.
 
+## Table of contents
+
+- [Tools Used](#tools)
+- [Instructions to download code](#instructions)
+- [Instructions to open your code in Intellij](#instructionsOpen)
+
 ## Tools used
 
 * Java 8
