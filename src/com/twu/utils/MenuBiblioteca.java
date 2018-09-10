@@ -6,10 +6,12 @@ import com.twu.biblioteca.Library;
 import java.util.Scanner;
 
 public class MenuBiblioteca {
-    protected Library library;
-    protected Book receivedBook;
-    protected String message="";
-    protected String messageReceived="";
+    private Library library;
+    private Book receivedBook;
+
+    private static final String messageCorrect="Correct Option";
+    private static final String messageQuit="Quit";
+    private static final String messageIncorrect="Select a valid option";
 
     private String nameBook;
     private int yearBook;
@@ -19,16 +21,17 @@ public class MenuBiblioteca {
     }
 
     public String generateMenu(int optionValue){
+        String message="";
         try {
             if (optionValue == 1) {
                 library.showListBooks(library.listBooks);
                 printSubMenuOptions();
                 generateSubMenu(Integer.parseInt(receivedOptionSubMenu()));
-                message = "Correct option";
+                message=messageCorrect;
             } else if (optionValue == 2) {
-                message = "Quit";
+                message = messageQuit;
             } else {
-                message="Select a valid option";
+                message=messageIncorrect;
                 printMessageReceived(message);
             }
         }catch (NumberFormatException ex){
@@ -45,22 +48,24 @@ public class MenuBiblioteca {
     }
 
     public String generateSubMenu(int optionValue){
+        String message;
+        String messageReceived="";
             switch (optionValue) {
                 case 1:
                     receivedParametersForBook();
                     messageReceived=library.checkoutBook(nameBook,yearBook,library.listBooks);
                     printMessageReceived(messageReceived);
-                    message = "Correct option";
+                    message = messageCorrect;
                     break;
                 case 2:
                     receivedParametersForBook();
                     receivedBook=library.searchBookinLibrary(nameBook,yearBook,library.listBooks);
                     messageReceived=library.returnBook(receivedBook,library.listBooks);
                     printMessageReceived(messageReceived);
-                    message = "Correct option";
+                    message = messageCorrect;
                     break;
                 case 3:
-                    message = "Quit";
+                    message = messageQuit;
                     break;
                 default:
                     message="Select a valid option";
