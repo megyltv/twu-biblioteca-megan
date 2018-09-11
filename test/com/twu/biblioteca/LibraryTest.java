@@ -7,7 +7,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertEquals;
+
 
 public class LibraryTest {
     public Library library;
@@ -27,26 +32,36 @@ public class LibraryTest {
     }
 
     @Test
-    public void createListOfBookTest(){
-        assertEquals("Test Driven Development: By Example",listBooks.get(0).getNameBook());
+    public void shouldReturnSizeOfListOfBooksWhenItIsCreated(){
+        List<Book> listBooksCreated=library.createListOfBooks();
+        int sizeList=library.listBooks.size();
+
+        assertThat(listBooksCreated,hasSize(sizeList));
     }
+
 
     @Test
     public void shouldReturnDataOfLastBookOfTheListOfBooksWhenSendAList(){
-        assertEquals("The C Programming Language \t| Dennis Ritchie \t| 1978",library.showListBooks());
+        String informationBook="The C Programming Language \t| Dennis Ritchie \t| 1978";
+
+        assertEquals(informationBook,library.showListBooks());
     }
 
     @Test
     public void shouldReturnSuccessfulMessageWhenCheckoutHappen(){
+        String messageExpected="Thank you! Enjoy the book";
         String nameBook="Test Driven Development: By Example";
         int yearBook=2002;
 
-        assertEquals("Thank you! Enjoy the book",library.checkoutBook(nameBook, yearBook));
+
+        assertEquals(messageExpected,library.checkoutBook(nameBook, yearBook));
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenErrorInCheckout(){
-        assertEquals("That book is not available",library.checkoutBook("Test Driven Development",2003));
+        String messageExpected="That book is not available";
+
+        assertEquals(messageExpected,library.checkoutBook("Test Driven Development",2003));
     }
 
     @Test
@@ -74,8 +89,12 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnNameOfBookWhenItIsSearch(){
-        assertEquals("Test Driven Development: By Example" ,library.searchBookinLibrary("Test Driven Development: By Example",2002).getNameBook());
-        assertEquals("Hello Book", library.searchBookinLibrary("Hello Book",2013).getNameBook());
+        Book bookSearchedInLibrary=library.searchBookinLibrary("Test Driven Development: By Example",2002);
+        Book bookSearchedNotInLibrary=library.searchBookinLibrary("Hello Book",2013);
+
+        assertThat(bookSearchedInLibrary,is(notNullValue()));
+        assertThat(bookSearchedNotInLibrary,is(notNullValue()));
+
     }
 
 }

@@ -88,12 +88,7 @@ public class Library {
                 findBook = new Book(nameBook, yearBook);
             }
         }
-        System.out.println(findBook.getNameBook()+" "+findBook.isAvailable()+" "+findBook.getPublicationYear());
         return findBook;
-    }
-
-    public List<Book> getListBooks() {
-        return listBooks;
     }
 
 }

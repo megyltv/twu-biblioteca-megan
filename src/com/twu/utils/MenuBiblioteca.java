@@ -16,6 +16,8 @@ public class MenuBiblioteca {
     private String nameBook;
     private int yearBook;
 
+    public MenuBiblioteca() { }
+
     public MenuBiblioteca(Library library) {
         this.library=library;
     }
@@ -48,7 +50,7 @@ public class MenuBiblioteca {
     }
 
     public String generateSubMenu(int optionValue){
-        String message;
+        String message="";
         String messageReceived="";
             switch (optionValue) {
                 case 1:
@@ -68,14 +70,14 @@ public class MenuBiblioteca {
                     message = messageQuit;
                     break;
                 default:
-                    message="Select a valid option";
-                    printMessageReceived(message);
+                    message=messageIncorrect;
+                    printMessageReceived(messageIncorrect);
                     break;
             }
         return message;
     }
 
-    public void printSubMenuOptions(){
+    private void printSubMenuOptions(){
         System.out.println("\nWhat do you want to do today?\n");
         System.out.println("1. Checkout Book");
         System.out.println("2. Return Book");
@@ -89,7 +91,7 @@ public class MenuBiblioteca {
 
     }
 
-    public String receivedOptionSubMenu(){
+    private String receivedOptionSubMenu(){
         return new Scanner(System.in).nextLine();
     }
 
@@ -98,5 +100,7 @@ public class MenuBiblioteca {
         nameBook=new Scanner(System.in).nextLine();
         System.out.print("Year of the book: ");
         yearBook=Integer.parseInt(new Scanner(System.in).nextLine());
+
+
     }
 }

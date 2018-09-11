@@ -5,6 +5,8 @@ import com.twu.biblioteca.Library;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ import static org.junit.Assert.*;
 public class MenuBibliotecaTest {
     public Library library;
     public List<Book> listBooks;
+    private final ByteArrayOutputStream outContent= new ByteArrayOutputStream();
 
     @Before
     public void SetUp(){
@@ -20,18 +23,34 @@ public class MenuBibliotecaTest {
         listBooks=new ArrayList<Book>();
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
         listBooks.add(new Book("The C Programming Language","Dennis Ritchie",1978));
+
     }
 
     @Test
     public void shouldReturnMessageWhenSendingOptionToMenu(){
-        assertEquals("Select a valid option", new MenuBiblioteca(library).generateMenu(3));
-        assertEquals("Quit", new MenuBiblioteca(library).generateMenu(2));
+        String messageReceivedValidOption="Select a valid option";
+        String messageReceivedInvalidOption="Quit";
+
+        assertEquals(messageReceivedValidOption, new MenuBiblioteca(library).generateMenu(3));
+        assertEquals(messageReceivedInvalidOption, new MenuBiblioteca(library).generateMenu(2));
     }
 
     @Test
     public void shouldReturnMessageWhenSendingOptionToSubMenu(){
-        assertEquals("Select a valid option", new MenuBiblioteca(library).generateSubMenu(4));
-        assertEquals("Quit", new MenuBiblioteca(library).generateSubMenu(3));
+        String messageReceivedValidOption="Select a valid option";
+        String messageReceivedInvalidOption="Quit";
+
+        assertEquals(messageReceivedValidOption, new MenuBiblioteca(library).generateSubMenu(4));
+        assertEquals(messageReceivedInvalidOption, new MenuBiblioteca(library).generateSubMenu(3));
+    }
+
+    @Test
+    public void shouldReturnMenuShowedInConsoleWhenTheMenuIsGenerated(){
+        MenuBiblioteca menu= new MenuBiblioteca();
+        menu.printMenuOptions();
+
+        System.setOut(new PrintStream(outContent));
+
     }
 
 }
