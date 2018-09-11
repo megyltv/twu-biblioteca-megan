@@ -45,11 +45,11 @@ public class Library {
         String message="";
         status=true;
         for(int i=0;i<listBooks.size();i++){
-            if(nameBookCheckout.equals(listBooks.get(i).getNameBook())&&listBooks.get(i).getPublicationYear()==yearBook){
-                listBooks.get(i).changeCheckout(listBooks.get(i));
+            System.out.println(listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
+            if(nameBookCheckout.equals(listBooks.get(i).getNameBook())&&listBooks.get(i).getPublicationYear()==yearBook&&listBooks.get(i).isAvailable()){
+                listBooks.get(i).setAvailable(listBooks.get(i).changeCheckout());
                 status=listBooks.get(i).isAvailable();
                 message="Thank you! Enjoy the book";
-                System.out.println("Entro "+listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
                 break;
             }
         }
@@ -63,12 +63,9 @@ public class Library {
         String message="";
         statusReturnedBook=false;
         for(int i=0;i<listBooks.size();i++){
-            System.out.println(listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
             if(findBook.getNameBook().equals(listBooks.get(i).getNameBook()) && listBooks.get(i).getPublicationYear()==findBook.getPublicationYear() &&
                     findBook.isAvailable()==listBooks.get(i).isAvailable()){
-                System.out.println("Entro");
-                System.out.println(listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
-                listBooks.get(i).changeCheckout(listBooks.get(i));
+                listBooks.get(i).setAvailable(listBooks.get(i).changeCheckout());
                 statusReturnedBook=listBooks.get(i).isAvailable();
                 message="Thank you for returning the book";
             }

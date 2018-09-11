@@ -38,8 +38,10 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenCheckoutHappen(){
+        String nameBook="Test Driven Development: By Example";
+        int yearBook=2002;
 
-        assertEquals("Thank you! Enjoy the book",library.checkoutBook("Test Driven Development: By Example", 2003));
+        assertEquals("Thank you! Enjoy the book",library.checkoutBook(nameBook, yearBook));
     }
 
     @Test

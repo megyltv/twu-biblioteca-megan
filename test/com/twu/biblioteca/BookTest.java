@@ -10,13 +10,17 @@ public class BookTest {
 
     @Before
     public void initializeDataTest() {
-         newBook= new Book("Test Driven Development: By Example", "Kent Beck", 2002);
+
+        newBook= new Book("Test Driven Development: By Example", "Kent Beck", 2002);
     }
 
     @Test
     public void shouldReturnStatusChangedWhenItIsCheckout(){
-        assertEquals(false,newBook.changeCheckout(newBook).isAvailable());
-        assertEquals(true,newBook.changeCheckout(newBook).isAvailable());
+        assertEquals(false,newBook.changeCheckout());
+
+        newBook.setAvailable(false);
+
+        assertEquals(true,newBook.changeCheckout());
     }
 
     @Test

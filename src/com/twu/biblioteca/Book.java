@@ -21,15 +21,8 @@ public class Book {
     }
 
 
-    public Book changeCheckout(Book bookCheckoutChange){
-        System.out.println("Cambio Estado");
-        if(!isAvailable){
-            bookCheckoutChange.isAvailable =true;
-        }else{
-            bookCheckoutChange.isAvailable =false;
-        }
-
-        return bookCheckoutChange;
+    public boolean changeCheckout(){
+        return !isAvailable;
     }
 
     public String informationOfBook(Book newBook){
