@@ -29,7 +29,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldCreateNewBookWhenNewParamentesAreReceivedForSearching(){
+    public void shouldCreateNewBookWhenNewParametersAreReceivedForSearching(){
         assertEquals("Hello Book", new Book("Hello Book",2013).getNameBook());
     }
 
