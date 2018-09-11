@@ -59,8 +59,8 @@ public class MenuBiblioteca {
                     break;
                 case 2:
                     receivedParametersForBook();
-                    receivedBook=library.searchBookinLibrary(nameBook,yearBook);
-                    messageReceived=library.returnBook(receivedBook);
+                    library.searchBookinLibrary(nameBook,yearBook);
+                    messageReceived=library.returnBook();
                     printMessageReceived(messageReceived);
                     message = messageCorrect;
                     break;

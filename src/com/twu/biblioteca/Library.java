@@ -34,7 +34,6 @@ public class Library {
 
     public List<Book> createListOfBooks(){
         listBooks=new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2003));
         listBooks.add(new Book("Test Driven Development: By Example","Kent Beck",2002));
         listBooks.add(new Book("Clean Code","Robert Cecil Martin",2008));
         listBooks.add(new Book("Code Complete","Steve McConnell",1993));
@@ -50,6 +49,7 @@ public class Library {
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 status=listBooks.get(i).isAvailable();
                 message="Thank you! Enjoy the book";
+                System.out.println("Entro "+listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
                 break;
             }
         }
@@ -59,12 +59,15 @@ public class Library {
         return message;
     }
 
-    public String returnBook(Book newBook){
+    public String returnBook(){
         String message="";
         statusReturnedBook=false;
         for(int i=0;i<listBooks.size();i++){
-            if(newBook.getNameBook().equals(listBooks.get(i).getNameBook()) && listBooks.get(i).getPublicationYear()==newBook.getPublicationYear() &&
-                    !newBook.isAvailable()){
+            System.out.println(listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
+            if(findBook.getNameBook().equals(listBooks.get(i).getNameBook()) && listBooks.get(i).getPublicationYear()==findBook.getPublicationYear() &&
+                    findBook.isAvailable()==listBooks.get(i).isAvailable()){
+                System.out.println("Entro");
+                System.out.println(listBooks.get(i).getNameBook()+" "+listBooks.get(i).isAvailable());
                 listBooks.get(i).changeCheckout(listBooks.get(i));
                 statusReturnedBook=listBooks.get(i).isAvailable();
                 message="Thank you for returning the book";
@@ -72,6 +75,7 @@ public class Library {
         }
         if(!statusReturnedBook) {
             message = "That is not a valid book to return";
+
         }
 
         return message;
@@ -82,10 +86,12 @@ public class Library {
         for (int i = 0; i < listBooks.size(); i++) {
             if (nameBook.equals(listBooks.get(i).getNameBook()) && listBooks.get(i).getPublicationYear() == yearBook) {
                 findBook = listBooks.get(i);
+
             }else{
                 findBook = new Book(nameBook, yearBook);
             }
         }
+        System.out.println(findBook.getNameBook()+" "+findBook.isAvailable()+" "+findBook.getPublicationYear());
         return findBook;
     }
 

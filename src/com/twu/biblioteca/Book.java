@@ -22,6 +22,7 @@ public class Book {
 
 
     public Book changeCheckout(Book bookCheckoutChange){
+        System.out.println("Cambio Estado");
         if(!isAvailable){
             bookCheckoutChange.isAvailable =true;
         }else{

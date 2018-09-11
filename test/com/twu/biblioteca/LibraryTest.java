@@ -38,6 +38,7 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenCheckoutHappen(){
+
         assertEquals("Thank you! Enjoy the book",library.checkoutBook("Test Driven Development: By Example", 2003));
     }
 
@@ -48,15 +49,25 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenTheBookIsReturned(){
-        library.listBooks.get(0).setAvailable(false);
-        assertEquals("Thank you for returning the book",library.returnBook((library.listBooks.get(0))));
+        String nameBook="Test Driven Development: By Example";
+        int year=2002;
+
+        library.checkoutBook(nameBook,year);
+
+        library.searchBookinLibrary(nameBook,year);
+
+        assertEquals("Thank you for returning the book",library.returnBook());
 
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenErrorInReturn(){
-        listBooks.get(0).setAvailable(true);
-        assertEquals("That is not a valid book to return",library.returnBook((library.listBooks.get(0))));
+        String nameBook="Test Driven Development: By Example";
+        int year=2002;
+
+        library.searchBookinLibrary(nameBook,year);
+
+        assertEquals("That is not a valid book to return",library.returnBook());
     }
 
     @Test
