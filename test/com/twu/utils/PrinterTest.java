@@ -17,7 +17,7 @@ public class PrinterTest {
     }
 
     @Test
-    public void shouldReturnSubMenuInConsoleWhenTheSubmenuIsGenerated(){
+    public void shouldReturnSubMenuInConsoleWhenTheSubmenuIsGenerated() {
         PrinterReader printerReader = new PrinterReader();
         printerReader.printSubMenuOptions();
 
@@ -25,8 +25,8 @@ public class PrinterTest {
     }
 
     @Test
-    public void shouldReturnMessageWhenItIsSendToMethod(){
-        String messageSend="Test";
+    public void shouldReturnMessageWhenItIsSendToMethod() {
+        String messageSend = "Test";
 
         PrinterReader printerReader = new PrinterReader();
         printerReader.printMessageReceived("messageSend");

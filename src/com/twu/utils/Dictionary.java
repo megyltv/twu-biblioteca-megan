@@ -15,5 +15,7 @@ public class Dictionary {
     public static final String messageSuccessfulBookCheckIn="Thank you for returning the book";
     public static final String messageUnsuccessfulBookCheckIn="That is not a valid book to return";
 
+    public static final String messageLoginIncorrect="ID or Password Incorrect";
+
 
 }
