@@ -1,29 +1,33 @@
 package com.twu.library;
 
+import com.twu.utils.Dictionary;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
     public List<Book> listBooks;
     private Book findBook;
+    private Dictionary dictionary;
 
     private Boolean status, statusReturnedBook;
 
     public Library() {
         listBooks = createListOfBooks();
+        dictionary=new Dictionary();
     }
 
 
     public String showWelcomeMessage() {
         String welcomeMessage;
-        welcomeMessage = "WELCOME TO THE LIBRARY :)";
+        welcomeMessage = dictionary.messageWelcomeToLibrary;
         return welcomeMessage;
     }
 
     public String showListBooks() {
         String detailsBook = "";
         System.out.println("\nLIST OF BOOKS\n");
-        System.out.printf("%-40s |%-30s |%-20s\n", "NAME OF BOOK", "AUTHOR", "YEAR OF PUBLICATION");
+        System.out.printf("%-40s |%-30s |%-20s\n", dictionary.titleNameBook, dictionary.titleAuthorBook, dictionary.titleYearPublication);
         for (int i = 0; i < listBooks.size(); i++) {
             if (listBooks.get(i).isAvailable()) {
                 detailsBook = listBooks.get(i).informationOfBook(listBooks.get(i));
@@ -34,10 +38,10 @@ public class Library {
 
     public List<Book> createListOfBooks() {
         listBooks = new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example", "Kent Beck", 2002));
-        listBooks.add(new Book("Clean Code", "Robert Cecil Martin", 2008));
-        listBooks.add(new Book("Code Complete", "Steve McConnell", 1993));
-        listBooks.add(new Book("The C Programming Language", "Dennis Ritchie", 1978));
+        listBooks.add(new Book("Harry Potter", "JK Rowling", 2001));
+        listBooks.add(new Book("The Selection", "Kiera Cass", 2008));
+        listBooks.add(new Book("Percy Jackson", "Rick Riordan", 2010));
+        listBooks.add(new Book("Divergent", "Veronica Roth", 2012));
         return listBooks;
     }
 
@@ -49,12 +53,12 @@ public class Library {
             if (nameBookCheckout.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearBook && bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeCheckout());
                 status = bookLooking.isAvailable();
-                message = "Thank you! Enjoy the book";
+                message = dictionary.messageSuccessfulBookCheckOut;
                 break;
             }
         }
         if (status) {
-            message = "That book is not available";
+            message = dictionary.messageUnsuccessfulBookCheckOut;
         }
         return message;
     }
@@ -67,11 +71,11 @@ public class Library {
                     findBook.isAvailable() == bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeCheckout());
                 statusReturnedBook = bookLooking.isAvailable();
-                message = "Thank you for returning the book";
+                message = dictionary.messageSuccessfulBookCheckIn;
             }
         }
         if (!statusReturnedBook) {
-            message = "That is not a valid book to return";
+            message = dictionary.messageUnsuccessfulBookCheckIn;
 
         }
 

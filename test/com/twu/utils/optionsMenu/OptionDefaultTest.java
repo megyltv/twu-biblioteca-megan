@@ -1,0 +1,26 @@
+package com.twu.utils.optionsMenu;
+
+import com.twu.utils.Dictionary;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class OptionDefaultTest {
+    OptionDefault optionDefault;
+    Dictionary dictionary;
+
+    @Before
+    public void setUp() throws Exception {
+        optionDefault=new OptionDefault();
+        dictionary=new Dictionary();
+    }
+
+    @Test
+    public void shouldReturnMessageOfIncorrectWhenSelectingOtherOption(){
+        String messageExpected= dictionary.messageIncorrect;
+
+        assertEquals(messageExpected,optionDefault.resolve());
+    }
+
+}

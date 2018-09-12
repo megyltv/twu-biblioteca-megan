@@ -1,8 +1,10 @@
 package com.twu.library;
 
 
+import com.twu.utils.Dictionary;
 import org.junit.Before;
 import org.junit.Test;
+import org.omg.PortableInterceptor.DISCARDING;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,18 +19,19 @@ import static org.junit.Assert.assertEquals;
 public class LibraryTest {
     public Library library;
     public List<Book> listBooks;
+    Dictionary dictionary;
 
     @Before
     public void setUp() {
         library = new Library();
         listBooks = new ArrayList<Book>();
-        listBooks.add(new Book("Test Driven Development: By Example", "Kent Beck", 2003));
-        listBooks.add(new Book("The C Programming Language", "Dennis Ritchie", 1978));
+        listBooks.add(new Book("Harry Potter", "JK Rowling", 2001));
+        listBooks.add(new Book("Divergent", "Veronica Roth", 2012));
     }
 
     @Test
     public void shouldShowWelcomeMessageWhenIniatilizingObjectLibrary() {
-        assertEquals("WELCOME TO THE LIBRARY :)", new Library().showWelcomeMessage());
+        assertEquals(dictionary.messageWelcomeToLibrary, new Library().showWelcomeMessage());
     }
 
     @Test
@@ -42,7 +45,7 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnDataOfLastBookOfTheListOfBooksWhenSendAList() {
-        String informationBook = "The C Programming Language \t| Dennis Ritchie \t| 1978";
+        String informationBook = "Divergent \t| Veronica Roth \t| 2012";
 
         assertEquals(informationBook, library.showListBooks());
     }
@@ -50,8 +53,8 @@ public class LibraryTest {
     @Test
     public void shouldReturnSuccessfulMessageWhenCheckoutHappen() {
         String messageExpected = "Thank you! Enjoy the book";
-        String nameBook = "Test Driven Development: By Example";
-        int yearBook = 2002;
+        String nameBook = "Harry Potter";
+        int yearBook = 2001;
 
 
         assertEquals(messageExpected, library.checkoutBook(nameBook, yearBook));
@@ -66,8 +69,8 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenTheBookIsReturned() {
-        String nameBook = "Test Driven Development: By Example";
-        int year = 2002;
+        String nameBook = "Harry Potter";
+        int year = 2001;
 
         library.checkoutBook(nameBook, year);
 
@@ -89,7 +92,7 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnNameOfBookWhenItIsSearch() {
-        Book bookSearchedInLibrary = library.searchBookinLibrary("Test Driven Development: By Example", 2002);
+        Book bookSearchedInLibrary = library.searchBookinLibrary("Harry Potter", 2001);
         Book bookSearchedNotInLibrary = library.searchBookinLibrary("Hello Book", 2013);
 
         assertThat(bookSearchedInLibrary, is(notNullValue()));

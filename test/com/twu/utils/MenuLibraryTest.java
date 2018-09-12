@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 public class MenuLibraryTest {
     public Library library;
     public List<Book> listBooks;
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void SetUp() {
@@ -44,12 +43,5 @@ public class MenuLibraryTest {
         assertEquals(messageReceivedInvalidOption, new MenuLibrary(library).generateSubMenu(3));
     }
 
-    @Test
-    public void shouldReturnMenuShowedInConsoleWhenTheMenuIsGenerated() {
-        MenuLibrary menu = new MenuLibrary();
-        menu.printMenuOptions();
-
-        System.setOut(new PrintStream(outContent));
-    }
 
 }
