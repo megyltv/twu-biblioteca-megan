@@ -25,9 +25,9 @@ public class OptionOne implements Options {
         String informationBook;
 
         informationBook = printerReader.receivedParametersForBook();
-        String[] dataBook = informationBook.split("-");
+        String[] informationBookSeparated = informationBook.split("-");
 
-        messageReceived = library.checkoutBook(dataBook[0], Integer.parseInt(dataBook[1]));
+        messageReceived = library.checkoutBook(informationBookSeparated[0], Integer.parseInt(informationBookSeparated[1]));
 
         printerReader.printMessageReceived(messageReceived);
         message = dictionary.messageCorrect;

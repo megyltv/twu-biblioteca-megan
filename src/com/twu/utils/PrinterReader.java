@@ -37,4 +37,16 @@ public class PrinterReader {
         return nameBook+"-"+yearBook;
 
     }
+
+    public String receivedParametersForLogin(){
+        String idCodeUser;
+        String password;
+
+        System.out.print("ID User Code: ");
+        idCodeUser=new Scanner(System.in).nextLine();
+        System.out.print("Password: ");
+        password=new Scanner(System.in).nextLine();
+
+        return idCodeUser+"/"+password;
+    }
 }

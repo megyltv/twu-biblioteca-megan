@@ -26,9 +26,9 @@ public class OptionTwo implements Options {
         String informationBook;
 
         informationBook = printerReader.receivedParametersForBook();
-        String[] dataBook = informationBook.split("-");
+        String[] informationBookSeparate = informationBook.split("-");
 
-        library.searchBookinLibrary(dataBook[0], Integer.parseInt(dataBook[1]));
+        library.searchBookinLibrary(informationBookSeparate[0], Integer.parseInt(informationBookSeparate[1]));
         messageReceived = library.returnBook();
         printerReader.printMessageReceived(messageReceived);
         message = dictionary.messageCorrect;
