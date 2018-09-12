@@ -1,17 +1,13 @@
 package com.twu.utils;
 
-import com.twu.library.Book;
 import com.twu.library.Library;
 
 import java.util.Scanner;
 
 public class MenuLibrary {
     private Library library;
-    private Book receivedBook;
-
-    private static final String messageCorrect = "Correct Option";
-    private static final String messageQuit = "Quit";
-    private static final String messageIncorrect = "Select a valid option";
+    public MenuAbstract submenuOption;;
+    private Dictionary dictionary;
 
     private String nameBook;
     private int yearBook;
@@ -30,11 +26,11 @@ public class MenuLibrary {
                 library.showListBooks();
                 printSubMenuOptions();
                 generateSubMenu(Integer.parseInt(receivedOptionSubMenu()));
-                message = messageCorrect;
+                message = dictionary.messageCorrect;
             } else if (optionValue == 2) {
-                message = messageQuit;
+                message = dictionary.messageQuit;
             } else {
-                message = messageIncorrect;
+                message = dictionary.messageIncorrect;
                 printMessageReceived(message);
             }
         } catch (NumberFormatException ex) {
@@ -52,29 +48,10 @@ public class MenuLibrary {
 
     public String generateSubMenu(int optionValue) {
         String message = "";
-        String messageReceived = "";
-        switch (optionValue) {
-            case 1:
-                receivedParametersForBook();
-                messageReceived = library.checkoutBook(nameBook, yearBook);
-                printMessageReceived(messageReceived);
-                message = messageCorrect;
-                break;
-            case 2:
-                receivedParametersForBook();
-                library.searchBookinLibrary(nameBook, yearBook);
-                messageReceived = library.returnBook();
-                printMessageReceived(messageReceived);
-                message = messageCorrect;
-                break;
-            case 3:
-                message = messageQuit;
-                break;
-            default:
-                message = messageIncorrect;
-                printMessageReceived(messageIncorrect);
-                break;
-        }
+        submenuOption = new SubMenu(optionValue,library);
+
+        message=submenuOption.performResolve();
+
         return message;
     }
 
@@ -86,7 +63,7 @@ public class MenuLibrary {
         System.out.print("Select number: ");
     }
 
-    private void printMessageReceived(String message) {
+    public void printMessageReceived(String message) {
         System.out.println("\n---------------------------\n" +
                 message + "\n---------------------------\n");
 
@@ -96,12 +73,13 @@ public class MenuLibrary {
         return new Scanner(System.in).nextLine();
     }
 
-    private void receivedParametersForBook() {
+    public String receivedParametersForBook() {
         System.out.print("Name of Book: ");
         nameBook = new Scanner(System.in).nextLine();
         System.out.print("Year of the book: ");
         yearBook = Integer.parseInt(new Scanner(System.in).nextLine());
 
+        return nameBook+"-"+yearBook;
 
     }
 }
