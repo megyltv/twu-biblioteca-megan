@@ -57,6 +57,16 @@ public class MovieLibraryTest {
         assertEquals(messageExpected,movieLibrary.checkinItem());
     }
 
+    @Test
+    public void shouldReturnUnSuccessfulMessageWhenErrorInReturning(){
+        String nameMovie="Harry Potter";
+        String messgeExpected=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
+
+        movieLibrary.searchItem(nameMovie,0);
+
+        assertEquals(messgeExpected,movieLibrary.checkinItem());
+    }
+
 
 
     @Test
