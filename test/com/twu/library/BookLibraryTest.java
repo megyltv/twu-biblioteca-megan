@@ -74,7 +74,7 @@ public class BookLibraryTest {
     }
 
     @Test
-    public void shouldReturnNameOfBookWhenItIsSearch() {
+    public void shouldReturnBookNotNullWhenItIsSearch() {
         Book bookSearchedInLibrary = (Book) bookLibrary.searchItem("Harry Potter", 2001);
         Book bookSearchedNotInLibrary = (Book)bookLibrary.searchItem("Hello Book", 2013);
 

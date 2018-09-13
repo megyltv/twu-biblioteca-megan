@@ -11,6 +11,7 @@ public class MovieLibrary implements ItemLibrary{
     private List<Movie>listMovies;
     private PrinterReader printerReader;
     private Dictionary dictionary;
+    private Movie findMovie;
 
     public MovieLibrary(List<Movie>listMovies, Login login) {
         this.listMovies=listMovies;
@@ -49,11 +50,23 @@ public class MovieLibrary implements ItemLibrary{
 
     @Override
     public String checkinItem() {
-        return null;
+        String message=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
+
+        for (Movie movieLooking:listMovies){
+        }
+
+        return message;
     }
 
     @Override
     public Object searchItem(String nameItem, int yearItem) {
-        return null;
+        findMovie= new Movie(nameItem);
+        for(Movie movie:listMovies){
+            if(movie.getNameMovie().equals(nameItem)){
+                findMovie=movie;
+            }
+        }
+
+        return findMovie;
     }
 }

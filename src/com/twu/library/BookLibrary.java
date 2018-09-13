@@ -65,13 +65,11 @@ public class BookLibrary implements ItemLibrary {
 
     @Override
     public Object searchItem(String nameItem, int yearItem) {
-        findBook = new Book();
+        findBook=new Book(nameItem,yearItem);
         for (Book bookLooking : listBooks) {
             if (nameItem.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearItem) {
                 findBook = bookLooking;
 
-            } else {
-                findBook = new Book(nameItem, yearItem);
             }
         }
         return findBook;
