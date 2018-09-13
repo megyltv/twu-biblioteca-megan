@@ -14,9 +14,7 @@ public class MenuLibrary {
     private Dictionary dictionary;
     private PrinterReader printerReader;
 
-
-    private String nameBook;
-    private int yearBook;
+    int optionValue;
 
     public MenuLibrary() {
     }
@@ -35,30 +33,50 @@ public class MenuLibrary {
         dictionary = new Dictionary();
     }
 
-    public String generateMenu(int optionValue) {
+    public void generateMenu(int optionValue) {
         String message = "";
-        try {
-            if (optionValue == 1) {
-                library.showListBooks();
-                printerReader.printSubMenuOptions();
-                generateSubMenu(Integer.parseInt(receivedOptionSubMenu()));
-                message = dictionary.MESSAGE_CORRECT;
-            } else if (optionValue == 2) {
-                //Movies
-            }else if(optionValue==3) {
-                user=login.getCurrentUser();
-                printerReader.printTitles(dictionary.TITLE_USER_INFORMATION);
-                user.printUserInformation();
-            }else if(optionValue==4){
-                message = dictionary.MESSAGE_QUIT;
-            } else {
-                message = dictionary.MESSAGE_INCORRECT;
-                printerReader.printMessageReceived(message);
+        this.optionValue=optionValue;
+        do{
+            try {
+                if (optionValue == 1) {
+                    library.showListBooks();
+                    printerReader.printSubMenuOptions();
+                    generateSubMenu(Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu()));
+                    message = dictionary.MESSAGE_CORRECT;
+                }
+                if (optionValue == 2) {
+                    //Movies
+                }
+                if(optionValue==3) {
+                    user=login.getCurrentUser();
+                    printerReader.printTitles(dictionary.TITLE_USER_INFORMATION);
+                    user.printUserInformation();
+                    message=dictionary.MESSAGE_CORRECT;
+                }
+                if(optionValue==4){
+                    message = dictionary.MESSAGE_QUIT;
+                    login.logOut();
+                }
+                if (optionValue>4){
+                    message = dictionary.MESSAGE_INCORRECT;
+                    printerReader.printMessageReceived(message);
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("\n" + dictionary.MESSAGE_TRY_CATCH_MENU);
             }
-        } catch (NumberFormatException ex) {
-            System.out.println("\n" + dictionary.MESSAGE_TRY_CATCH_MENU);
+
+            optionValue=generateOptionsMenu(message);
+
+        }while (message != dictionary.MESSAGE_QUIT);
+    }
+
+    private int generateOptionsMenu(String message){
+        System.out.println(message);
+        if(message!=dictionary.MESSAGE_QUIT) {
+            printerReader.printMenuOptions();
+            optionValue = Integer.parseInt(new Scanner(System.in).nextLine());
         }
-        return message;
+        return optionValue;
     }
 
 
@@ -69,11 +87,6 @@ public class MenuLibrary {
         message = submenuOption.performResolve();
 
         return message;
-    }
-
-
-    private String receivedOptionSubMenu() {
-        return new Scanner(System.in).nextLine();
     }
 
 

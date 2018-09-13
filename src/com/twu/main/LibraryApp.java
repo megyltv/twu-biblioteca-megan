@@ -24,29 +24,32 @@ public class LibraryApp {
         boolean loginStatus;
         String messageIncorrect;
 
-        loginUserInformation=printerReader.receivedParametersForLogin();
-        loginUserInformationSeparated=loginUserInformation.split("/");
 
-        loginStatus=login.compareCredentials(loginUserInformationSeparated[0],loginUserInformationSeparated[1]);
+        do{
+            printerReader.printTitles(dictionary.MESSAGE_LOGIN);
+            loginUserInformation=printerReader.receivedParametersForLogin();
+            loginUserInformationSeparated=loginUserInformation.split("/");
 
-        menu=new MenuLibrary(library,login);
+            loginStatus=login.compareCredentials(loginUserInformationSeparated[0],loginUserInformationSeparated[1]);
 
-        if(loginStatus){
-            do {
+            menu=new MenuLibrary(library,login);
+
+            if(loginStatus){
                 printerReader.printTitles(library.showWelcomeMessage());
                 try {
                     printerReader.printMenuOptions();
-                    optionMenu = Integer.parseInt(new Scanner(System.in).nextLine());
-                    message = menu.generateMenu(optionMenu);
+                    optionMenu = Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu());
+                    menu.generateMenu(optionMenu);
                 } catch (NumberFormatException ex) {
                     System.out.println(dictionary.MESSAGE_TRY_CATCH_MENU);
                 }
+            }else{
+                messageIncorrect=login.showMessageIfIncorrect(loginStatus);
+                printerReader.printMessageReceived(messageIncorrect);
+            }
+            loginStatus=false;
 
-            } while (message != dictionary.MESSAGE_QUIT);
-        }else{
-            messageIncorrect=login.showMessageIfIncorrect(loginStatus);
-            printerReader.printMessageReceived(messageIncorrect);
-        }
+        }while (!loginStatus);
 
     }
 }

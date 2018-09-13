@@ -15,6 +15,7 @@ public class Dictionary {
     public static final String MESSAGE_SUCCESSFUL_BOOK_CHECK_IN ="Thank you for returning the book";
     public static final String MESSAGE_UNSUCCESSFUL_BOOK_CHECK_IN ="That is not a valid book to return";
 
+    public static final String MESSAGE_LOGIN="\nBANGALORE LIBRARY\nLog In";
     public static final String MESSAGE_LOGIN_INCORRECT ="ID or Password Incorrect";
     public static final String TITLE_USER_INFORMATION="User Information";
 

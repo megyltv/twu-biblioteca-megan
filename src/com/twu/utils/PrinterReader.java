@@ -9,7 +9,7 @@ public class PrinterReader {
         System.out.println("1. List Books");
         System.out.println("2. List Movies");
         System.out.println("3. User Information");
-        System.out.println("4. Quit");
+        System.out.println("4. Log Out");
         System.out.print("Option: ");
     }
 
@@ -25,6 +25,10 @@ public class PrinterReader {
         System.out.println("\n---------------------------\n" +
                 message + "\n---------------------------\n");
 
+    }
+
+    public String receivedOptionForMenuOrSubMenu(){
+        return new Scanner(System.in).nextLine();
     }
 
     public String receivedParametersForBook() {

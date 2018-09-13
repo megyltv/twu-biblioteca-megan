@@ -5,8 +5,6 @@ import com.twu.library.Library;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +21,6 @@ public class MenuLibraryTest {
         listBooks.add(new Book("Test Driven Development: By Example", "Kent Beck", 2003));
         listBooks.add(new Book("The C Programming Language", "Dennis Ritchie", 1978));
 
-    }
-
-    @Test
-    public void shouldReturnMessageWhenSendingOptionToMenu() {
-        String messageReceivedValidOption = "Select a valid option";
-        String messageReceivedInvalidOption = "Quit";
-
-        assertEquals(messageReceivedValidOption, new MenuLibrary(library).generateMenu(3));
-        assertEquals(messageReceivedInvalidOption, new MenuLibrary(library).generateMenu(2));
     }
 
     @Test
