@@ -51,8 +51,13 @@ public class MovieLibraryTest {
         String nameMovie="Titanic";
         String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
 
+        movieLibrary.checkoutItem(nameMovie,0);
+        movieLibrary.searchItem(nameMovie,0);
+
         assertEquals(messageExpected,movieLibrary.checkinItem());
     }
+
+
 
     @Test
     public void shouldReturnMovieNotNullWhenItIsSearched(){
