@@ -12,6 +12,7 @@ public class Login {
 
     public Login(){
         userList=createUsers();
+        currentUser=new User();
     }
 
     public boolean compareUser(String idLibraryCode,User user){
@@ -46,7 +47,7 @@ public class Login {
     public String showMessageIfIncorrect(boolean received){
         String messageReceivedIfIncorrect="";
         if(!received){
-            messageReceivedIfIncorrect=dictionary.messageLoginIncorrect;
+            messageReceivedIfIncorrect=dictionary.MESSAGE_LOGIN_INCORRECT;
         }
         return messageReceivedIfIncorrect;
     }

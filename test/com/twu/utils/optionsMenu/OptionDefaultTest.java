@@ -18,7 +18,7 @@ public class OptionDefaultTest {
 
     @Test
     public void shouldReturnMessageOfIncorrectWhenSelectingOtherOption(){
-        String messageExpected= dictionary.messageIncorrect;
+        String messageExpected= dictionary.MESSAGE_INCORRECT;
 
         assertEquals(messageExpected,optionDefault.resolve());
     }

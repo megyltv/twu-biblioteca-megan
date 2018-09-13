@@ -18,7 +18,7 @@ public class OptionThreeTest {
 
     @Test
     public void shouldReceiveQuitMessageWhenSelectingOptionThree() {
-        String messageExpected = dictionary.messageQuit;
+        String messageExpected = dictionary.MESSAGE_QUIT;
 
         assertEquals(messageExpected, optionThree.resolve());
 

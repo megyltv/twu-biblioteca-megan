@@ -12,7 +12,7 @@ public class LibraryApp {
 
     public static void main(String[] args) {
         Library library = new Library();
-        MenuLibrary menu = new MenuLibrary(library);
+        MenuLibrary menu;
         Login login = new Login();
         PrinterReader printerReader = new PrinterReader();
         Dictionary dictionary = new Dictionary();
@@ -29,18 +29,20 @@ public class LibraryApp {
 
         loginStatus=login.compareCredentials(loginUserInformationSeparated[0],loginUserInformationSeparated[1]);
 
+        menu=new MenuLibrary(library,login);
+
         if(loginStatus){
             do {
-                System.out.println("\n" + library.showWelcomeMessage() + "\n");
+                printerReader.printTitles(library.showWelcomeMessage());
                 try {
                     printerReader.printMenuOptions();
                     optionMenu = Integer.parseInt(new Scanner(System.in).nextLine());
                     message = menu.generateMenu(optionMenu);
                 } catch (NumberFormatException ex) {
-                    System.out.println(dictionary.messageTryCatchMenu);
+                    System.out.println(dictionary.MESSAGE_TRY_CATCH_MENU);
                 }
 
-            } while (message != dictionary.messageQuit);
+            } while (message != dictionary.MESSAGE_QUIT);
         }else{
             messageIncorrect=login.showMessageIfIncorrect(loginStatus);
             printerReader.printMessageReceived(messageIncorrect);

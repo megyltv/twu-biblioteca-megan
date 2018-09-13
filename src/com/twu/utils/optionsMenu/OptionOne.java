@@ -30,7 +30,7 @@ public class OptionOne implements Options {
         messageReceived = library.checkoutBook(informationBookSeparated[0], Integer.parseInt(informationBookSeparated[1]));
 
         printerReader.printMessageReceived(messageReceived);
-        message = dictionary.messageCorrect;
+        message = dictionary.MESSAGE_CORRECT;
         return message;
     }
 

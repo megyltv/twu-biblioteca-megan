@@ -10,7 +10,7 @@ public class OptionThree implements Options {
     @Override
     public String resolve(){
         String message;
-        message = dictionary.messageQuit;
+        message = dictionary.MESSAGE_QUIT;
         return message;
     }
 }

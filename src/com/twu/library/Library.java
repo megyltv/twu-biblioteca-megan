@@ -20,14 +20,14 @@ public class Library {
 
     public String showWelcomeMessage() {
         String welcomeMessage;
-        welcomeMessage = dictionary.messageWelcomeToLibrary;
+        welcomeMessage = dictionary.MESSAGE_WELCOME_TO_LIBRARY;
         return welcomeMessage;
     }
 
     public String showListBooks() {
         String detailsBook = "";
         System.out.println("\nLIST OF BOOKS\n");
-        System.out.printf("%-40s |%-30s |%-20s\n", dictionary.titleNameBook, dictionary.titleAuthorBook, dictionary.titleYearPublication);
+        System.out.printf("%-40s |%-30s |%-20s\n", dictionary.TITLE_NAME_BOOK, dictionary.TITLE_AUTHOR_BOOK, dictionary.TITLE_YEAR_PUBLICATION);
         for (int i = 0; i < listBooks.size(); i++) {
             if (listBooks.get(i).isAvailable()) {
                 detailsBook = listBooks.get(i).informationOfBook(listBooks.get(i));
@@ -53,12 +53,12 @@ public class Library {
             if (nameBookCheckout.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearBook && bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeCheckout());
                 status = bookLooking.isAvailable();
-                message = dictionary.messageSuccessfulBookCheckOut;
+                message = dictionary.MESSAGE_SUCCESSFUL_BOOK_CHECK_OUT;
                 break;
             }
         }
         if (status) {
-            message = dictionary.messageUnsuccessfulBookCheckOut;
+            message = dictionary.MESSAGE_UNSUCCESSFUL_BOOK_CHECK_OUT;
         }
         return message;
     }
@@ -71,11 +71,11 @@ public class Library {
                     findBook.isAvailable() == bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeCheckout());
                 statusReturnedBook = bookLooking.isAvailable();
-                message = dictionary.messageSuccessfulBookCheckIn;
+                message = dictionary.MESSAGE_SUCCESSFUL_BOOK_CHECK_IN;
             }
         }
         if (!statusReturnedBook) {
-            message = dictionary.messageUnsuccessfulBookCheckIn;
+            message = dictionary.MESSAGE_UNSUCCESSFUL_BOOK_CHECK_IN;
 
         }
 

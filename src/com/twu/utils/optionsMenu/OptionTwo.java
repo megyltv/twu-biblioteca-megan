@@ -31,7 +31,7 @@ public class OptionTwo implements Options {
         library.searchBookinLibrary(informationBookSeparate[0], Integer.parseInt(informationBookSeparate[1]));
         messageReceived = library.returnBook();
         printerReader.printMessageReceived(messageReceived);
-        message = dictionary.messageCorrect;
+        message = dictionary.MESSAGE_CORRECT;
         return message;
     }
 }

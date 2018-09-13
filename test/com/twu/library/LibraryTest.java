@@ -4,7 +4,6 @@ package com.twu.library;
 import com.twu.utils.Dictionary;
 import org.junit.Before;
 import org.junit.Test;
-import org.omg.PortableInterceptor.DISCARDING;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class LibraryTest {
 
     @Test
     public void shouldShowWelcomeMessageWhenIniatilizingObjectLibrary() {
-        assertEquals(dictionary.messageWelcomeToLibrary, new Library().showWelcomeMessage());
+        assertEquals(dictionary.MESSAGE_WELCOME_TO_LIBRARY, new Library().showWelcomeMessage());
     }
 
     @Test

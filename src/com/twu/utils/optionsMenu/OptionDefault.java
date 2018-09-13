@@ -7,7 +7,7 @@ public class OptionDefault implements Options {
 
     @Override
     public String resolve(){
-        String message=dictionary.messageIncorrect;
+        String message=dictionary.MESSAGE_INCORRECT;
         return message;
     }
 }

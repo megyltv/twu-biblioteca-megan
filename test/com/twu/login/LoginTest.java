@@ -84,7 +84,7 @@ public class LoginTest {
 
     @Test
     public void shouldReturnMessageWhenValuesAreIncorrect(){
-        String messageExpected=dictionary.messageLoginIncorrect;
+        String messageExpected=dictionary.MESSAGE_LOGIN_INCORRECT;
         boolean received = false;
 
         assertEquals(messageExpected,login.showMessageIfIncorrect(received));

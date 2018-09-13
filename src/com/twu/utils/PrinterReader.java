@@ -7,7 +7,9 @@ public class PrinterReader {
     public void printMenuOptions() {
         System.out.println("\nSelect number:");
         System.out.println("1. List Books");
-        System.out.println("2. Quit");
+        System.out.println("2. List Movies");
+        System.out.println("3. User Information");
+        System.out.println("4. Quit");
         System.out.print("Option: ");
     }
 
@@ -48,5 +50,9 @@ public class PrinterReader {
         password=new Scanner(System.in).nextLine();
 
         return idCodeUser+"/"+password;
+    }
+
+    public void printTitles(String title){
+        System.out.println("\n"+title+"\n");
     }
 }
