@@ -4,9 +4,8 @@ import java.util.List;
 
 public interface ItemLibrary {
     public String showListItem();
-    public List<Object> createListItem();
-    public String checkoutItem();
+    public String checkoutItem(String nameItem,int yearItem);
     public String checkinItem();
-    public Object searchItem();
+    public Object searchItem(String nameItem, int yearItem);
 
 }

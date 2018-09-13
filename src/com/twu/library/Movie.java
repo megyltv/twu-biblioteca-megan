@@ -31,4 +31,8 @@ public class Movie {
     public void setUserIdWhenNotAvailable(String userIdWhenNotAvailable) {
         this.userIdWhenNotAvailable = userIdWhenNotAvailable;
     }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
 }

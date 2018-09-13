@@ -19,5 +19,8 @@ public class Dictionary {
     public static final String MESSAGE_LOGIN_INCORRECT ="ID or Password Incorrect";
     public static final String TITLE_USER_INFORMATION="User Information";
 
+    public static final String TITLE_LIST_BOOKS="\nLIST OF BOOKS\n";
+
+
 
 }
