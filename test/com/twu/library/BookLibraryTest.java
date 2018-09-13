@@ -76,11 +76,17 @@ public class BookLibraryTest {
     @Test
     public void shouldReturnBookNotNullWhenItIsSearch() {
         Book bookSearchedInLibrary = (Book) bookLibrary.searchItem("Harry Potter", 2001);
-        Book bookSearchedNotInLibrary = (Book)bookLibrary.searchItem("Hello Book", 2013);
 
         assertThat(bookSearchedInLibrary, is(notNullValue()));
-        assertThat(bookSearchedNotInLibrary, is(notNullValue()));
 
+
+    }
+
+    @Test
+    public void shouldReturnNotNullWhenItIsSearchAndNotExistsInLibrary(){
+        Book bookSearchedNotInLibrary = (Book)bookLibrary.searchItem("Hello Book", 2013);
+
+        assertThat(bookSearchedNotInLibrary, is(notNullValue()));
     }
 
 }
