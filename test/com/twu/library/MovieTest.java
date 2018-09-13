@@ -21,4 +21,14 @@ public class MovieTest {
         assertEquals(informationOfMovie,movie.informationOfMovie(movie));
     }
 
+    @Test
+    public void shouldReturnChangedAvailabilityWhenMethodIsCalled(){
+        assertFalse(movie.changeStatus());
+
+        boolean status=false;
+        movie.setAvailable(status);
+
+        assertTrue(movie.changeStatus());
+    }
+
 }

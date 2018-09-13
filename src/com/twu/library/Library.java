@@ -65,15 +65,15 @@ public class Library {
         for (Book bookLooking : listBooks) {
             System.out.println(bookLooking.getNameBook() + " " + bookLooking.isAvailable());
             if (nameBookCheckout.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearBook && bookLooking.isAvailable()) {
-                bookLooking.setAvailable(bookLooking.changeCheckout());
+                bookLooking.setAvailable(bookLooking.changeStatus());
                 status = bookLooking.isAvailable();
                 bookLooking.setUserIdWhenNotAvailable(login.getCurrentUser().getIdLibraryCode());
-                message = dictionary.MESSAGE_SUCCESSFUL_BOOK_CHECK_OUT;
+                message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
                 break;
             }
         }
         if (status) {
-            message = dictionary.MESSAGE_UNSUCCESSFUL_BOOK_CHECK_OUT;
+            message = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
         }
         return message;
     }
@@ -84,14 +84,14 @@ public class Library {
         for (Book bookLooking : listBooks) {
             if (findBook.getNameBook().equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == findBook.getPublicationYear() &&
                     findBook.isAvailable() == bookLooking.isAvailable()) {
-                bookLooking.setAvailable(bookLooking.changeCheckout());
+                bookLooking.setAvailable(bookLooking.changeStatus());
                 statusReturnedBook = bookLooking.isAvailable();
                 bookLooking.setUserIdWhenNotAvailable("");
-                message = dictionary.MESSAGE_SUCCESSFUL_BOOK_CHECK_IN;
+                message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
             }
         }
         if (!statusReturnedBook) {
-            message = dictionary.MESSAGE_UNSUCCESSFUL_BOOK_CHECK_IN;
+            message = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
 
         }
 

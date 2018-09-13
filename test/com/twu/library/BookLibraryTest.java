@@ -1,10 +1,10 @@
 package com.twu.library;
 
 import com.twu.login.Login;
+import com.twu.utils.Dictionary;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -15,6 +15,7 @@ public class BookLibraryTest {
     public Library library;
     public BookLibrary bookLibrary;
     public Login login;
+    private Dictionary dictionary;
 
     @Before
     public void setUp() throws Exception {
@@ -32,7 +33,7 @@ public class BookLibraryTest {
 
     @Test
     public void shouldReturnSuccessfulMessageWhenCheckoutHappen() {
-        String messageExpected = "Thank you! Enjoy the book";
+        String messageExpected = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
         String nameBook = "Harry Potter";
         int yearBook = 2001;
 
@@ -42,7 +43,7 @@ public class BookLibraryTest {
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenErrorInCheckout() {
-        String messageExpected = "That book is not available";
+        String messageExpected = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
 
         assertEquals(messageExpected, bookLibrary.checkoutItem("Test Driven Development", 2003));
     }
@@ -51,12 +52,13 @@ public class BookLibraryTest {
     public void shouldReturnSuccessfulMessageWhenTheBookIsReturned() {
         String nameBook = "Harry Potter";
         int year = 2001;
+        String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
 
         bookLibrary.checkoutItem(nameBook, year);
 
         bookLibrary.searchItem(nameBook, year);
 
-        assertEquals("Thank you for returning the book", bookLibrary.checkinItem());
+        assertEquals(messageExpected, bookLibrary.checkinItem());
 
     }
 
@@ -64,10 +66,11 @@ public class BookLibraryTest {
     public void shouldReturnUnsuccessfulMessageWhenErrorInReturn() {
         String nameBook = "Test Driven Development: By Example";
         int year = 2002;
+        String messageExpected=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
 
         bookLibrary.searchItem(nameBook, year);
 
-        assertEquals("That is not a valid book to return", bookLibrary.checkinItem());
+        assertEquals("That is not a valid item to return", bookLibrary.checkinItem());
     }
 
     @Test

@@ -24,7 +24,7 @@ public class Book {
     }
 
 
-    public boolean changeCheckout() {
+    public boolean changeStatus() {
         return !isAvailable;
     }
 

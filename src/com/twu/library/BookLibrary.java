@@ -35,40 +35,29 @@ public class BookLibrary implements ItemLibrary {
 
     @Override
     public String checkoutItem(String nameItem, int yearItem) {
-        String message = "";
-        boolean status = true;
+        String message = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
+
         for (Book bookLooking : listBooks) {
-            System.out.println(bookLooking.getNameBook() + " " + bookLooking.isAvailable());
             if (nameItem.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearItem && bookLooking.isAvailable()) {
-                bookLooking.setAvailable(bookLooking.changeCheckout());
-                status = bookLooking.isAvailable();
+                bookLooking.setAvailable(bookLooking.changeStatus());
                 bookLooking.setUserIdWhenNotAvailable(login.getCurrentUser().getIdLibraryCode());
-                message = dictionary.MESSAGE_SUCCESSFUL_BOOK_CHECK_OUT;
+                message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
                 break;
             }
-        }
-        if (status) {
-            message = dictionary.MESSAGE_UNSUCCESSFUL_BOOK_CHECK_OUT;
         }
         return message;
     }
 
     @Override
     public String checkinItem() {
-        String message = "";
-        boolean statusReturnedBook = false;
+        String message = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
         for (Book bookLooking : listBooks) {
             if (findBook.getNameBook().equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == findBook.getPublicationYear() &&
                     findBook.isAvailable() == bookLooking.isAvailable()) {
-                bookLooking.setAvailable(bookLooking.changeCheckout());
-                statusReturnedBook = bookLooking.isAvailable();
+                bookLooking.setAvailable(bookLooking.changeStatus());
                 bookLooking.setUserIdWhenNotAvailable("");
-                message = dictionary.MESSAGE_SUCCESSFUL_BOOK_CHECK_IN;
+                message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
             }
-        }
-        if (!statusReturnedBook) {
-            message = dictionary.MESSAGE_UNSUCCESSFUL_BOOK_CHECK_IN;
-
         }
 
         return message;

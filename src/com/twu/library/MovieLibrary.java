@@ -14,26 +14,38 @@ public class MovieLibrary implements ItemLibrary{
 
     public MovieLibrary(List<Movie>listMovies, Login login) {
         this.listMovies=listMovies;
+        printerReader=new PrinterReader();
     }
 
     @Override
     public String showListItem() {
-        String detailsBook = "";
+        String detailsMovie = "";
 
-        printerReader.printTitles(dictionary.TITLE_LIST_BOOKS);
-        System.out.printf("%-40s |%-30s |%-20s\n", dictionary.TITLE_NAME_BOOK, dictionary.TITLE_AUTHOR_BOOK, dictionary.TITLE_YEAR_PUBLICATION);
+        printerReader.printTitles(dictionary.TITLE_LIST_MOVIES);
+        System.out.printf("%-20s |%-20s |%-10s |%-20s\n", dictionary.TITLE_NAME_MOVIE, dictionary.TITLE_DIRECTOR_MOVIE, dictionary.TITLE_YEAR_MOVIE,dictionary.TITLE_RATING_MOVIE);
         for (Movie movie:listMovies) {
             if (movie.isAvailable()) {
-                detailsBook = movie.informationOfMovie(movie);
+                detailsMovie = movie.informationOfMovie(movie);
             }
         }
-        return detailsBook;
+        return detailsMovie;
     }
 
     @Override
     public String checkoutItem(String nameItem, int yearItem) {
-        return null;
+        String message=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
+
+        for(Movie movieLooking: listMovies){
+            if(nameItem.equals(movieLooking.getNameMovie())&&movieLooking.isAvailable()){
+                movieLooking.setAvailable(movieLooking.changeStatus());
+                message=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
+            }
+        }
+
+        return message;
     }
+
+
 
     @Override
     public String checkinItem() {

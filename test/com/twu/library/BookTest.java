@@ -26,8 +26,8 @@ public class BookTest {
         newBook.setAvailable(statusTrue);
         bookCheckOut.setAvailable(statusFalse);
 
-        assertEquals(statusFalse, newBook.changeCheckout());
-        assertEquals(statusTrue, bookCheckOut.changeCheckout());
+        assertEquals(statusFalse, newBook.changeStatus());
+        assertEquals(statusTrue, bookCheckOut.changeStatus());
     }
 
     @Test
