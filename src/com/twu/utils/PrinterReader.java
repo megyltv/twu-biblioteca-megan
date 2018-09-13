@@ -13,10 +13,10 @@ public class PrinterReader {
         System.out.print("Option: ");
     }
 
-    public void printSubMenuOptions() {
+    public void printSubMenuOptions(String typeItem) {
         System.out.println("\nWhat do you want to do today?\n");
-        System.out.println("1. Checkout Book");
-        System.out.println("2. Return Book");
+        System.out.println("1. Checkout "+typeItem);
+        System.out.println("2. Return "+typeItem);
         System.out.println("3. Back");
         System.out.print("Select number: ");
     }

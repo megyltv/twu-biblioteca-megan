@@ -36,16 +36,21 @@ public class MenuLibrary {
     public void generateMenu(int optionValue) {
         String message = "";
         this.optionValue=optionValue;
+        String typeItem;
         do{
             try {
                 if (optionValue == 1) {
+                    typeItem="Book";
                     library.showListBooks();
-                    printerReader.printSubMenuOptions();
+                    printerReader.printSubMenuOptions(typeItem);
                     generateSubMenu(Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu()));
                     message = dictionary.MESSAGE_CORRECT;
                 }
                 if (optionValue == 2) {
                     //Movies
+                    typeItem="Movie";
+                    printerReader.printSubMenuOptions(typeItem);
+
                 }
                 if(optionValue==3) {
                     user=login.getCurrentUser();

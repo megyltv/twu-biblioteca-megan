@@ -2,6 +2,7 @@ package com.twu.library;
 
 
 import com.twu.utils.Dictionary;
+import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class LibraryTest {
     public Library library;
     public List<Book> listBooks;
+    public List<Movie> listMovies;
     Dictionary dictionary;
 
     @Before
@@ -39,6 +41,14 @@ public class LibraryTest {
         int sizeList = library.listBooks.size();
 
         assertThat(listBooksCreated, hasSize(sizeList));
+    }
+
+    @Test
+    public void shouldReturnSizeOfListOfMoviesWhenItIsCreated(){
+        List<Movie> listMoviesCreated = library.createListOfMovies();
+        int sizeList=library.listMovies.size();
+
+        assertThat(listMoviesCreated, hasSize(sizeList));
     }
 
 

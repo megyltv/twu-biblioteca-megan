@@ -5,6 +5,7 @@ public class Book {
     private String author;
     private int publicationYear;
     private boolean isAvailable;
+    private String userIdWhenNotAvailable;
 
     public Book() {
     }
@@ -14,6 +15,7 @@ public class Book {
         this.author = author;
         this.publicationYear = publicationYear;
         this.isAvailable = true;
+        this.userIdWhenNotAvailable="";
     }
 
     public Book(String nameBookReceived, int yearBookReceived) {
@@ -49,5 +51,9 @@ public class Book {
 
     public int getPublicationYear() {
         return publicationYear;
+    }
+
+    public void setUserIdWhenNotAvailable(String userIdWhenNotAvailable) {
+        this.userIdWhenNotAvailable = userIdWhenNotAvailable;
     }
 }

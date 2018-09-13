@@ -6,6 +6,7 @@ public class Movie {
     private int yearMovie;
     private String ratingMovie;
     private boolean isAvailable;
+    private String userIdWhenNotAvailable;
 
     public Movie() {
     }
@@ -15,9 +16,19 @@ public class Movie {
         this.directorMovie = directorMovie;
         this.yearMovie = yearMovie;
         this.ratingMovie = ratingMovie;
+        this.userIdWhenNotAvailable="";
     }
 
     public Movie(String nameMovie) {
         this.nameMovie = nameMovie;
+    }
+
+    public String informationOfMovie(Movie movie){
+
+        return nameMovie + " \t| " + directorMovie + " \t| " + yearMovie + "\t| "+ratingMovie;
+    }
+
+    public void setUserIdWhenNotAvailable(String userIdWhenNotAvailable) {
+        this.userIdWhenNotAvailable = userIdWhenNotAvailable;
     }
 }

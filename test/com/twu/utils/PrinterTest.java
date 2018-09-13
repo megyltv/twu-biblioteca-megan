@@ -19,7 +19,7 @@ public class PrinterTest {
     @Test
     public void shouldReturnSubMenuInConsoleWhenTheSubmenuIsGenerated() {
         PrinterReader printerReader = new PrinterReader();
-        printerReader.printSubMenuOptions();
+        printerReader.printSubMenuOptions("Book");
 
         System.setOut(new PrintStream(outContent));
     }
