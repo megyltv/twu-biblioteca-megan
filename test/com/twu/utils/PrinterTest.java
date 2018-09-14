@@ -1,5 +1,7 @@
 package com.twu.utils;
 
+import com.twu.library.ItemsRegistered;
+import com.twu.user.User;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -32,9 +34,27 @@ public class PrinterTest {
         printerReader.printMessageReceived("messageSend");
 
         System.setOut(new PrintStream(outContent));
-
-
     }
 
+    @Test
+    public void shouldReturnItemsWhenTheMethodIsCalled() {
+        String messageSend = "Test";
+        User user=new User("123-1234","pass","Ell","el@ej.com","29384756", User.Role.CUSTOMER);
+        ItemsRegistered itemsRegistered = new ItemsRegistered(user,"Harry Potter");
+
+
+        PrinterReader printerReader = new PrinterReader();
+        printerReader.printItemsRegistered(itemsRegistered);
+
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @Test
+    public void shouldReturnTitlesOfItemsRegistered(){
+        PrinterReader printerReader = new PrinterReader();
+        printerReader.printItemsRegisteredTitles();
+
+        System.setOut(new PrintStream(outContent));
+    }
 
 }

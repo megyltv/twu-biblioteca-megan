@@ -8,21 +8,15 @@ import com.twu.user.User;
 import com.twu.utils.Dictionary;
 import com.twu.utils.PrinterReader;
 
-import java.util.Scanner;
 
 public class MenuLibrary {
 
     private Login login;
-    private User user;
 
-    private Dictionary dictionary;
-    private PrinterReader printerReader;
     private IMenu iMenu;
 
 
     public MenuLibrary(Login login) {
-        printerReader = new PrinterReader();
-        dictionary = new Dictionary();
         this.login=login;
     }
 

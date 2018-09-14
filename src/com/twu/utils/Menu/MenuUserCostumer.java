@@ -34,9 +34,8 @@ public class MenuUserCostumer implements IMenu {
         String message = "";
         String typeItem;
 
-        this.optionValue=generateOptionsMenu();
-
-        while (message != dictionary.MESSAGE_QUIT){
+        do{
+            this.optionValue=generateOptionsMenu();
             try {
                 switch (optionValue){
                     case 1:
@@ -55,6 +54,7 @@ public class MenuUserCostumer implements IMenu {
                         break;
                     case 4:
                         message = dictionary.MESSAGE_QUIT;
+                        System.out.println(library.itemsRegisteredList.get(0).getNameItem());
                         login.logOut();
                         break;
                         default:
@@ -67,9 +67,7 @@ public class MenuUserCostumer implements IMenu {
                 System.out.println("\n" + dictionary.MESSAGE_TRY_CATCH_MENU);
             }
 
-            this.optionValue=generateOptionsMenu();
-
-        }
+        }while (message != dictionary.MESSAGE_QUIT);
 
     }
 

@@ -27,6 +27,10 @@ public class Dictionary {
     public static final String TITLE_YEAR_MOVIE="YEAR";
     public static final String TITLE_RATING_MOVIE="RATING MOVIE";
 
+    public static final String TITLE_ID_USER="ID USER";
+    public static final String TITLE_NAME_USER="NAME USER";
+    public static final String TITLE_ITEM="NAME ITEM";
+
 
 
 

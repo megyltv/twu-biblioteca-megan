@@ -12,5 +12,11 @@ public class ItemsRegistered {
         this.nameItem = nameItem;
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public String getNameItem() {
+        return nameItem;
+    }
 }

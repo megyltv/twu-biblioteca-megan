@@ -47,6 +47,7 @@ public class LibraryApp {
                 } catch (NumberFormatException ex) {
                     System.out.println(dictionary.MESSAGE_TRY_CATCH_MENU);
                 }
+
             }else{
                 messageIncorrect=login.showMessageIfIncorrect(loginStatus);
                 printerReader.printMessageReceived(messageIncorrect);

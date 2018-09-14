@@ -25,7 +25,7 @@ public class OptionTwo implements Options {
 
         informationItem = printerReader.receivedParametersForItem();
 
-        library.searchIteminLibrary(informationItem);
+        library.searchItemInLibrary(informationItem);
         messageReceived = library.checkinItem();
         printerReader.printMessageReceived(messageReceived);
         message = dictionary.MESSAGE_CORRECT;

@@ -19,7 +19,6 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     public Library library;
-    public List<Book> listBooks;
     Dictionary dictionary;
     public Login login;
     private User user;
@@ -29,9 +28,6 @@ public class LibraryTest {
         user= new User();
         login=new Login(user.createUsers());
         library = new Library(new BookLibrary(login));
-        listBooks = new ArrayList<Book>();
-        listBooks.add(new Book("Harry Potter", "JK Rowling", 2001));
-        listBooks.add(new Book("Divergent", "Veronica Roth", 2012));
     }
 
     @Test
@@ -70,7 +66,7 @@ public class LibraryTest {
 
         library.checkoutItem(nameBook);
 
-        library.searchIteminLibrary(nameBook);
+        library.searchItemInLibrary(nameBook);
 
         assertEquals("Thank you for returning the item", library.checkinItem());
 
@@ -81,19 +77,20 @@ public class LibraryTest {
         String nameBook = "Test Driven Development: By Example";
 
 
-        library.searchIteminLibrary(nameBook);
+        library.searchItemInLibrary(nameBook);
 
         assertEquals("That is not a valid item to return", library.checkinItem());
     }
 
     @Test
     public void shouldReturnNameOfBookWhenItIsSearch() {
-        Object bookSearchedInLibrary = library.searchIteminLibrary("Harry Potter");
-        Object bookSearchedNotInLibrary = library.searchIteminLibrary("Hello Book");
+        Object bookSearchedInLibrary = library.searchItemInLibrary("Harry Potter");
+        Object bookSearchedNotInLibrary = library.searchItemInLibrary("Hello Book");
 
         assertThat(bookSearchedInLibrary, is(notNullValue()));
         assertThat(bookSearchedNotInLibrary, is(notNullValue()));
 
     }
+
 
 }
