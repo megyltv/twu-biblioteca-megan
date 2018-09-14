@@ -35,7 +35,7 @@ public class MovieLibraryTest {
         String nameMovie="Titanic";
         String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
 
-        assertEquals(messageExpected,movieLibrary.checkoutItem(nameMovie,0));
+        assertEquals(messageExpected,movieLibrary.checkoutItem(nameMovie));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class MovieLibraryTest {
         String nameMovie="Harry Potter";
         String messageExpected=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
 
-        assertEquals(messageExpected,movieLibrary.checkoutItem(nameMovie,0));
+        assertEquals(messageExpected,movieLibrary.checkoutItem(nameMovie));
     }
 
     @Test
@@ -51,8 +51,8 @@ public class MovieLibraryTest {
         String nameMovie="Titanic";
         String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
 
-        movieLibrary.checkoutItem(nameMovie,0);
-        movieLibrary.searchItem(nameMovie,0);
+        movieLibrary.checkoutItem(nameMovie);
+        movieLibrary.searchItem(nameMovie);
 
         assertEquals(messageExpected,movieLibrary.checkinItem());
     }
@@ -62,7 +62,7 @@ public class MovieLibraryTest {
         String nameMovie="Harry Potter";
         String messgeExpected=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
 
-        movieLibrary.searchItem(nameMovie,0);
+        movieLibrary.searchItem(nameMovie);
 
         assertEquals(messgeExpected,movieLibrary.checkinItem());
     }
@@ -71,13 +71,13 @@ public class MovieLibraryTest {
 
     @Test
     public void shouldReturnMovieNotNullWhenItIsSearched(){
-        Movie movieSearchedExistingInLibrary=(Movie) movieLibrary.searchItem("Titanic",0);
+        Movie movieSearchedExistingInLibrary=(Movie) movieLibrary.searchItem("Titanic");
         assertThat(movieSearchedExistingInLibrary,is(notNullValue()));
     }
 
     @Test
     public void shouldReturnMovieNotNullWhenItIsSearchedAndNotInLibrary(){
-        Movie movieSearchedNotExistingInLibrary=(Movie)movieLibrary.searchItem("Harry Potter",0);
+        Movie movieSearchedNotExistingInLibrary=(Movie)movieLibrary.searchItem("Harry Potter");
         assertThat(movieSearchedNotExistingInLibrary,is(notNullValue()));
     }
 

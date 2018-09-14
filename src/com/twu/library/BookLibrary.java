@@ -47,11 +47,11 @@ public class BookLibrary implements ItemLibrary {
     }
 
     @Override
-    public String checkoutItem(String nameItem, int yearItem) {
+    public String checkoutItem(String nameItem) {
         String message = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
 
         for (Book bookLooking : listBooks) {
-            if (nameItem.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearItem && bookLooking.isAvailable()) {
+            if (nameItem.equals(bookLooking.getNameBook()) && bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeStatus());
                 bookLooking.setUserIdWhenNotAvailable(login.getCurrentUser().getIdLibraryCode());
                 message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
@@ -77,10 +77,10 @@ public class BookLibrary implements ItemLibrary {
     }
 
     @Override
-    public Object searchItem(String nameItem, int yearItem) {
-        findBook=new Book(nameItem,yearItem);
+    public Object searchItem(String nameItem) {
+        findBook=new Book(nameItem);
         for (Book bookLooking : listBooks) {
-            if (nameItem.equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == yearItem) {
+            if (nameItem.equals(bookLooking.getNameBook())) {
                 findBook = bookLooking;
 
             }

@@ -39,7 +39,7 @@ public class BookTest {
 
     @Test
     public void shouldCreateNewBookWhenNewParametersAreReceivedForSearching() {
-        Book bookCreated = new Book("Hello Book", 2013);
+        Book bookCreated = new Book("Hello Book");
 
         assertThat(bookCreated, is(notNullValue()));
     }

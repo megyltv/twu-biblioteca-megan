@@ -21,12 +21,11 @@ public class OptionTwo implements Options {
     public String resolve(){
         String messageReceived="";
         String message="";
-        String informationBook;
+        String informationItem;
 
-        informationBook = printerReader.receivedParametersForItem();
-        String[] informationBookSeparate = informationBook.split("-");
+        informationItem = printerReader.receivedParametersForItem();
 
-        library.searchIteminLibrary(informationBookSeparate[0], Integer.parseInt(informationBookSeparate[1]));
+        library.searchIteminLibrary(informationItem);
         messageReceived = library.checkinItem();
         printerReader.printMessageReceived(messageReceived);
         message = dictionary.MESSAGE_CORRECT;

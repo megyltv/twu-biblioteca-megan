@@ -38,14 +38,14 @@ public class BookLibraryTest {
         int yearBook = 2001;
 
 
-        assertEquals(messageExpected, bookLibrary.checkoutItem(nameBook, yearBook));
+        assertEquals(messageExpected, bookLibrary.checkoutItem(nameBook));
     }
 
     @Test
     public void shouldReturnUnsuccessfulMessageWhenErrorInCheckout() {
         String messageExpected = dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
 
-        assertEquals(messageExpected, bookLibrary.checkoutItem("Test Driven Development", 2003));
+        assertEquals(messageExpected, bookLibrary.checkoutItem("Test Driven Development"));
     }
 
     @Test
@@ -54,9 +54,9 @@ public class BookLibraryTest {
         int year = 2001;
         String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
 
-        bookLibrary.checkoutItem(nameBook, year);
+        bookLibrary.checkoutItem(nameBook);
 
-        bookLibrary.searchItem(nameBook, year);
+        bookLibrary.searchItem(nameBook);
 
         assertEquals(messageExpected, bookLibrary.checkinItem());
 
@@ -68,14 +68,14 @@ public class BookLibraryTest {
         int year = 2002;
         String messageExpected=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
 
-        bookLibrary.searchItem(nameBook, year);
+        bookLibrary.searchItem(nameBook);
 
         assertEquals("That is not a valid item to return", bookLibrary.checkinItem());
     }
 
     @Test
     public void shouldReturnBookNotNullWhenItIsSearch() {
-        Book bookSearchedInLibrary = (Book) bookLibrary.searchItem("Harry Potter", 2001);
+        Book bookSearchedInLibrary = (Book) bookLibrary.searchItem("Harry Potter");
 
         assertThat(bookSearchedInLibrary, is(notNullValue()));
 
@@ -84,7 +84,7 @@ public class BookLibraryTest {
 
     @Test
     public void shouldReturnNotNullWhenItIsSearchAndNotExistsInLibrary(){
-        Book bookSearchedNotInLibrary = (Book)bookLibrary.searchItem("Hello Book", 2013);
+        Book bookSearchedNotInLibrary = (Book)bookLibrary.searchItem("Hello Book");
 
         assertThat(bookSearchedNotInLibrary, is(notNullValue()));
     }

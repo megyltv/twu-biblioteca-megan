@@ -33,9 +33,9 @@ public class Library {
         return itemLibrary.showListItem();
     }
 
-    public String checkoutItem(String nameItemCheckout, int yearBook) {
+    public String checkoutItem(String nameItemCheckout) {
 
-        return itemLibrary.checkoutItem(nameItemCheckout,yearBook);
+        return itemLibrary.checkoutItem(nameItemCheckout);
     }
 
     public String checkinItem() {
@@ -43,9 +43,9 @@ public class Library {
         return itemLibrary.checkinItem();
     }
 
-    public Object searchIteminLibrary(String nameItem, int yearItem) {
+    public Object searchIteminLibrary(String nameItem) {
 
-        return itemLibrary.searchItem(nameItem,yearItem);
+        return itemLibrary.searchItem(nameItem);
     }
 
 }

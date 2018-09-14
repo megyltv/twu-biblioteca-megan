@@ -33,14 +33,11 @@ public class PrinterReader {
 
     public String receivedParametersForItem() {
         String nameBook;
-        int yearBook;
 
         System.out.print("Name of Item: ");
         nameBook = new Scanner(System.in).nextLine();
-        System.out.print("Year of the Item: ");
-        yearBook = Integer.parseInt(new Scanner(System.in).nextLine());
 
-        return nameBook+"-"+yearBook;
+        return nameBook;
 
     }
 

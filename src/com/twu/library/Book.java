@@ -18,9 +18,8 @@ public class Book {
         this.userIdWhenNotAvailable="";
     }
 
-    public Book(String nameBookReceived, int yearBookReceived) {
+    public Book(String nameBookReceived) {
         this.nameBook = nameBookReceived;
-        this.publicationYear = yearBookReceived;
     }
 
 

@@ -41,7 +41,7 @@ public class MovieLibrary implements ItemLibrary{
     }
 
     @Override
-    public String checkoutItem(String nameItem, int yearItem) {
+    public String checkoutItem(String nameItem) {
         String message=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_OUT;
 
         for(Movie movieLooking: listMovies){
@@ -68,7 +68,7 @@ public class MovieLibrary implements ItemLibrary{
     }
 
     @Override
-    public Object searchItem(String nameItem, int yearItem) {
+    public Object searchItem(String nameItem) {
         findMovie= new Movie(nameItem);
         for(Movie movie:listMovies){
             if(movie.getNameMovie().equals(nameItem)){
