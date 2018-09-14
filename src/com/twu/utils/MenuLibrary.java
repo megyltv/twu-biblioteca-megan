@@ -4,7 +4,7 @@ import com.twu.library.BookLibrary;
 import com.twu.library.Library;
 import com.twu.library.MovieLibrary;
 import com.twu.login.Login;
-import com.twu.login.User;
+import com.twu.user.User;
 
 import java.util.Scanner;
 
@@ -25,11 +25,13 @@ public class MenuLibrary {
         this.login=login;
     }
 
-    public void generateMenu(int optionValue) {
+    public void generateMenuCustomer() {
         String message = "";
-        this.optionValue=optionValue;
         String typeItem;
-        do{
+
+        this.optionValue=generateOptionsMenu();
+
+        while (message != dictionary.MESSAGE_QUIT){
             try {
 
                 if (optionValue == 1) {
@@ -49,6 +51,7 @@ public class MenuLibrary {
                 if(optionValue==4){
                     message = dictionary.MESSAGE_QUIT;
                     login.logOut();
+                    break;
                 }
                 if (optionValue>4){
                     message = dictionary.MESSAGE_INCORRECT;
@@ -58,17 +61,15 @@ public class MenuLibrary {
                 System.out.println("\n" + dictionary.MESSAGE_TRY_CATCH_MENU);
             }
 
-            optionValue=generateOptionsMenu(message);
+            this.optionValue=generateOptionsMenu();
 
-        }while (message != dictionary.MESSAGE_QUIT);
+        }
     }
 
-    private int generateOptionsMenu(String message){
-        System.out.println(message);
-        if(message!=dictionary.MESSAGE_QUIT) {
-            printerReader.printMenuOptions();
+    private int generateOptionsMenu(){
+            printerReader.printMenuOptionsCustomer();
             optionValue = Integer.parseInt(new Scanner(System.in).nextLine());
-        }
+
         return optionValue;
     }
 

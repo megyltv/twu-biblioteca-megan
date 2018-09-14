@@ -11,7 +11,7 @@ public class PrinterTest {
     @Test
     public void shouldReturnMenuShowedInConsoleWhenTheMenuIsGenerated() {
         PrinterReader printerReader = new PrinterReader();
-        printerReader.printMenuOptions();
+        printerReader.printMenuOptionsCustomer();
 
         System.setOut(new PrintStream(outContent));
     }

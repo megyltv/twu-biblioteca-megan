@@ -1,12 +1,11 @@
 package com.twu.login;
 
+import com.twu.user.User;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import static org.junit.Assert.*;
 
 public class UserTest {
     User user;

@@ -6,8 +6,6 @@ import com.twu.utils.MenuLibrary;
 import com.twu.library.Library;
 import com.twu.utils.PrinterReader;
 
-import java.util.Scanner;
-
 public class LibraryApp {
 
     public static void main(String[] args) {
@@ -38,9 +36,7 @@ public class LibraryApp {
             if(loginStatus){
                 printerReader.printTitles(library.showWelcomeMessage());
                 try {
-                    printerReader.printMenuOptions();
-                    optionMenu = Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu());
-                    menu.generateMenu(optionMenu);
+                    menu.generateMenuCustomer();
                 } catch (NumberFormatException ex) {
                     System.out.println(dictionary.MESSAGE_TRY_CATCH_MENU);
                 }

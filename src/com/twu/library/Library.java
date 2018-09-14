@@ -8,18 +8,18 @@ import java.util.List;
 
 public class Library {
 
-    public List<Movie> listMovies;
-    private Book findBook;
     private Dictionary dictionary;
+    private ItemLibrary itemLibrary;
     private Login login;
-    private  ItemLibrary itemLibrary;
+    public List<ItemsRegistered> itemsRegisteredList;
 
     public Library(){}
 
     public Library(ItemLibrary itemLibrary) {
         dictionary=new Dictionary();
-        login=new Login();
         this.itemLibrary =itemLibrary;
+        login=new Login();
+        itemsRegisteredList=new ArrayList<ItemsRegistered>();
     }
 
     public String showWelcomeMessage() {
@@ -34,18 +34,25 @@ public class Library {
     }
 
     public String checkoutItem(String nameItemCheckout) {
+        String message=itemLibrary.checkoutItem(nameItemCheckout);
 
-        return itemLibrary.checkoutItem(nameItemCheckout);
+        if(message.equals(dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT)){
+            itemsRegisteredList.add(new ItemsRegistered(login.getCurrentUser(),nameItemCheckout));
+        }
+
+        return message;
     }
 
     public String checkinItem() {
+        String message=itemLibrary.checkinItem();
 
-        return itemLibrary.checkinItem();
+        return message;
     }
 
     public Object searchIteminLibrary(String nameItem) {
 
         return itemLibrary.searchItem(nameItem);
     }
+
 
 }

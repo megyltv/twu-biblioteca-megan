@@ -1,4 +1,4 @@
-package com.twu.login;
+package com.twu.user;
 
 public class User {
     private String idLibraryCode;

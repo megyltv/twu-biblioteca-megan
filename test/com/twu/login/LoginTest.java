@@ -1,5 +1,6 @@
 package com.twu.login;
 
+import com.twu.user.User;
 import com.twu.utils.Dictionary;
 import org.junit.Before;
 import org.junit.Test;

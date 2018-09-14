@@ -4,13 +4,19 @@ import java.util.Scanner;
 
 public class PrinterReader {
 
-    public void printMenuOptions() {
+    public void printMenuOptionsCustomer() {
         System.out.println("\nSelect number:");
         System.out.println("1. List Books");
         System.out.println("2. List Movies");
         System.out.println("3. User Information");
         System.out.println("4. Log Out");
         System.out.print("Option: ");
+    }
+
+    public void printMenuOptionsLibrarian(){
+        System.out.println("\nSelect number:");
+        System.out.println("1. Items Checked Out");
+        System.out.println("2. Log Out");
     }
 
     public void printSubMenuOptions(String typeItem) {

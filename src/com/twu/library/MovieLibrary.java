@@ -48,6 +48,7 @@ public class MovieLibrary implements ItemLibrary{
             if(nameItem.equals(movieLooking.getNameMovie())&&movieLooking.isAvailable()){
                 movieLooking.setAvailable(movieLooking.changeStatus());
                 message=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
+
             }
         }
 
