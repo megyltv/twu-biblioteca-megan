@@ -1,5 +1,6 @@
-package com.twu.library;
+package com.twu.library.libraries;
 
+import com.twu.library.Book;
 import com.twu.library.libraries.BookLibrary;
 import com.twu.library.libraries.Library;
 import com.twu.login.Login;

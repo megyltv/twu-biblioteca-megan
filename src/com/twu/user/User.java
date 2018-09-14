@@ -15,7 +15,6 @@ public class User {
         LIBRARIAN, CUSTOMER
     }
 
-
     public User() {
         createUsers();
     }
