@@ -2,18 +2,15 @@ package com.twu.utils.optionsMenu;
 
 import com.twu.library.Library;
 import com.twu.utils.Dictionary;
-import com.twu.utils.MenuLibrary;
 import com.twu.utils.PrinterReader;
 
 public class OptionOne implements Options {
     private Library library;
-    private MenuLibrary menuLibrary;
     private Dictionary dictionary;
     private PrinterReader printerReader;
 
     public OptionOne(Library library){
         this.library=library;
-        menuLibrary=new MenuLibrary();
         printerReader=new PrinterReader();
         dictionary=new Dictionary();
     }
@@ -22,12 +19,12 @@ public class OptionOne implements Options {
     public String resolve(){
         String messageReceived="";
         String message="";
-        String informationBook;
+        String informationItem;
 
-        informationBook = printerReader.receivedParametersForBook();
-        String[] informationBookSeparated = informationBook.split("-");
+        informationItem = printerReader.receivedParametersForItem();
+        String[] informationBookItem = informationItem.split("-");
 
-        messageReceived = library.checkoutBook(informationBookSeparated[0], Integer.parseInt(informationBookSeparated[1]));
+        messageReceived = library.checkoutItem(informationBookItem[0], Integer.parseInt(informationBookItem[1]));
 
         printerReader.printMessageReceived(messageReceived);
         message = dictionary.MESSAGE_CORRECT;

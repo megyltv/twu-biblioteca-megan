@@ -19,9 +19,9 @@ public class BookLibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        library = new Library();
         login=new Login();
-        bookLibrary=new BookLibrary(library.listBooks,login);
+        library = new Library(new BookLibrary(login));
+        bookLibrary=new BookLibrary(login);
     }
 
     @Test

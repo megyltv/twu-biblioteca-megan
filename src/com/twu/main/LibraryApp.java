@@ -11,11 +11,12 @@ import java.util.Scanner;
 public class LibraryApp {
 
     public static void main(String[] args) {
-        Library library = new Library();
+
         MenuLibrary menu;
         Login login = new Login();
         PrinterReader printerReader = new PrinterReader();
         Dictionary dictionary = new Dictionary();
+        Library library=new Library();
 
         int optionMenu;
         String message = "";
@@ -32,7 +33,7 @@ public class LibraryApp {
 
             loginStatus=login.compareCredentials(loginUserInformationSeparated[0],loginUserInformationSeparated[1]);
 
-            menu=new MenuLibrary(library,login);
+            menu=new MenuLibrary(login);
 
             if(loginStatus){
                 printerReader.printTitles(library.showWelcomeMessage());

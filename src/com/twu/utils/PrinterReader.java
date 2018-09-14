@@ -31,13 +31,13 @@ public class PrinterReader {
         return new Scanner(System.in).nextLine();
     }
 
-    public String receivedParametersForBook() {
+    public String receivedParametersForItem() {
         String nameBook;
         int yearBook;
 
-        System.out.print("Name of Book: ");
+        System.out.print("Name of Item: ");
         nameBook = new Scanner(System.in).nextLine();
-        System.out.print("Year of the book: ");
+        System.out.print("Year of the Item: ");
         yearBook = Integer.parseInt(new Scanner(System.in).nextLine());
 
         return nameBook+"-"+yearBook;

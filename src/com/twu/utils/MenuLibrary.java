@@ -1,6 +1,8 @@
 package com.twu.utils;
 
+import com.twu.library.BookLibrary;
 import com.twu.library.Library;
+import com.twu.library.MovieLibrary;
 import com.twu.login.Login;
 import com.twu.login.User;
 
@@ -13,24 +15,14 @@ public class MenuLibrary {
     public MenuAbstract submenuOption;
     private Dictionary dictionary;
     private PrinterReader printerReader;
+    private boolean firstTimeEntering=true;
+    private boolean firstTimeEnteringMovie=true;
+    private int optionValue;
 
-    int optionValue;
-
-    public MenuLibrary() {
-    }
-
-    public MenuLibrary(Library library,Login login) {
-
-        this.library = library;
+    public MenuLibrary(Login login) {
         printerReader = new PrinterReader();
         dictionary = new Dictionary();
         this.login=login;
-    }
-
-    public MenuLibrary(Library library) {
-        this.library = library;
-        printerReader = new PrinterReader();
-        dictionary = new Dictionary();
     }
 
     public void generateMenu(int optionValue) {
@@ -39,18 +31,14 @@ public class MenuLibrary {
         String typeItem;
         do{
             try {
+
                 if (optionValue == 1) {
                     typeItem="Book";
-                    library.showListBooks();
-                    printerReader.printSubMenuOptions(typeItem);
-                    generateSubMenu(Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu()));
-                    message = dictionary.MESSAGE_CORRECT;
+                    showListWithSubmenuOptions(typeItem);
                 }
                 if (optionValue == 2) {
-                    //Movies
                     typeItem="Movie";
-                    printerReader.printSubMenuOptions(typeItem);
-
+                    showListWithSubmenuOptions(typeItem);
                 }
                 if(optionValue==3) {
                     user=login.getCurrentUser();
@@ -84,7 +72,6 @@ public class MenuLibrary {
         return optionValue;
     }
 
-
     public String generateSubMenu(int optionValue) {
         String message = "";
         submenuOption = new SubMenu(optionValue, library);
@@ -94,5 +81,25 @@ public class MenuLibrary {
         return message;
     }
 
+    private void askIfItIsFirstTimeEntering(){
+
+        if(firstTimeEntering&&optionValue==1){
+            library=new Library(new BookLibrary(login));
+            firstTimeEntering=false;
+        }
+        if(firstTimeEnteringMovie&&optionValue==2){
+            library=new Library(new MovieLibrary(login));
+            firstTimeEnteringMovie=false;
+        }
+    }
+
+    private String showListWithSubmenuOptions(String typeItem){
+        askIfItIsFirstTimeEntering();
+        library.showListItem();
+        printerReader.printSubMenuOptions(typeItem);
+        generateSubMenu(Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu()));
+
+        return dictionary.MESSAGE_CORRECT;
+    }
 
 }

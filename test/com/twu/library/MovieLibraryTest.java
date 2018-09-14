@@ -17,9 +17,9 @@ public class MovieLibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        library=new Library();
+        library=new Library(new BookLibrary(login));
         login = new Login();
-        movieLibrary = new MovieLibrary(library.listMovies,login);
+        movieLibrary = new MovieLibrary(login);
     }
 
     @Test

@@ -4,6 +4,7 @@ import com.twu.login.Login;
 import com.twu.utils.Dictionary;
 import com.twu.utils.PrinterReader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookLibrary implements ItemLibrary {
@@ -13,10 +14,22 @@ public class BookLibrary implements ItemLibrary {
     private Book findBook;
     private PrinterReader printerReader;
 
-    public BookLibrary(List<Book> listBooks, Login login) {
-        this.listBooks = listBooks;
+    public BookLibrary(Login login) {
+
         this.login=login;
         printerReader=new PrinterReader();
+        dictionary= new Dictionary();
+
+        createListOfBooks();
+
+    }
+
+    public void createListOfBooks(){
+        listBooks = new ArrayList<Book>();
+        listBooks.add(new Book("Harry Potter", "JK Rowling", 2001));
+        listBooks.add(new Book("The Selection", "Kiera Cass", 2008));
+        listBooks.add(new Book("Percy Jackson", "Rick Riordan", 2010));
+        listBooks.add(new Book("Divergent", "Veronica Roth", 2012));
     }
 
     @Override
@@ -74,5 +87,7 @@ public class BookLibrary implements ItemLibrary {
         }
         return findBook;
     }
+
+
 
 }

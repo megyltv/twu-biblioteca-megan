@@ -25,8 +25,12 @@ public class Movie {
     }
 
     public String informationOfMovie(Movie movie){
-
+        printInformationOfMovie(movie);
         return nameMovie + " \t| " + directorMovie + " \t| " + yearMovie + " \t| "+ratingMovie;
+    }
+
+    public void printInformationOfMovie(Movie newMovie) {
+        System.out.printf("%-20s |%-20s |%-10s |%-20s\n", newMovie.nameMovie,newMovie.directorMovie,newMovie.yearMovie,newMovie.ratingMovie);
     }
 
     public void setUserIdWhenNotAvailable(String userIdWhenNotAvailable) {

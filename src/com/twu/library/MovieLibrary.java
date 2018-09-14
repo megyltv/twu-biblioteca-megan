@@ -13,9 +13,17 @@ public class MovieLibrary implements ItemLibrary{
     private Dictionary dictionary;
     private Movie findMovie;
 
-    public MovieLibrary(List<Movie>listMovies, Login login) {
-        this.listMovies=listMovies;
+    public MovieLibrary(Login login) {
         printerReader=new PrinterReader();
+        createListOfMovies();
+    }
+
+    public void createListOfMovies(){
+        listMovies = new ArrayList<Movie>();
+        listMovies.add(new  Movie("Titanic", "James Cameron", 1997, "10"));
+        listMovies.add(new  Movie("Fantastic Beasts", "David Yates", 2017, "10"));
+        listMovies.add(new  Movie("E.T", "Steven Spielberg", 1982, "9"));
+        listMovies.add(new  Movie("Batman", "Christopher Nolan", 2008, "8"));
     }
 
     @Override
@@ -39,14 +47,12 @@ public class MovieLibrary implements ItemLibrary{
         for(Movie movieLooking: listMovies){
             if(nameItem.equals(movieLooking.getNameMovie())&&movieLooking.isAvailable()){
                 movieLooking.setAvailable(movieLooking.changeStatus());
-                message=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
+                message=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
             }
         }
 
         return message;
     }
-
-
 
     @Override
     public String checkinItem() {
@@ -57,9 +63,7 @@ public class MovieLibrary implements ItemLibrary{
                 movieLooking.setAvailable(movieLooking.changeStatus());
                 message=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
             }
-
         }
-
         return message;
     }
 
