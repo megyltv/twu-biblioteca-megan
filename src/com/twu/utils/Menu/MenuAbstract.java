@@ -1,7 +1,7 @@
-package com.twu.utils;
+package com.twu.utils.Menu;
 
 
-import com.twu.utils.optionsMenu.Options;
+import com.twu.utils.Menu.optionsMenu.Options;
 
 abstract class MenuAbstract {
     Options option;

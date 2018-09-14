@@ -1,4 +1,4 @@
-package com.twu.utils.optionsMenu;
+package com.twu.utils.Menu.optionsMenu;
 
 import com.twu.utils.Dictionary;
 

@@ -1,17 +1,15 @@
-package com.twu.utils.optionsMenu;
+package com.twu.utils.Menu.optionsMenu;
 
-import com.twu.library.Library;
+import com.twu.library.libraries.Library;
 import com.twu.utils.Dictionary;
 import com.twu.utils.PrinterReader;
 
-
-public class OptionTwo implements Options {
+public class OptionOne implements Options {
     private Library library;
     private Dictionary dictionary;
     private PrinterReader printerReader;
 
-
-    public OptionTwo(Library library){
+    public OptionOne(Library library){
         this.library=library;
         printerReader=new PrinterReader();
         dictionary=new Dictionary();
@@ -25,10 +23,11 @@ public class OptionTwo implements Options {
 
         informationItem = printerReader.receivedParametersForItem();
 
-        library.searchIteminLibrary(informationItem);
-        messageReceived = library.checkinItem();
+        messageReceived = library.checkoutItem(informationItem);
+
         printerReader.printMessageReceived(messageReceived);
         message = dictionary.MESSAGE_CORRECT;
         return message;
     }
+
 }

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
@@ -22,13 +21,13 @@ public class LoginTest {
 
     @Before
     public void setUp(){
-        login=new Login();
-        user = new User("123-1234", "passwd", "Mary", "mar@ej.com", "20983950");
+        login=new Login(new User().createUsers());
+        user = new User("123-1234", "passwd", "Mary", "mar@ej.com", "20983950", User.Role.CUSTOMER);
 
         userList=new ArrayList<User>();
-        userList.add(new User("123-1235", "passwd", "Mary", "mar@ej.com", "20983950"));
-        userList.add(new User("123-1236", "passwd1", "John", "john@ej.com", "20983951"));
-        userList.add(new User("123-1237", "passwd2", "Anna", "anna@ej.com", "20983952"));
+        userList.add(new User("123-1235", "passwd", "Mary", "mar@ej.com", "20983950", User.Role.CUSTOMER));
+        userList.add(new User("123-1236", "passwd1", "John", "john@ej.com", "20983951", User.Role.CUSTOMER));
+        userList.add(new User("123-1237", "passwd2", "Anna", "anna@ej.com", "20983952", User.Role.LIBRARIAN));
     }
 
     @Test
@@ -46,15 +45,8 @@ public class LoginTest {
     }
 
     @Test
-    public void shouldReturnSizeOfListWhenItIsCreated(){
-        List<User> userListTest=login.createUsers();
-        int sizeListUsers=userListTest.size();
-
-        assertThat(userListTest,hasSize(sizeListUsers));
-    }
-
-    @Test
     public void shouldReturnTrueWhenUserAndPasswordIsCorrect(){
+
         String idLibraryCodeReceived="123-1235";
         String passwordReceived="passwd";
 

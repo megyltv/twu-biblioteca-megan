@@ -13,7 +13,7 @@ public class UserTest {
 
     @Before
     public void setUp() throws Exception {
-        user = new User("123-1234", "passwd", "Mary", "mar@ej.com", "20983950");
+        user = new User("123-1234", "passwd", "Mary", "mar@ej.com", "20983950", User.Role.CUSTOMER);
     }
 
     @Test

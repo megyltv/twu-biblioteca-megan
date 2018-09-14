@@ -3,16 +3,19 @@ package com.twu.login;
 import com.twu.user.User;
 import com.twu.utils.Dictionary;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class Login {
     public User currentUser;
-    public List<User> userList;
     private Dictionary dictionary;
+    private List<User>userList;
 
-    public Login(){
-        userList=createUsers();
+    public Login() {
+    }
+
+    public Login(List<User>userList){
+        this.userList=userList;
         currentUser=new User();
     }
 
@@ -32,17 +35,7 @@ public class Login {
             }
         }
 
-
         return false;
-    }
-
-    public List<User> createUsers(){
-        userList=new ArrayList<User>();
-        userList.add(new User("123-1235", "passwd", "Mary", "mar@ej.com", "20983950"));
-        userList.add(new User("123-1236", "passwd1", "John", "john@ej.com", "20983951"));
-        userList.add(new User("123-1237", "passwd2", "Anna", "anna@ej.com", "20983952"));
-
-        return userList;
     }
 
     public String showMessageIfIncorrect(boolean received){

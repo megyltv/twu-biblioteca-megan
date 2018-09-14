@@ -1,10 +1,10 @@
-package com.twu.utils;
+package com.twu.utils.Menu;
 
-import com.twu.library.Library;
-import com.twu.utils.optionsMenu.OptionDefault;
-import com.twu.utils.optionsMenu.OptionOne;
-import com.twu.utils.optionsMenu.OptionThree;
-import com.twu.utils.optionsMenu.OptionTwo;
+import com.twu.library.libraries.Library;
+import com.twu.utils.Menu.optionsMenu.OptionDefault;
+import com.twu.utils.Menu.optionsMenu.OptionOne;
+import com.twu.utils.Menu.optionsMenu.OptionThree;
+import com.twu.utils.Menu.optionsMenu.OptionTwo;
 
 public class SubMenu extends MenuAbstract {
     String message="";

@@ -1,5 +1,8 @@
 package com.twu.library;
 
+import com.twu.library.libraries.BookLibrary;
+import com.twu.library.libraries.Library;
+import com.twu.library.libraries.MovieLibrary;
 import com.twu.login.Login;
 import com.twu.utils.Dictionary;
 import org.junit.Before;
