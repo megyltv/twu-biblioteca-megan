@@ -5,15 +5,13 @@ import com.twu.user.User;
 import com.twu.utils.Dictionary;
 import com.twu.utils.Menu.MenuLibrary;
 import com.twu.library.libraries.Library;
-import com.twu.utils.Menu.MenuUserCostumer;
-import com.twu.utils.Menu.MenuUserLibrarian;
 import com.twu.utils.PrinterReader;
 
 public class LibraryApp {
 
     public static void main(String[] args) {
 
-        MenuLibrary menu;
+        MenuLibrary menu=new MenuLibrary();
         User user = new User();
         Login login = new Login(user.createUsers());
         PrinterReader printerReader = new PrinterReader();
@@ -24,6 +22,7 @@ public class LibraryApp {
         String[] loginUserInformationSeparated;
         boolean loginStatus;
         String messageIncorrect;
+        boolean menuFirst=true;
 
 
         do{
@@ -33,21 +32,24 @@ public class LibraryApp {
 
             loginStatus=login.compareCredentials(loginUserInformationSeparated[0],loginUserInformationSeparated[1]);
 
-            menu=new MenuLibrary(login);
+            if(menuFirst){
+                menu=new MenuLibrary(login);
+                menuFirst=false;
+            }
+
 
             if(loginStatus){
                 printerReader.printTitles(library.showWelcomeMessage());
                 try {
                     if(login.getCurrentUser().getRole()== User.Role.CUSTOMER){
-                        menu.generateMenu(new MenuUserCostumer(login));
+                        menu.generateMenuCostumer();
                     }else{
-                        menu.generateMenu(new MenuUserLibrarian(login));
+                        menu.generateMenuLibrarian();
                     }
 
                 } catch (NumberFormatException ex) {
                     System.out.println(dictionary.MESSAGE_TRY_CATCH_MENU);
                 }
-
             }else{
                 messageIncorrect=login.showMessageIfIncorrect(loginStatus);
                 printerReader.printMessageReceived(messageIncorrect);

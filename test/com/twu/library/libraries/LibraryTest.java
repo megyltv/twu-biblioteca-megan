@@ -27,12 +27,12 @@ public class LibraryTest {
     public void setUp() {
         user= new User();
         login=new Login(user.createUsers());
-        library = new Library(new BookLibrary(login));
+        library = new Library(new BookLibrary(),login);
     }
 
     @Test
     public void shouldShowWelcomeMessageWhenIniatilizingObjectLibrary() {
-        assertEquals(dictionary.MESSAGE_WELCOME_TO_LIBRARY, new Library(new BookLibrary(login)).showWelcomeMessage());
+        assertEquals(dictionary.MESSAGE_WELCOME_TO_LIBRARY, new Library(new BookLibrary(),login).showWelcomeMessage());
     }
 
 
@@ -66,7 +66,7 @@ public class LibraryTest {
 
         library.checkoutItem(nameBook);
 
-        library.searchItemInLibrary(nameBook);
+        library.searchIteminLibrary(nameBook);
 
         assertEquals("Thank you for returning the item", library.checkinItem());
 
@@ -77,15 +77,15 @@ public class LibraryTest {
         String nameBook = "Test Driven Development: By Example";
 
 
-        library.searchItemInLibrary(nameBook);
+        library.searchIteminLibrary(nameBook);
 
         assertEquals("That is not a valid item to return", library.checkinItem());
     }
 
     @Test
     public void shouldReturnNameOfBookWhenItIsSearch() {
-        Object bookSearchedInLibrary = library.searchItemInLibrary("Harry Potter");
-        Object bookSearchedNotInLibrary = library.searchItemInLibrary("Hello Book");
+        Object bookSearchedInLibrary = library.searchIteminLibrary("Harry Potter");
+        Object bookSearchedNotInLibrary = library.searchIteminLibrary("Hello Book");
 
         assertThat(bookSearchedInLibrary, is(notNullValue()));
         assertThat(bookSearchedNotInLibrary, is(notNullValue()));

@@ -14,7 +14,7 @@ public class MovieLibrary implements ItemLibrary{
     private Dictionary dictionary;
     private Movie findMovie;
 
-    public MovieLibrary(Login login) {
+    public MovieLibrary() {
         printerReader=new PrinterReader();
         createListOfMovies();
     }

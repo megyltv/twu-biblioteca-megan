@@ -11,13 +11,11 @@ import java.util.List;
 public class BookLibrary implements ItemLibrary {
     private Dictionary dictionary;
     private List<Book> listBooks;
-    private Login login;
+
     private Book findBook;
     private PrinterReader printerReader;
 
-    public BookLibrary(Login login) {
-
-        this.login=login;
+    public BookLibrary() {
         printerReader=new PrinterReader();
         dictionary= new Dictionary();
 
@@ -54,7 +52,6 @@ public class BookLibrary implements ItemLibrary {
         for (Book bookLooking : listBooks) {
             if (nameItem.equals(bookLooking.getNameBook()) && bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeStatus());
-                bookLooking.setUserIdWhenNotAvailable(login.getCurrentUser().getIdLibraryCode());
                 message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
                 break;
             }

@@ -1,6 +1,6 @@
 package com.twu.utils;
 
-import com.twu.library.ItemsRegistered;
+import com.twu.library.Items;
 
 import java.util.Scanner;
 
@@ -41,7 +41,7 @@ public class PrinterReader {
         System.out.printf("%-20s |%-20s |%-20s\n", dictionary.TITLE_ID_USER,dictionary.TITLE_NAME_USER, dictionary.TITLE_ITEM);
     }
 
-    public void printItemsRegistered(ItemsRegistered itemsRegistered){
+    public void printItemsRegistered(Items itemsRegistered){
         System.out.printf("%-20s |%-20s |%-20s\n", itemsRegistered.getUser().getIdLibraryCode(), itemsRegistered.getUser().getNameUser(), itemsRegistered.getNameItem());
     }
 

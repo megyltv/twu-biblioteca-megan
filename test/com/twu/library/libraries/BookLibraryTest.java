@@ -23,8 +23,8 @@ public class BookLibraryTest {
     @Before
     public void setUp() throws Exception {
         login=new Login();
-        library = new Library(new BookLibrary(login));
-        bookLibrary=new BookLibrary(login);
+        library = new Library(new BookLibrary(),login);
+        bookLibrary=new BookLibrary();
     }
 
     @Test

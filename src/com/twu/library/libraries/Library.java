@@ -1,12 +1,11 @@
 package com.twu.library.libraries;
 
-import com.twu.library.ItemsRegistered;
-import com.twu.library.libraries.ItemLibrary;
+import com.twu.library.Items;
 import com.twu.login.Login;
 import com.twu.utils.Dictionary;
-import com.twu.utils.PrinterReader;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Library {
@@ -14,17 +13,17 @@ public class Library {
     private Dictionary dictionary;
     private ItemLibrary itemLibrary;
     private Login login;
-    public List<ItemsRegistered> itemsRegisteredList;
-    private PrinterReader printerReader;
+    public List<Items> itemsRegisteredList;
+    boolean status=true;
+    boolean statusListEmpty=true;
 
     public Library(){}
 
-    public Library(ItemLibrary itemLibrary) {
+    public Library(ItemLibrary itemLibrary,Login login) {
         dictionary=new Dictionary();
         this.itemLibrary =itemLibrary;
-        login=new Login();
-        itemsRegisteredList=new ArrayList<ItemsRegistered>();
-        printerReader=new PrinterReader();
+        this.login=login;
+
     }
 
     public String showWelcomeMessage() {
@@ -33,11 +32,11 @@ public class Library {
         return welcomeMessage;
     }
 
-    public void showItemsRegistered(List<ItemsRegistered>itemsRegisteredList){
-        printerReader.printItemsRegisteredTitles();
-        for(ItemsRegistered itemsRegistered:itemsRegisteredList){
-            printerReader.printItemsRegistered(itemsRegistered);
+    public void showListOfItemsRegistered(List<Items>itemsRegisteredList){
+        for(Items item:itemsRegisteredList){
+            System.out.println(item.getUser().getIdLibraryCode()+item.getNameItem());
         }
+
     }
 
     public String showListItem(){
@@ -48,9 +47,15 @@ public class Library {
     public String checkoutItem(String nameItemCheckout) {
         String message=itemLibrary.checkoutItem(nameItemCheckout);
 
+        if(this.status==true){
+            itemsRegisteredList=new ArrayList<Items>();
+            status=false;
+        }
+
         if(message.equals(dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT)){
-            itemsRegisteredList.add(new ItemsRegistered(login.getCurrentUser(),nameItemCheckout));
-            System.out.println(itemsRegisteredList.get(0).getNameItem());
+            System.out.println(login.getCurrentUser().getIdLibraryCode());
+            itemsRegisteredList.add(new Items(login.getCurrentUser(),nameItemCheckout));
+            statusListEmpty=false;
         }
 
         return message;
@@ -62,15 +67,16 @@ public class Library {
         return message;
     }
 
-    public Object searchItemInLibrary(String nameItem) {
+    public Object searchIteminLibrary(String nameItem) {
 
         return itemLibrary.searchItem(nameItem);
     }
 
-    public List<ItemsRegistered> getCurrentLisItemsRegistered(){
-        System.out.println(itemsRegisteredList.get(0).getNameItem());
-        return itemsRegisteredList;
+    public List<Items> getCurrentList(){
+        if(statusListEmpty==true){
+            return Collections.emptyList();
+        }
+
+        return this.itemsRegisteredList;
     }
-
-
 }
