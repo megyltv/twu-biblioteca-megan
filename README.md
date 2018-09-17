@@ -9,7 +9,7 @@ Biblioteca is a new system which implements a Library Management System for  the
 - [Instructions to download code](#instructions-to-download-code)
 - [Instructions to open your code in Intellij](#instructions-to-open-your-code)
 
-## Usage
+## Usage of the Application
 In this section it would be explain the usage of the application. The apllication launch with a welcome message and will ask to enter the credentials in order to begin.
 
 ### Credentials
@@ -43,7 +43,7 @@ It shows:
 
 4. **Log out.-** This option permits the user to logged out.
 
-##### Submenu of *List Books* and *List Movies*
+#### Submenu of *List Books* and *List Movies*
 1. **Checkout (Book/Movie).-** For checking out an item, the application will ask to enter the name of the item.
 If the name was written correctly, it will show a successful message:
    ```
