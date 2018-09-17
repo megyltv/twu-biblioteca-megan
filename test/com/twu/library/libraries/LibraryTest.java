@@ -13,14 +13,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.List;
 
-import static com.sun.tools.doclint.Entity.times;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -150,6 +148,8 @@ public class LibraryTest {
         libraryMock= new Library(itemLibraryMock,login);
         libraryMock.checkinItem();
         verify(itemLibraryMock,times(numberInvocations)).checkinItem();
+
+
     }
 
 }

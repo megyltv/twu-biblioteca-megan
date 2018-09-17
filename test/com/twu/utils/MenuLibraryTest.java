@@ -7,6 +7,8 @@ import com.twu.login.Login;
 import com.twu.utils.Menu.MenuLibrary;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -14,14 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.junit.Assert.*;
 
 public class MenuLibraryTest {
     public Library library;
     public List<Book> listBooks;
     Login login;
     private MenuLibrary menuLibrary;
-    private Dictionary dictionary;
+
+    @Mock
+    MenuLibrary menuLibraryMock;
+
+    @InjectMocks
+    MenuLibrary menuLibraryMockInject;
 
     @Before
     public void SetUp() {

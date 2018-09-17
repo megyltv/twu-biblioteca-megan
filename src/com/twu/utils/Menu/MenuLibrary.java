@@ -40,7 +40,7 @@ public class MenuLibrary {
         MenuAbstract submenuOption;
         String message = "";
         String typeItem;
-        int optionValurSubmenu;
+        int optionValorSubmenu;
         askIfItIsFirstTimeEntering();
 
         do {
@@ -51,8 +51,8 @@ public class MenuLibrary {
                         typeItem = "Book";
 
                         libraryBooks.showListItem();
-                        optionValurSubmenu=generateOptionsSubmenu(typeItem);
-                        submenuOption = new SubMenu(optionValurSubmenu, libraryBooks);
+                        optionValorSubmenu=generateOptionsSubmenu(typeItem);
+                        submenuOption = new SubMenu(optionValorSubmenu, libraryBooks);
 
                         message = submenuOption.performResolve();
                         break;
@@ -60,8 +60,8 @@ public class MenuLibrary {
                         typeItem = "Movie";
 
                         libraryMovies.showListItem();
-                        optionValurSubmenu=generateOptionsSubmenu(typeItem);
-                        submenuOption = new SubMenu(optionValurSubmenu, libraryMovies);
+                        optionValorSubmenu=generateOptionsSubmenu(typeItem);
+                        submenuOption = new SubMenu(optionValorSubmenu, libraryMovies);
 
                         message = submenuOption.performResolve();
                         break;
@@ -88,7 +88,6 @@ public class MenuLibrary {
 
     public void generateMenuLibrarian() {
         String message = "";
-
 
         do {
             printerReader.printMenuOptionsLibrarian();
