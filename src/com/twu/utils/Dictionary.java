@@ -16,11 +16,13 @@ public class Dictionary {
     public static final String MESSAGE_LOGIN_INCORRECT ="ID or Password Incorrect";
     public static final String TITLE_USER_INFORMATION="User Information";
 
+    public static final String TITLE_BOOKS="BOOKS";
     public static final String TITLE_LIST_BOOKS="\nLIST OF BOOKS\n";
     public static final String TITLE_NAME_BOOK ="NAME OF BOOK";
     public static final String TITLE_AUTHOR_BOOK ="AUTHOR";
     public static final String TITLE_YEAR_PUBLICATION ="YEAR OF PUBLICATION";
 
+    public static final String TITLE_MOVIES="MOVIES";
     public static final String TITLE_LIST_MOVIES="\nLIST OF MOVIES\n";
     public static final String TITLE_NAME_MOVIE="NAME OF MOVIES";
     public static final String TITLE_DIRECTOR_MOVIE="DIRECTOR";

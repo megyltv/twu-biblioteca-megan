@@ -3,6 +3,7 @@ package com.twu.library.libraries;
 import com.twu.library.Items;
 import com.twu.login.Login;
 import com.twu.utils.Dictionary;
+import com.twu.utils.PrinterReader;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,12 +15,14 @@ public class Library {
     private ItemLibrary itemLibrary;
     private Login login;
     public List<Items> itemsRegisteredList;
-    boolean status=true;
-    boolean statusListEmpty=true;
+    private boolean status=true;
+    private boolean statusListEmpty=true;
+    private PrinterReader printerReader;
 
     public Library(){}
 
     public Library(ItemLibrary itemLibrary,Login login) {
+        this.printerReader=new PrinterReader();
         dictionary=new Dictionary();
         this.itemLibrary =itemLibrary;
         this.login=login;
@@ -32,9 +35,11 @@ public class Library {
         return welcomeMessage;
     }
 
-    public void showListOfItemsRegistered(List<Items>itemsRegisteredList){
+    public void showListOfItemsRegistered(List<Items>itemsRegisteredList,String itemType){
+        printerReader.printMessageReceived(itemType);
+        printerReader.printItemsRegisteredTitles();
         for(Items item:itemsRegisteredList){
-            System.out.println(item.getUser().getIdLibraryCode()+item.getNameItem());
+            printerReader.printItemsRegistered(item);
         }
 
     }
@@ -53,7 +58,6 @@ public class Library {
         }
 
         if(message.equals(dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT)){
-            System.out.println(login.getCurrentUser().getIdLibraryCode());
             itemsRegisteredList.add(new Items(login.getCurrentUser(),nameItemCheckout));
             statusListEmpty=false;
         }

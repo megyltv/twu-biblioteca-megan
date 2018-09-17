@@ -16,7 +16,7 @@ public class MovieTest {
 
     @Test
     public void shouldReturnDetailsOfMoviesWhenItIsAsked(){
-        String informationOfMovie="Harry Potter \t| Chris Columbus \t| 2001\t| 10";
+        String informationOfMovie="Harry Potter \t| Chris Columbus \t| 2001 \t| 10";
 
         assertEquals(informationOfMovie,movie.informationOfMovie(movie));
     }

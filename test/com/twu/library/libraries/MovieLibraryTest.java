@@ -1,9 +1,6 @@
 package com.twu.library.libraries;
 
 import com.twu.library.Movie;
-import com.twu.library.libraries.BookLibrary;
-import com.twu.library.libraries.Library;
-import com.twu.library.libraries.MovieLibrary;
 import com.twu.login.Login;
 import com.twu.utils.Dictionary;
 import org.junit.Before;
@@ -37,7 +34,7 @@ public class MovieLibraryTest {
     @Test
     public void shouldReturnSuccessfullMessageWhenMovieIsCheckOut(){
         String nameMovie="Titanic";
-        String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
+        String messageExpected=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_OUT;
 
         assertEquals(messageExpected,movieLibrary.checkoutItem(nameMovie));
     }

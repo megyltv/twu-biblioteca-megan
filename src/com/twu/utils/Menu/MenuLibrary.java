@@ -142,12 +142,12 @@ public class MenuLibrary {
 
         if (!libraryBooks.getCurrentList().isEmpty()) {
             itemsRegisteredList = libraryBooks.getCurrentList();
-            libraryBooks.showListOfItemsRegistered(itemsRegisteredList);
+            libraryBooks.showListOfItemsRegistered(itemsRegisteredList,dictionary.TITLE_BOOKS);
 
         }
         if (!libraryMovies.getCurrentList().isEmpty()) {
             itemsRegisteredList = libraryMovies.getCurrentList();
-            libraryMovies.showListOfItemsRegistered(itemsRegisteredList);
+            libraryMovies.showListOfItemsRegistered(itemsRegisteredList,dictionary.TITLE_MOVIES);
         }
 
     }

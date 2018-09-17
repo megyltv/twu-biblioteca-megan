@@ -1,18 +1,18 @@
 package com.twu.library.libraries;
 
-
-import com.twu.library.Book;
+import com.twu.library.Items;
 import com.twu.login.Login;
 import com.twu.user.User;
 import com.twu.utils.Dictionary;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertEquals;
 
@@ -25,14 +25,14 @@ public class LibraryTest {
 
     @Before
     public void setUp() {
-        user= new User();
-        login=new Login(user.createUsers());
-        library = new Library(new BookLibrary(),login);
+        user = new User();
+        login = new Login(user.createUsers());
+        library = new Library(new BookLibrary(), login);
     }
 
     @Test
     public void shouldShowWelcomeMessageWhenIniatilizingObjectLibrary() {
-        assertEquals(dictionary.MESSAGE_WELCOME_TO_LIBRARY, new Library(new BookLibrary(),login).showWelcomeMessage());
+        assertEquals(dictionary.MESSAGE_WELCOME_TO_LIBRARY, new Library(new BookLibrary(), login).showWelcomeMessage());
     }
 
 
@@ -47,7 +47,7 @@ public class LibraryTest {
     public void shouldReturnSuccessfulMessageWhenCheckoutHappen() {
         String messageExpected = "Thank you! Enjoy the item";
         String nameBook = "Harry Potter";
-        login.compareCredentials("123-1236","passwd1");
+        login.compareCredentials("123-1236", "passwd1");
 
         assertEquals(messageExpected, library.checkoutItem(nameBook));
     }
@@ -62,7 +62,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnSuccessfulMessageWhenTheBookIsReturned() {
         String nameBook = "Harry Potter";
-        login.compareCredentials("123-1236","passwd1");
+        login.compareCredentials("123-1236", "passwd1");
 
         library.checkoutItem(nameBook);
 
@@ -90,6 +90,22 @@ public class LibraryTest {
         assertThat(bookSearchedInLibrary, is(notNullValue()));
         assertThat(bookSearchedNotInLibrary, is(notNullValue()));
 
+    }
+
+    @Test
+    public void shouldReturnEmptyWhenListOfItemsRegisteredHasNoElements() {
+        List<Items> itemsRegistered = library.getCurrentList();
+
+        assertThat(itemsRegistered, is(empty()));
+    }
+
+    @Test
+    public void shouldReturnNotEmptyWhenListOfItemsRegisteredHasElements() {
+        library.checkoutItem("Harry Potter");
+
+        List<Items> itemsRegistered = library.getCurrentList();
+
+        assertThat(itemsRegistered, is(not(empty())));
     }
 
 

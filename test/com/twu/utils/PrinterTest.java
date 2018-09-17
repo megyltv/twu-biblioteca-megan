@@ -31,14 +31,13 @@ public class PrinterTest {
         String messageSend = "Test";
 
         PrinterReader printerReader = new PrinterReader();
-        printerReader.printMessageReceived("messageSend");
+        printerReader.printMessageReceived(messageSend);
 
         System.setOut(new PrintStream(outContent));
     }
 
     @Test
     public void shouldReturnItemsWhenTheMethodIsCalled() {
-        String messageSend = "Test";
         User user=new User("123-1234","pass","Ell","el@ej.com","29384756", User.Role.CUSTOMER);
         Items itemsRegistered = new Items(user,"Harry Potter");
 
