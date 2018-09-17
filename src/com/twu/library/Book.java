@@ -1,11 +1,13 @@
 package com.twu.library;
 
+import com.twu.utils.PrinterReader;
+
 public class Book {
     private String nameBook;
     private String author;
     private int publicationYear;
     private boolean isAvailable;
-    private String userIdWhenNotAvailable;
+    private PrinterReader printerReader;
 
     public Book() {
     }
@@ -15,13 +17,12 @@ public class Book {
         this.author = author;
         this.publicationYear = publicationYear;
         this.isAvailable = true;
-        this.userIdWhenNotAvailable="";
+        this.printerReader=new PrinterReader();
     }
 
     public Book(String nameBookReceived) {
         this.nameBook = nameBookReceived;
     }
-
 
     public boolean changeStatus() {
         return !isAvailable;
@@ -33,7 +34,7 @@ public class Book {
     }
 
     public void printInformationOfBook(Book newBook) {
-        System.out.printf("%-40s |%-30s |%-20s\n", newBook.nameBook, newBook.author, newBook.publicationYear);
+        printerReader.printInformationOfBooks(newBook);
     }
 
     public boolean isAvailable() {
@@ -48,11 +49,12 @@ public class Book {
         return nameBook;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
     public int getPublicationYear() {
         return publicationYear;
     }
 
-    public void setUserIdWhenNotAvailable(String userIdWhenNotAvailable) {
-        this.userIdWhenNotAvailable = userIdWhenNotAvailable;
-    }
 }

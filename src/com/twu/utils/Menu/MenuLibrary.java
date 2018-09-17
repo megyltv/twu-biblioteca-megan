@@ -38,7 +38,6 @@ public class MenuLibrary {
     }
 
     public void generateMenuCostumer() {
-        User user;
         MenuAbstract submenuOption;
         String message = "";
         String typeItem;
@@ -72,9 +71,8 @@ public class MenuLibrary {
                         message = dictionary.MESSAGE_CORRECT;
                         break;
                     case 3:
-                        user = login.getCurrentUser();
                         printerReader.printTitles(dictionary.TITLE_USER_INFORMATION);
-                        user.printUserInformation();
+                        printerReader.printUserInformation(login.getCurrentUser());
                         message = dictionary.MESSAGE_CORRECT;
                         break;
                     case 4:

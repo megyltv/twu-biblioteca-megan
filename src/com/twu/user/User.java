@@ -16,7 +16,6 @@ public class User {
     }
 
     public User() {
-        createUsers();
     }
 
     public User(String idLibraryCode, String password, String nameUser, String emailAddress, String phoneNumber, Role role) {
@@ -28,15 +27,16 @@ public class User {
         this.role=role;
     }
 
-    public void printUserInformation() {
-        System.out.println("ID Library Code: " + this.idLibraryCode);
-        System.out.println("Name: " + this.nameUser);
-        System.out.println("Email Adress: " + this.emailAddress);
-        System.out.println("Phone Number: " + this.phoneNumber);
-    }
-
     public String getPassword() {
         return password;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getIdLibraryCode() {

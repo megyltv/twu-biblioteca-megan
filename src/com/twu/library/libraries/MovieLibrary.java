@@ -61,6 +61,7 @@ public class MovieLibrary implements ItemLibrary{
         String message=dictionary.MESSAGE_UNSUCCESSFUL_ITEM_CHECK_IN;
 
         for (Movie movieLooking:listMovies){
+
             if(movieLooking.getNameMovie().equals(findMovie.getNameMovie())){
                 movieLooking.setAvailable(movieLooking.changeStatus());
                 message=dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
@@ -72,6 +73,7 @@ public class MovieLibrary implements ItemLibrary{
     @Override
     public Object searchItem(String nameItem) {
         findMovie= new Movie(nameItem);
+
         for(Movie movie:listMovies){
             if(movie.getNameMovie().equals(nameItem)){
                 findMovie=movie;

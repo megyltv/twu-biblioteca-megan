@@ -52,7 +52,7 @@ public class Library {
     public String checkoutItem(String nameItemCheckout) {
         String message=itemLibrary.checkoutItem(nameItemCheckout);
 
-        if(this.status==true){
+        if(this.status){
             itemsRegisteredList=new ArrayList<Items>();
             status=false;
         }
@@ -77,7 +77,7 @@ public class Library {
     }
 
     public List<Items> getCurrentList(){
-        if(statusListEmpty==true){
+        if(statusListEmpty){
             return Collections.emptyList();
         }
 

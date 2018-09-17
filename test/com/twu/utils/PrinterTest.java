@@ -56,4 +56,13 @@ public class PrinterTest {
         System.setOut(new PrintStream(outContent));
     }
 
+    @Test
+    public void shouldReturnInformationOfUserPrintedWhenTheMethodIsCalled() {
+        PrinterReader printerReader = new PrinterReader();
+        User user=new User("123-1234","pass","Ell","el@ej.com","29384756", User.Role.CUSTOMER);
+        printerReader.printUserInformation(user);
+
+        System.setOut(new PrintStream(outContent));
+    }
+
 }

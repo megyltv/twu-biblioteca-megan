@@ -1,15 +1,18 @@
 package com.twu.library;
 
+import com.twu.utils.PrinterReader;
+
 public class Movie {
     private String nameMovie;
     private String directorMovie;
     private int yearMovie;
     private String ratingMovie;
     private boolean isAvailable;
-    private String userIdWhenNotAvailable;
+    private PrinterReader printerReader;
 
     public Movie() {
     }
+
 
     public Movie(String nameMovie, String directorMovie, int yearMovie, String ratingMovie) {
         this.nameMovie = nameMovie;
@@ -17,7 +20,7 @@ public class Movie {
         this.yearMovie = yearMovie;
         this.ratingMovie = ratingMovie;
         this.isAvailable=true;
-        this.userIdWhenNotAvailable="";
+        printerReader= new PrinterReader();
     }
 
     public Movie(String nameMovie) {
@@ -30,11 +33,7 @@ public class Movie {
     }
 
     public void printInformationOfMovie(Movie newMovie) {
-        System.out.printf("%-20s |%-20s |%-10s |%-20s\n", newMovie.nameMovie,newMovie.directorMovie,newMovie.yearMovie,newMovie.ratingMovie);
-    }
-
-    public void setUserIdWhenNotAvailable(String userIdWhenNotAvailable) {
-        this.userIdWhenNotAvailable = userIdWhenNotAvailable;
+        printerReader.printInformationOfMovies(newMovie);
     }
 
     public boolean changeStatus(){
@@ -51,5 +50,17 @@ public class Movie {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public String getDirectorMovie() {
+        return directorMovie;
+    }
+
+    public int getYearMovie() {
+        return yearMovie;
+    }
+
+    public String getRatingMovie() {
+        return ratingMovie;
     }
 }

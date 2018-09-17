@@ -66,7 +66,6 @@ public class BookLibrary implements ItemLibrary {
             if (findBook.getNameBook().equals(bookLooking.getNameBook()) && bookLooking.getPublicationYear() == findBook.getPublicationYear() &&
                     findBook.isAvailable() == bookLooking.isAvailable()) {
                 bookLooking.setAvailable(bookLooking.changeStatus());
-                bookLooking.setUserIdWhenNotAvailable("");
                 message = dictionary.MESSAGE_SUCCESSFUL_ITEM_CHECK_IN;
             }
         }

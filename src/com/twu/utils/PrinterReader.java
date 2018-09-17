@@ -1,6 +1,9 @@
 package com.twu.utils;
 
+import com.twu.library.Book;
 import com.twu.library.Items;
+import com.twu.library.Movie;
+import com.twu.user.User;
 
 import java.util.Scanner;
 
@@ -73,5 +76,21 @@ public class PrinterReader {
 
     public void printTitles(String title){
         System.out.println("\n"+title+"\n");
+    }
+
+    public void printInformationOfBooks(Book newBook){
+        System.out.printf("%-40s |%-30s |%-20s\n", newBook.getNameBook(), newBook.getAuthor(), newBook.getPublicationYear());
+
+    }
+
+    public void printInformationOfMovies(Movie newMovie){
+        System.out.printf("%-20s |%-20s |%-10s |%-20s\n", newMovie.getNameMovie(),newMovie.getDirectorMovie(),newMovie.getYearMovie(),newMovie.getRatingMovie());
+    }
+
+    public void printUserInformation(User currentUser){
+        System.out.println("ID Library Code: " + currentUser.getIdLibraryCode());
+        System.out.println("Name: " + currentUser.getNameUser());
+        System.out.println("Email Adress: " + currentUser.getEmailAddress());
+        System.out.println("Phone Number: " + currentUser.getPhoneNumber());
     }
 }
