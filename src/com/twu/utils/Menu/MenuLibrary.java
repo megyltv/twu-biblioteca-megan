@@ -5,7 +5,6 @@ import com.twu.library.libraries.BookLibrary;
 import com.twu.library.libraries.Library;
 import com.twu.library.libraries.MovieLibrary;
 import com.twu.login.Login;
-import com.twu.user.User;
 import com.twu.utils.Dictionary;
 import com.twu.utils.PrinterReader;
 
@@ -41,7 +40,7 @@ public class MenuLibrary {
         MenuAbstract submenuOption;
         String message = "";
         String typeItem;
-        int var;
+        int optionValurSubmenu;
         askIfItIsFirstTimeEntering();
 
         do {
@@ -52,23 +51,19 @@ public class MenuLibrary {
                         typeItem = "Book";
 
                         libraryBooks.showListItem();
-                        printerReader.printSubMenuOptions(typeItem);
-                        var = Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu());
-                        submenuOption = new SubMenu(var, libraryBooks);
+                        optionValurSubmenu=generateOptionsSubmenu(typeItem);
+                        submenuOption = new SubMenu(optionValurSubmenu, libraryBooks);
 
                         message = submenuOption.performResolve();
-                        message = dictionary.MESSAGE_CORRECT;
                         break;
                     case 2:
                         typeItem = "Movie";
 
                         libraryMovies.showListItem();
-                        printerReader.printSubMenuOptions(typeItem);
-                        var = Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu());
-                        submenuOption = new SubMenu(var, libraryMovies);
+                        optionValurSubmenu=generateOptionsSubmenu(typeItem);
+                        submenuOption = new SubMenu(optionValurSubmenu, libraryMovies);
 
                         message = submenuOption.performResolve();
-                        message = dictionary.MESSAGE_CORRECT;
                         break;
                     case 3:
                         printerReader.printTitles(dictionary.TITLE_USER_INFORMATION);
@@ -101,7 +96,7 @@ public class MenuLibrary {
             switch (optionValue) {
                 case 1:
                     try {
-                        listsOfItemsRegistered();
+                        showListsOfItemsRegistered();
                         message = dictionary.MESSAGE_CORRECT;
                     } catch (NullPointerException e) {
                         System.out.println("No hay items registrados");
@@ -126,6 +121,15 @@ public class MenuLibrary {
         return optionValue;
     }
 
+    private int generateOptionsSubmenu(String typeItem){
+        int optionValueSubmenu;
+
+        printerReader.printSubMenuOptions(typeItem);
+        optionValueSubmenu = Integer.parseInt(printerReader.receivedOptionForMenuOrSubMenu());
+
+        return optionValueSubmenu;
+    }
+
 
     private void askIfItIsFirstTimeEntering() {
 
@@ -136,7 +140,7 @@ public class MenuLibrary {
         }
     }
 
-    private void listsOfItemsRegistered() {
+    private void showListsOfItemsRegistered() {
 
         if (!libraryBooks.getCurrentList().isEmpty()) {
             itemsRegisteredList = libraryBooks.getCurrentList();

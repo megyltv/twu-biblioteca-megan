@@ -52,6 +52,12 @@ public class Library {
     public String checkoutItem(String nameItemCheckout) {
         String message=itemLibrary.checkoutItem(nameItemCheckout);
 
+        addItemToListRegistered(message,nameItemCheckout);
+
+        return message;
+    }
+
+    private void addItemToListRegistered(String message,String nameItemCheckout){
         if(this.status){
             itemsRegisteredList=new ArrayList<Items>();
             status=false;
@@ -61,8 +67,6 @@ public class Library {
             itemsRegisteredList.add(new Items(login.getCurrentUser(),nameItemCheckout));
             statusListEmpty=false;
         }
-
-        return message;
     }
 
     public String checkinItem() {

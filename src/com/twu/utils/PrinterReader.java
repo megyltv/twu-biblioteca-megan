@@ -41,7 +41,7 @@ public class PrinterReader {
     }
 
     public void printItemsRegisteredTitles(){
-        System.out.printf("\n%-20s |%-20s |%-20s\n", dictionary.TITLE_ID_USER,dictionary.TITLE_NAME_USER, dictionary.TITLE_ITEM);
+        System.out.printf("%-20s |%-20s |%-20s\n", dictionary.TITLE_ID_USER,dictionary.TITLE_NAME_USER, dictionary.TITLE_ITEM);
     }
 
     public void printItemsRegistered(Items itemsRegistered){

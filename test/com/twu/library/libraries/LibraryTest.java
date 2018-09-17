@@ -6,22 +6,37 @@ import com.twu.user.User;
 import com.twu.utils.Dictionary;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.List;
 
+import static com.sun.tools.doclint.Entity.times;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class LibraryTest {
     public Library library;
     Dictionary dictionary;
     public Login login;
     private User user;
+
+    @Mock
+    ItemLibrary itemLibraryMock;
+
+    @InjectMocks
+    Library libraryMock;
+
 
     @Before
     public void setUp() {
@@ -101,12 +116,40 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnNotEmptyWhenListOfItemsRegisteredHasElements() {
-        library.checkoutItem("Harry Potter");
+        String nameItem="Harry Potter";
+
+        library.checkoutItem(nameItem);
 
         List<Items> itemsRegistered = library.getCurrentList();
 
         assertThat(itemsRegistered, is(not(empty())));
     }
 
+    @Test
+    public void shouldVerifyIfMethodOfShowListItemOfItemLibraryItIsBeenCalled(){
+        int numberInvocations=1;
+
+        libraryMock=new Library(itemLibraryMock,login);
+        libraryMock.showListItem();
+        verify(itemLibraryMock,times(numberInvocations)).showListItem();
+    }
+
+    @Test
+    public void shouldVerifyIfMethodSearchItemOfItemLibraryItIsBeenCalled(){
+        int numberInvocations=1;
+
+        libraryMock=new Library(itemLibraryMock,login);
+        libraryMock.searchIteminLibrary("Harry Potter");
+        verify(itemLibraryMock,times(numberInvocations)).searchItem("Harry Potter");
+    }
+
+    @Test
+    public void shouldVerifyIfMethodCheckInOfItemLibraryItIsBeenCalled(){
+        int numberInvocations=1;
+
+        libraryMock= new Library(itemLibraryMock,login);
+        libraryMock.checkinItem();
+        verify(itemLibraryMock,times(numberInvocations)).checkinItem();
+    }
 
 }
