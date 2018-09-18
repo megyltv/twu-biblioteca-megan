@@ -40,8 +40,9 @@ public class OptionOneTest {
 
     @Test
     public void shouldReturnMessageOfCorrectIfOptionWasCorrectInSubMenu(){
+        String messageExpected=dictionary.MESSAGE_CORRECT;
 
-        assertEquals(dictionary.MESSAGE_CORRECT,optionOne.resolve());
+        assertEquals(messageExpected,optionOne.resolve());
     }
 
     @Test
