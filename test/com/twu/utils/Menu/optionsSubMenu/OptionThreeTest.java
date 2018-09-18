@@ -1,4 +1,4 @@
-package com.twu.utils.Menu.optionsMenu;
+package com.twu.utils.Menu.optionsSubMenu;
 
 import com.twu.utils.Dictionary;
 import org.junit.Before;
