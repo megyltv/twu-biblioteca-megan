@@ -1,6 +1,5 @@
 package com.twu.utils.Menu;
 
-import com.twu.library.Items;
 import com.twu.library.libraries.BookLibrary;
 import com.twu.library.libraries.Library;
 import com.twu.library.libraries.MovieLibrary;
@@ -8,11 +7,9 @@ import com.twu.login.Login;
 import com.twu.utils.Dictionary;
 import com.twu.utils.PrinterReader;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class MenuLibrary {
+public class MenuLibraryPrincipal {
 
     private Login login;
 
@@ -24,16 +21,16 @@ public class MenuLibrary {
     private int optionValue;
 
     private boolean firstTimeEntering = true;
-    private List<Items> itemsRegisteredList;
 
-    public MenuLibrary() {
+
+    public MenuLibraryPrincipal() {
     }
 
-    public MenuLibrary(Login login) {
+    public MenuLibraryPrincipal(Login login) {
         printerReader = new PrinterReader();
         dictionary = new Dictionary();
         this.login = login;
-        itemsRegisteredList = new ArrayList<Items>();
+
     }
 
     public void generateMenuCostumer() {
@@ -88,27 +85,15 @@ public class MenuLibrary {
 
     public void generateMenuLibrarian() {
         String message = "";
+        MenuLibrarianAbstract menuLibrarianAbstract;
 
         do {
             printerReader.printMenuOptionsLibrarian();
             optionValue = Integer.parseInt(new Scanner(System.in).nextLine());
-            switch (optionValue) {
-                case 1:
-                    try {
-                        showListsOfItemsRegistered();
-                        message = dictionary.MESSAGE_CORRECT;
-                    } catch (NullPointerException e) {
-                        System.out.println("No hay items registrados");
-                        message = dictionary.MESSAGE_CORRECT;
-                    }
-                    break;
-                case 2:
-                    message = dictionary.MESSAGE_QUIT;
-                    login.logOut();
-                    break;
-                default:
-                    break;
-            }
+
+            menuLibrarianAbstract= new MenuLibrarian(optionValue,this.libraryBooks,this.libraryMovies,login);
+            message=menuLibrarianAbstract.performResolve();
+
         } while (message != dictionary.MESSAGE_QUIT);
 
     }
@@ -139,18 +124,5 @@ public class MenuLibrary {
         }
     }
 
-    private void showListsOfItemsRegistered() {
-
-        if (!libraryBooks.getCurrentList().isEmpty()) {
-            itemsRegisteredList = libraryBooks.getCurrentList();
-            libraryBooks.showListOfItemsRegistered(itemsRegisteredList,dictionary.TITLE_BOOKS);
-
-        }
-        if (!libraryMovies.getCurrentList().isEmpty()) {
-            itemsRegisteredList = libraryMovies.getCurrentList();
-            libraryMovies.showListOfItemsRegistered(itemsRegisteredList,dictionary.TITLE_MOVIES);
-        }
-
-    }
 
 }

@@ -4,7 +4,7 @@ import com.twu.library.Book;
 import com.twu.library.libraries.BookLibrary;
 import com.twu.library.libraries.Library;
 import com.twu.login.Login;
-import com.twu.utils.Menu.MenuLibrary;
+import com.twu.utils.Menu.MenuLibraryPrincipal;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -17,17 +17,17 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class MenuLibraryTest {
+public class MenuLibraryPrincipalTest {
     public Library library;
     public List<Book> listBooks;
     Login login;
-    private MenuLibrary menuLibrary;
+    private MenuLibraryPrincipal menuLibrary;
 
     @Mock
-    MenuLibrary menuLibraryMock;
+    MenuLibraryPrincipal menuLibraryMock;
 
     @InjectMocks
-    MenuLibrary menuLibraryMockInject;
+    MenuLibraryPrincipal menuLibraryMockInject;
 
     @Before
     public void SetUp() {

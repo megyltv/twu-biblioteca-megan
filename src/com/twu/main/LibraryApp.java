@@ -3,7 +3,7 @@ package com.twu.main;
 import com.twu.login.Login;
 import com.twu.user.User;
 import com.twu.utils.Dictionary;
-import com.twu.utils.Menu.MenuLibrary;
+import com.twu.utils.Menu.MenuLibraryPrincipal;
 import com.twu.library.libraries.Library;
 import com.twu.utils.PrinterReader;
 
@@ -11,7 +11,7 @@ public class LibraryApp {
 
     public static void main(String[] args) {
 
-        MenuLibrary menu=new MenuLibrary();
+        MenuLibraryPrincipal menu=new MenuLibraryPrincipal();
         User user = new User();
         Login login = new Login(user.createUsers());
         PrinterReader printerReader = new PrinterReader();
@@ -33,7 +33,7 @@ public class LibraryApp {
             loginStatus=login.compareCredentials(loginUserInformationSeparated[0],loginUserInformationSeparated[1]);
 
             if(menuFirst){
-                menu=new MenuLibrary(login);
+                menu=new MenuLibraryPrincipal(login);
                 menuFirst=false;
             }
 
