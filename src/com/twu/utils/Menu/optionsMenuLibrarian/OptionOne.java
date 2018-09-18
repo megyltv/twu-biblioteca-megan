@@ -27,7 +27,7 @@ public class OptionOne implements IOptionsLibrarian {
             showListsOfItemsRegistered();
             message = dictionary.MESSAGE_CORRECT;
         } catch (NullPointerException e) {
-            System.out.println("No hay items registrados");
+            System.out.println("No items registered");
             message = dictionary.MESSAGE_CORRECT;
         }
         return message;
