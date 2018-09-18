@@ -6,7 +6,7 @@ import com.twu.utils.Menu.optionsSubMenu.OptionOne;
 import com.twu.utils.Menu.optionsSubMenu.OptionThree;
 import com.twu.utils.Menu.optionsSubMenu.OptionTwo;
 
-public class SubMenu extends MenuAbstract {
+public class SubMenu extends SubMenuAbstract {
     String message="";
 
     public SubMenu(int i, Library library){
@@ -26,7 +26,7 @@ public class SubMenu extends MenuAbstract {
 
     @Override
     public String returnMessage(){
-        option.resolve();
+        message=option.resolve();
         return message;
     }
 }

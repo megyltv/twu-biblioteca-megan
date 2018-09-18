@@ -37,7 +37,7 @@ public class MenuLibrary {
     }
 
     public void generateMenuCostumer() {
-        MenuAbstract submenuOption;
+        SubMenuAbstract submenuOption;
         String message = "";
         String typeItem;
         int optionValorSubmenu;

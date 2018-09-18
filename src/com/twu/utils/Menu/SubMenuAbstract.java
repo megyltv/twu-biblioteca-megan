@@ -3,10 +3,10 @@ package com.twu.utils.Menu;
 
 import com.twu.utils.Menu.optionsSubMenu.Options;
 
-abstract class MenuAbstract {
+abstract class SubMenuAbstract {
     Options option;
 
-    public MenuAbstract() {
+    public SubMenuAbstract() {
     }
 
     public abstract String returnMessage();
